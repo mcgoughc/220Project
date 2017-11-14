@@ -3,5 +3,5 @@ project(220Project)
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(SOURCE_FILES main.cpp)
+set(SOURCE_FILES main.cpp BookStore.h BookStore.cpp.cpp)
 add_executable(220Project ${SOURCE_FILES})
