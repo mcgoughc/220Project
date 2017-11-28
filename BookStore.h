@@ -5,4 +5,17 @@
 #ifndef INC_220PROJECT_BOOKSTORE_H
 #define INC_220PROJECT_BOOKSTORE_H
 
+#include <>
+
+class BookStore{
+private:
+    //list booksInStore;
+public:
+    void help();
+    void inquire(std::string title)
+
+};
+
+
+
 #endif //INC_220PROJECT_BOOKSTORE_H
