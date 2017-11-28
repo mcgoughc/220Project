@@ -12,6 +12,7 @@
  * Represents a FIFO data structure (First In First Out). Picture a line
  * to wait for something (first person in is the first person out)
  */
+template <class T>
 class Queue {
 public:
 
@@ -19,11 +20,11 @@ public:
     virtual ~Queue(){};
     
     //adds an item to the end of the queue
-    virtual void enqueue(std::string item)=0;
+    virtual void enqueue(T item)=0;
 
     //takes an item off the front of the queue and returns it
     //throws out_of_range exception if the queue is empty
-    virtual std::string dequeue()=0;
+    virtual T dequeue()=0;
 
     //returns true if the queue has no items, false otherwise
     virtual bool isEmpty()=0;
