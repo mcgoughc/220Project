@@ -12,11 +12,19 @@
 class Book {
 private:
     std::string title;
+    std::string author;
     int haveValue;
     int wantValue;
     Queue<Person>* waitList;
+    int waitListLength;
 
 public:
+    /**
+     * Constructs a new book with title and author
+     * @param title
+     * @param author
+     */
+    Book(std::string title, std::string author);
     /**
      * Adds person to the end of the wait list.
      * @param p Person to add.
