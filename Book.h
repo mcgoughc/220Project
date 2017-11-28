@@ -7,6 +7,7 @@
 
 #include <string>
 #include "Person.h"
+#include "Queue.h"
 
 class Book {
 private:
@@ -16,9 +17,46 @@ private:
     Queue<Person>* waitList;
 
 public:
+    /**
+     * Adds person to the end of the wait list.
+     * @param p Person to add.
+     */
     void addToWaitList(Person& p);
+    /**
+     * Removes person on the front of the wait list.
+     * @return The person removed
+     */
     Person removeFromWaitList();
+    /**
+     * @return A list of the information of the people on the wait list.
+     */
+    std::string getWaitListInformation();
+    /**
+     * @return The wait list.
+     */
+    Queue<Person>* getWaitList();
 
+    /**
+     * @return haveValue
+     */
+    int getHaveValue();
+
+    /**
+     * Sets haveValue to newValue
+     * @param newValue
+     */
+    void setHaveValue(int newValue);
+
+    /**
+     * @return wantValue
+     */
+    int getWantValue();
+
+    /**
+     * Sets wantValue to newValue
+     * @param newValue
+     */
+    void setWantValue(int newValue);
 };
 
 
