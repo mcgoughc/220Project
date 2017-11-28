@@ -16,7 +16,8 @@ private:
     Queue<Person>* waitList;
 
 public:
-    
+    void addToWaitList(Person& p);
+    Person removeFromWaitList();
 
 };
 
