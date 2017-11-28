@@ -28,13 +28,9 @@ public:
      */
     Person removeFromWaitList();
     /**
-     * @return A list of the information of the people on the wait list.
+     * @return The wait list as an array of strings
      */
-    std::string getWaitListInformation();
-    /**
-     * @return The wait list.
-     */
-    Queue<Person>* getWaitList();
+    std::string* getWaitList();
 
     /**
      * @return haveValue
