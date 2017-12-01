@@ -8,6 +8,8 @@
 #include <string>
 #include "Queue.h"
 
+//TODO Clean up + Add comments/headers
+
 template <class T>
 class ArrayQueue : public Queue<T> {
 private:

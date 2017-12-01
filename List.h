@@ -2,6 +2,9 @@
 // Created by Chase McGough on 11/30/17.
 //
 
+
+//TODO Clean up + Add comments
+
 #ifndef TEMPLATELIST_LIST_H
 #define TEMPLATELIST_LIST_H
 

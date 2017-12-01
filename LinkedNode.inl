@@ -3,6 +3,7 @@
 //
 #include "LinkedNode.h"
 
+
 template <class T>
 LinkedNode<T>::LinkedNode(T item){
     this->item = item;
