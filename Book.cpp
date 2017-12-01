@@ -3,6 +3,7 @@
 //
 
 #include "Book.h"
+#include "Queue.h"
 
 Book::Book(std::string title, std::string author) {
     this->title = title;
