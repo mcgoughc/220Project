@@ -7,6 +7,9 @@
 
 #include <string>
 #include <iostream>
+#include "Book.h"
+#include "List.h"
+
 
 class BookStore{
 private:

@@ -1,7 +1,17 @@
 #include <iostream>
 
+#include "BookStore.h"
+
+void runTests(){
+
+}
+
+void runProgram(){
+
+}
+
 int main() {
-    std::cout << "Hello, World!" << std::endl;
-    std::cout << "This is a test that commit works: Chase" << std::endl;
+    runTests();
+    //runProgram();
     return 0;
 }
