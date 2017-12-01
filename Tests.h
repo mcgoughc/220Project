@@ -13,6 +13,10 @@ void bookWaitList(Book* book1, Person& person1, Person& person2);
 
 void bookAssignOpCopyConst(Book* book1);
 
+//todo Person tests
+
+//todo Bookstore tests
+
 #define INC_220PROJECT_BOOKTESTS_H
 
 #endif //INC_220PROJECT_BOOKTESTS_H
