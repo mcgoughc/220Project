@@ -3,7 +3,7 @@
 //
 
 #include "Book.h"
-#include "Queue.h"
+#include "LinkedQueue.h"
 
 Book::Book(std::string title, std::string author) {
     this->title = title;
@@ -11,8 +11,7 @@ Book::Book(std::string title, std::string author) {
     haveValue = 0;
     wantValue = 0;
     waitListLength = 0;
-    //LinkedQueue<T> not yet implemented, once it is, uncomment this line:
-    //waitList = new LinkedQueue<Person>();
+    waitList = new LinkedQueue<Person>();
 }
 
 void Book::addToWaitList(Person &p) {
@@ -29,8 +28,7 @@ std::string* Book::getWaitList() {
     std::string* returnList = new std::string[waitListLength];
     Queue<Person>* waitListCopy = waitList;
     for(int listIndex = 0; listIndex < waitListLength; listIndex++){
-        //LinkedQueue<T> not yet implemented, once it is, uncomment this line:
-        //returnList[listIndex] = waitListCopy->dequeue();
+        returnList[listIndex] = waitListCopy->dequeue().toString();
     }
     return returnList;
 }
