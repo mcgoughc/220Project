@@ -3,6 +3,8 @@
 //
 #include "LinkedQueue.h"
 
+
+
 //Creates an empty queue
 template <class T>
 LinkedQueue<T>::LinkedQueue(){

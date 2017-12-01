@@ -9,6 +9,8 @@
 #include <string>
 #include "List.h"
 
+//TODO Clean up + Add comments/headers
+
 template <class T>
 class ArrayList : public List<T> {
 private:

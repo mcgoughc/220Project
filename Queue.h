@@ -8,6 +8,8 @@
 #include <string>
 #include <stdexcept>
 
+//TODO Clean up + Add comments/headers
+
 /**
  * Represents a FIFO data structure (First In First Out). Picture a line
  * to wait for something (first person in is the first person out)

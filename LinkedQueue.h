@@ -2,6 +2,8 @@
 // Created by Toby Dragon on 10/22/17.
 //
 
+//TODO Clean up + Add comments/headers
+
 #ifndef STACKSANDQUEUES_LINKED_QUEUE_H
 #define STACKSANDQUEUES_LINKED_QUEUE_H
 

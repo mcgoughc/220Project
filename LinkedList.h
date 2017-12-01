@@ -10,6 +10,8 @@
 #include "List.h"
 #include "LinkedNode.h"
 
+//TODO Clean up + Add comments/headers
+
 template <class T>
 class LinkedList : public List<T> {
 private:
