@@ -6,6 +6,7 @@
 
 
 void bookHaveWant(Book* book1){
+    std::cout << "bookHaveWant" << std::endl;
     bool errors;
 
     book1->setHaveValue(100);
@@ -25,9 +26,19 @@ void bookHaveWant(Book* book1){
         printf("Allowed negative want");
         errors = true;
     }catch(std::out_of_range e){}
+
+    if(!errors){
+        std::cout << "PASS" << std::endl;
+    }else{
+        std::cout << "FAIL" << std::endl;
+    }
 }
 
 void bookWaitList(Book* book1, Person& person1, Person& person2){
+    std::cout << "bookWaitList" << std::endl;
+
+    bool errors = false;
+
     book1->addToWaitList(person1);
     book1->addToWaitList(person2);
     std::cout << "Wait list: " << book1->getWaitList() << std::endl;
@@ -36,8 +47,19 @@ void bookWaitList(Book* book1, Person& person1, Person& person2){
     std::cout << "Wait list: " << book1->getWaitList() << std::endl;
     book1->removeFromWaitList();
     std::cout << "Wait list: " << book1->getWaitList() << std::endl;
-    book1->removeFromWaitList();
-    std::cout << "Wait list: " << book1->getWaitList() << std::endl;
+
+    try{
+        book1->removeFromWaitList();
+        printf("Removed from empty wait list");
+        errors = true;
+    }catch(std::out_of_range e){}
+
+    if(!errors){
+        std::cout << "PASS" << std::endl;
+    }else{
+        std::cout << "FAIL" << std::endl;
+    }
+
 
 }
 
