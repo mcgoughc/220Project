@@ -52,10 +52,10 @@ std::string Person::getCommMethod() {
     return this->commMethod;
 }
 
-std::string Person::toString(Person p) {
-    std::string result = "Name: " + p.getName() +
-    "Phone Number: " + p.getPhoneNumber() +
-    "Email: " + p.getEmail() +
-    "Communication Method: " + p.getCommMethod();
+std::string Person::toString(Person* p) {
+    std::string result = "Name: " + p->getName() +
+    "Phone Number: " + p->getPhoneNumber() +
+    "Email: " + p->getEmail() +
+    "Communication Method: " + p->getCommMethod();
     return result;
 }
