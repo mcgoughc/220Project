@@ -89,6 +89,14 @@ public:
      */
     void returnBooks(std::string outputFile);
 
+    /**
+     * Checks if one string, A, is alphabetically greater, i.e. later in the dictionary
+     * than another string, B.
+     * @param A first string
+     * @param B second string
+     * @return true if A is greater than B
+     */
+    bool isAlphabeticallyGreaterThan(std::string A, std::string B);
 };
 
 

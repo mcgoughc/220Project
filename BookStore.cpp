@@ -3,3 +3,9 @@
 //
 
 #include "BookStore.h"
+
+
+bool BookStore::isAlphabeticallyGreaterThan(std::string A, std::string B) {
+
+
+}
