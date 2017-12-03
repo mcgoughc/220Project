@@ -17,6 +17,10 @@ class Person {
 
     public:
 
+    static int PHONE_CALL = 0;
+    static int SEND_TEXT = 1;
+    static int SEND_EMAIL = 2;
+
     Person();
 
     //Constructor

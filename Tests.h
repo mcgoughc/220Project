@@ -5,6 +5,7 @@
 #ifndef INC_220PROJECT_BOOKTESTS_H
 
 #include "Book.h"
+#include "BookStore.h
 #include <iostream>
 
 void bookHaveWant(Book& book1);
@@ -20,6 +21,8 @@ void personAssignOpCopyConst(Person& person1);
 //todo Person tests
 
 //todo Bookstore tests
+
+void isAlphaGreaterThanTest(BookStore& bookStore);
 
 #define INC_220PROJECT_BOOKTESTS_H
 
