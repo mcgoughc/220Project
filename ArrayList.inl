@@ -147,7 +147,7 @@ T ArrayList<T>::removeValueAt(int index) {
         throw std::out_of_range("Index not in range");
     }
 
-    int output = array[index];
+    T output = array[index];
     currItemCount--;
 
     for (int i = index; i < currItemCount; ++i) {
@@ -201,7 +201,7 @@ int ArrayList<T>::findLast(T itemToFind) {
 
     return -1;
 }
-
+/*
 template <class T>
 std::string ArrayList<T>::toString() {
     std::string output = "{";
@@ -219,7 +219,6 @@ std::string ArrayList<T>::toString() {
     return output;
 }
 
-/*
 int ArrayList::findMaxIndex() {
     int linesRun = 0;
     return ::findMaxIndex(array, currItemCount, linesRun);
