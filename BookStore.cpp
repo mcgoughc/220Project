@@ -3,8 +3,44 @@
 //
 
 #include "BookStore.h"
+#include "ArrayList.h"
 
-/**\
+
+/**
+ * Default Constructor
+ */
+BookStore::BookStore() {
+    booksInStore = new ArrayList<Book>();
+    int numBooks = 5;
+}
+
+/**
+ * Copy Constructor
+ * Duplicates data to new bookstore
+ * @param bookstoreToCopy Data to duplicate
+ */
+BookStore::BookStore(const BookStore &bookstoreToCopy) {
+
+}
+
+/**
+ * Overload Assignment Operator
+ * Overwrites current bookstore with data from bookstoreToCopy
+ * @param bookstoreToCopy Data to duplicate
+ * @return Address to the overwritten BookStore
+ */
+BookStore& BookStore::operator=(const BookStore &bookstoreToCopy) {
+    return *this;
+}
+
+/**
+ * Destructor
+ */
+BookStore::~BookStore() {
+    delete booksInStore;
+}
+
+/**
  * Helper function for isAlphabeticallyGreaterThan
  * Strings farther in the dictionary will have a higher relative value
  * @param input String to calculate value of
