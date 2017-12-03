@@ -31,6 +31,9 @@ public:
     //Copy Constructor
     LinkedQueue(const LinkedQueue& queueToCopy);
 
+    //Assignment Operator
+    LinkedQueue& operator=(const LinkedQueue& queueToCopy);
+
     //Destructor
     ~LinkedQueue();
     

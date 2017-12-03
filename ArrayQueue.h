@@ -19,7 +19,13 @@ private:
 
 public:
     //Creates an empty queue
-    ArrayQueue<T>();
+    ArrayQueue();
+
+    //Copy Constructor
+    ArrayQueue(const ArrayQueue& queueToCopy);
+
+    //Assignment Operator
+    ArrayQueue& operator=(const ArrayQueue& queueToCopy);
 
     //adds an item to the end of the queue
     void enqueue(T item);

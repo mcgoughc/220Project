@@ -4,7 +4,6 @@
 #include "LinkedQueue.h"
 
 
-
 //Creates an empty queue
 template <class T>
 LinkedQueue<T>::LinkedQueue(){
@@ -33,6 +32,32 @@ LinkedQueue<T>::LinkedQueue(const LinkedQueue& queueToCopy){
         }
         end = endOfNewChain;
     }
+}
+
+//Assignment Operator
+LinkedQueue& LinkedQueue::operator=(const LinkedQueue &queueToCopy) {
+    if(this != &listToCopy){
+        while(!isEmpty()){
+            LinkedNode* toDelete = front;
+            front = front->getNext();
+            delete toDelete;
+        }
+
+        if(queueToCopy.front == nullptr){
+            front = nullptr;
+            end = nullptr;
+        }else {
+            LinkedNode<T>* curr = queueToCopy.front;
+
+            while(curr->getNext() != nullptr){
+                enqueue(curr->getItem());
+                curr = curr->getNext();
+            }
+            enqueue(queueToCopy.end->getItem());
+        }
+    }
+
+    return *this;
 }
 
 //Destructor
