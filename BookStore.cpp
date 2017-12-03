@@ -7,7 +7,7 @@
 
 
 /**
- *
+ * Default Constructor
  */
 BookStore::BookStore() {
     booksInStore = new ArrayList<Book>();
@@ -15,27 +15,29 @@ BookStore::BookStore() {
 }
 
 /**
- *
- * @param bookstoreToCopy
+ * Copy Constructor
+ * Duplicates data to new bookstore
+ * @param bookstoreToCopy Data to duplicate
  */
 BookStore::BookStore(const BookStore &bookstoreToCopy) {
 
 }
 
 /**
- *
- * @param bookstoreToCopy
- * @return
+ * Overload Assignment Operator
+ * Overwrites current bookstore with data from bookstoreToCopy
+ * @param bookstoreToCopy Data to duplicate
+ * @return Address to the overwritten BookStore
  */
 BookStore& BookStore::operator=(const BookStore &bookstoreToCopy) {
     return *this;
 }
 
 /**
- *
+ * Destructor
  */
 BookStore::~BookStore() {
-
+    delete booksInStore;
 }
 
 /**
