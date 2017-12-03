@@ -40,6 +40,9 @@ class Person {
 
     /**
      * Sets the communication method of choice for the person
+     * 1: Phone call
+     * 2: Text
+     * 3: Email
      * @param commMethod
      */
     void setCommMethod(int commMethod);

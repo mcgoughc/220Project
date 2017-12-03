@@ -5,7 +5,7 @@
 #include "Tests.h"
 
 
-void bookHaveWant(Book* book1){
+void bookHaveWant(Book& book1){
     std::cout << "bookHaveWant" << std::endl;
     bool errors;
 
@@ -28,13 +28,13 @@ void bookHaveWant(Book* book1){
     }catch(std::out_of_range e){}
 
     if(!errors){
-        std::cout << "PASS" << std::endl;
+        printf("PASS");
     }else{
-        std::cout << "FAIL" << std::endl;
+        printf("FAIL");
     }
 }
 
-void bookWaitList(Book* book1, Person& person1, Person& person2){
+void bookWaitList(Book& book1, Person& person1, Person& person2){
     std::cout << "bookWaitList" << std::endl;
 
     bool errors = false;
@@ -55,14 +55,57 @@ void bookWaitList(Book* book1, Person& person1, Person& person2){
     }catch(std::out_of_range e){}
 
     if(!errors){
-        std::cout << "PASS" << std::endl;
+        printf("PASS");
     }else{
-        std::cout << "FAIL" << std::endl;
+        printf("FAIL");
     }
 
 
 }
 
-void bookAssignOpCopyConst(Book *book1) {
+void bookAssignOpCopyConst(Book& book1) {
+
+}
+
+void personSetGet(Person& person1) {
+    bool errors = false;
+
+    person1->setPhoneNumber("7864249000");
+    person1->setEmail("joeshmoe@aol.com");
+
+    try{
+        person1->setCommMethod(6);
+        printf("Does not throw error for out of range option");
+        errors = true;
+    }catch(std::out_of_range e){}
+
+    person1->setCommMethod(1);
+
+    std::string expectOut =
+            "Name: " + person1->getName() +
+            "\nPhone Number: " + person1->getPhoneNumber() +
+            "\nEmail: " + person1->getEmail() +
+            "\nCommunication Method: " + person1->getCommMethod();
+
+    std::string actualOut = person1->toString();
+
+    std::cout << "Expected output\n" << expectOut << std::endl;
+    std::cout << "Actual output\n" << actualOut << std::endl;
+
+    if(expectOut != actualOut){
+        printf("Getters do not return same as to_string");
+        errors = true;
+    }
+
+    if(!errors){
+        printf("PASS");
+    }else{
+        printf("FAIL");
+    }
+
+
+}
+
+void personAssignOpCopyConst(Person& person1) {
 
 }

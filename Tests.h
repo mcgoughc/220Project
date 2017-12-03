@@ -7,11 +7,15 @@
 #include "Book.h"
 #include <iostream>
 
-void bookHaveWant(Book* book1);
+void bookHaveWant(Book& book1);
 
-void bookWaitList(Book* book1, Person& person1, Person& person2);
+void bookWaitList(Book& book1, Person& person1, Person& person2);
 
-void bookAssignOpCopyConst(Book* book1);
+void bookAssignOpCopyConst(Book& book1);
+
+void personSetGet(Person& person1);
+
+void personAssignOpCopyConst(Person& person1);
 
 //todo Person tests
 
