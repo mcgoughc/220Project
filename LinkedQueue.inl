@@ -35,10 +35,10 @@ LinkedQueue<T>::LinkedQueue(const LinkedQueue& queueToCopy){
 }
 
 //Assignment Operator
-LinkedQueue& LinkedQueue::operator=(const LinkedQueue &queueToCopy) {
+LinkedQueue<T>& LinkedQueue::operator=(const LinkedQueue<T>& queueToCopy) {
     if(this != &listToCopy){
         while(!isEmpty()){
-            LinkedNode* toDelete = front;
+            LinkedNode<T>* toDelete = front;
             front = front->getNext();
             delete toDelete;
         }
