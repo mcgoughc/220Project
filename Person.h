@@ -10,21 +10,20 @@
 
 class Person {
     private:
-        std::string name;
+        std::string first;
+        std::string last;
         std::string phoneNumber;
         std::string email;
         std::string commMethod;
+        std::string name;
 
     public:
 
-    static int PHONE_CALL = 0;
-    static int SEND_TEXT = 1;
-    static int SEND_EMAIL = 2;
-
+    //Default Constructor
     Person();
 
     //Constructor
-    Person(std::string nameIn, std::string phoneNumberIn, std::string emailIn, std::string commMethodIN);
+    Person(std::string first, std::string last,std::string phoneNumberIn, std::string emailIn, std::string commMethodIN);
 
     /** Sets the name of the person
      * @param first
