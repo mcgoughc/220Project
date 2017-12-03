@@ -10,8 +10,9 @@ void runTests(){
     Person person2 = Person("Name", "Phone Num", "Email", "Text");
 
     bookHaveWant(book1);
+    std::cout << std::endl;
     bookWaitList(book1, person1, person2);
-
+    std::cout << std::endl;
     personSetGet(person1);
 
 }

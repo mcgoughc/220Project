@@ -20,13 +20,18 @@ private:
 
 public:
     /**
+     * Default constructor
+     * Constructs a blank book
+     */
+    Book();
+
+    /**
      * Constructs a new book with title and author
      * @param title
      * @param author
      */
     Book(std::string title, std::string author);
 
-    //TODO Default Constructor
     //TODO Copy Constructor
     //TODO Assignment Operator
     //TODO Destructor

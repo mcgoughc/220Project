@@ -17,10 +17,10 @@ class Person {
 
     public:
 
+    Person();
+
     //Constructor
     Person(std::string nameIn, std::string phoneNumberIn, std::string emailIn, std::string commMethodIN);
-
-    //TODO Default Constructor
 
     /** Sets the name of the person
      * @param first

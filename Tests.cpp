@@ -6,7 +6,7 @@
 
 
 void bookHaveWant(Book& book1){
-    printf("bookHaveWant ----------");
+    printf("bookHaveWant ----------\n");
     bool errors = false;
 
     book1.setHaveValue(100);
@@ -17,58 +17,60 @@ void bookHaveWant(Book& book1){
 
     try {
         book1.setHaveValue(-100);
-        printf("Allowed negative have");
+        printf("Allowed negative have\n");
         errors = true;
     }catch(std::out_of_range &e){}
 
     try {
         book1.setWantValue(-100);
-        printf("Allowed negative want");
+        printf("Allowed negative want\n");
         errors = true;
     }catch(std::out_of_range &e){}
 
     if(!errors){
-        printf("PASS");
+        printf("PASS\n");
     }else{
-        printf("FAIL");
+        printf("FAIL\n");
     }
 }
 
 void bookWaitList(Book& book1, Person& person1, Person& person2){
-    printf("bookWaitList ----------");
+    printf("bookWaitList ----------\n");
     bool errors = false;
 
     book1.addToWaitList(person1);
     book1.addToWaitList(person2);
-    std::cout << "Wait list: " << book1.getWaitList() << std::endl;
+    //std::string output = book1.getWaitList();
+    //std::cout << "Wait list: " << output << std::endl;
 
     book1.removeFromWaitList();
-    std::cout << "Wait list: " << book1.getWaitList() << std::endl;
+    //std::cout << "Wait list: " << book1.getWaitList() << std::endl;
+
     book1.removeFromWaitList();
-    std::cout << "Wait list: " << book1.getWaitList() << std::endl;
+    //std::cout << "Wait list: " << book1.getWaitList() << std::endl;
 
     try{
         book1.removeFromWaitList();
-        printf("Removed from empty wait list");
+        printf("Removed from empty wait list\n");
         errors = true;
     }catch(std::out_of_range &e){}
 
     if(!errors){
-        printf("PASS");
+        printf("PASS\n");
     }else{
-        printf("FAIL");
+        printf("FAIL\n");
     }
 
 
 }
 
 void bookAssignOpCopyConst(Book& book1) {
-    printf("bookAssignOpCopyConst ----------");
+    printf("bookAssignOpCopyConst ----------\n");
 
 }
 
 void personSetGet(Person& person1) {
-    printf("personSetGet ----------");
+    printf("personSetGet ----------\n");
     bool errors = false;
 
     person1.setPhoneNumber("7864249000");
@@ -76,7 +78,7 @@ void personSetGet(Person& person1) {
 
     try{
         person1.setCommMethod(6);
-        printf("Does not throw error for out of range option");
+        printf("Does not throw error for out of range option\n");
         errors = true;
     }catch(std::out_of_range &e){}
 
@@ -90,24 +92,24 @@ void personSetGet(Person& person1) {
 
     std::string actualOut = person1.toString();
 
-    std::cout << "Expected output\n" << expectOut << std::endl;
-    std::cout << "Actual output\n" << actualOut << std::endl;
+    std::cout << "\nExpected output\n" << expectOut << std::endl;
+    std::cout << "\nActual output\n" << actualOut << std::endl;
 
     if(expectOut != actualOut){
-        printf("Getters do not return same as to_string");
+        printf("Getters do not return same as to_string\n");
         errors = true;
     }
 
     if(!errors){
-        printf("PASS");
+        printf("PASS\n");
     }else{
-        printf("FAIL");
+        printf("FAIL\n");
     }
 
 
 }
 
 void personAssignOpCopyConst(Person& person1) {
-    printf("personAssignOpCopyConst ----------");
+    printf("personAssignOpCopyConst ----------\n");
 
 }
