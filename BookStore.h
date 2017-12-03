@@ -13,8 +13,18 @@
 
 class BookStore{
 private:
-    //list booksInStore;
+    List<Book>* booksInStore;
+    int numBooks;
+
 public:
+
+    BookStore();
+
+    BookStore(const BookStore& bookstoreToCopy);
+
+    BookStore& operator=(const BookStore& bookstoreToCopy);
+
+    ~BookStore();
 
     /**
      * List all books alpabetically

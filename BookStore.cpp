@@ -3,8 +3,42 @@
 //
 
 #include "BookStore.h"
+#include "ArrayList.h"
 
-/**\
+
+/**
+ *
+ */
+BookStore::BookStore() {
+    booksInStore = new ArrayList<Book>();
+    int numBooks = 5;
+}
+
+/**
+ *
+ * @param bookstoreToCopy
+ */
+BookStore::BookStore(const BookStore &bookstoreToCopy) {
+
+}
+
+/**
+ *
+ * @param bookstoreToCopy
+ * @return
+ */
+BookStore& BookStore::operator=(const BookStore &bookstoreToCopy) {
+    return *this;
+}
+
+/**
+ *
+ */
+BookStore::~BookStore() {
+
+}
+
+/**
  * Helper function for isAlphabeticallyGreaterThan
  * Strings farther in the dictionary will have a higher relative value
  * @param input String to calculate value of
