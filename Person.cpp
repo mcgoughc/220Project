@@ -4,12 +4,6 @@
 
 #include "Person.h"
 
-Person::Person() {
-    name = "NONE";
-    phoneNumber = "NONE";
-    email = "NONE";
-    commMethod = "NONE";
-}
 
 Person::Person(std::string nameIn, std::string phoneNumberIn, std::string emailIn, std::string commMethodIN) {
     name = nameIn;
