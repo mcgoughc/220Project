@@ -4,27 +4,16 @@
 
 #include "Person.h"
 
-Person::Person() {
-    first = "NONE";
-    phoneNumber = "NONE";
-    email = "NONE";
-    commMethod = "NONE";
-    last = "NONE";
-    name = "NONE";
-}
 
-Person::Person(std::string first, std::string last, std::string phoneNumberIn, std::string emailIn, std::string commMethodIN) {
-    this->first = first;
-    this->last = last;
+Person::Person(std::string nameIn, std::string phoneNumberIn, std::string emailIn, std::string commMethodIN) {
+    name = nameIn;
     phoneNumber = phoneNumberIn;
     email = emailIn;
     commMethod = commMethodIN;
-    name = last + ", " + first;
 }
 
 void Person::setName(std::string first, std::string last) { //TODO Do we need this?
-    this->first = first;
-    this->last = last;
+    name = last + ", " + first;
 }
 
 void Person::setPhoneNumber(std::string number) {
@@ -35,10 +24,7 @@ void Person::setEmail(std::string email) {
     this->email = email;
 }
 
-void Person::setCommMethod(int commMethod) {//TODO Throw error if commMethod out of range. Do we want an int or take a string like the constructor?
-    if (commMethod > 3 and commMethod < 1) {
-        throw std::out_of_range("This value is invalid");
-    }
+void Person::setCommMethod(int commMethod) { //TODO Throw error if commMethod out of range. Do we want an int or take a string like the constructor?
     if (commMethod == 1) {
         this->commMethod = "Phone call";
     }

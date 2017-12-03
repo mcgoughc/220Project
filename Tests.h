@@ -5,7 +5,7 @@
 #ifndef INC_220PROJECT_BOOKTESTS_H
 
 #include "Book.h"
-#include "BookStore.h
+#include "BookStore.h"
 #include <iostream>
 
 void bookHaveWant(Book& book1);
