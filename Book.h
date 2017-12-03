@@ -25,6 +25,12 @@ public:
      * @param author
      */
     Book(std::string title, std::string author);
+
+    //TODO Default Constructor
+    //TODO Copy Constructor
+    //TODO Assignment Operator
+    //TODO Destructor
+
     /**
      * Adds person to the end of the wait list.
      * @param p Person to add.
