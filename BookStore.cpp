@@ -78,7 +78,7 @@ bool BookStore::isAlphabeticallyGreaterThan(std::string A, std::string B) {
  *
  * @return
  */
-std::string *BookStore::list() {
+std::string* BookStore::list() {
     return nullptr;
 }
 
@@ -133,7 +133,7 @@ int BookStore::getHave(std::string title) {
  * @param title
  * @return
  */
-std::string *BookStore::getWaitList(std::string title) {
+std::string* BookStore::getWaitList(std::string title) {
     return nullptr;
 }
 
