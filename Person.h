@@ -66,10 +66,9 @@ class Person {
     std::string getCommMethod();
 
     /**
-     * @param Person opbject
      * @return A string representstion of the person object
      */
-    std::string toString(Person* p);
+    std::string toString();
 };
 
 
