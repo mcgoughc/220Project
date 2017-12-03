@@ -124,13 +124,13 @@ public:
      * Searches an int array for a certain value
      * @return the index of the first occurrence of numToFind if it is present, otherwise returns -1
      */
-    T find(T itemToFind);  //O(n)
+    int find(T itemToFind);  //O(n)
 
     /**
      * Searches an int array for a certain value
      * @return the index of the last occurrence of numToFind if it is present, otherwise returns -1
      */
-    T findLast(T itemToFind); //O(n)
+    int findLast(T itemToFind); //O(n)
 };
 
 #include "LinkedList.inl"

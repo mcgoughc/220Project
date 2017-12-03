@@ -230,7 +230,7 @@ std::string LinkedList<T>::toString() {
 
 //Return index of first iteration numToFind
 template <class T>
-T LinkedList<T>::find(T itemToFind) {
+int LinkedList<T>::find(T itemToFind) {
     int idx = -1;
     int count = 0;
     bool found = false;
@@ -250,7 +250,7 @@ T LinkedList<T>::find(T itemToFind) {
 
 //Return index of last iteration numToFind
 template <class T>
-T LinkedList<T>::findLast(T itemToFind) {
+int LinkedList<T>::findLast(T itemToFind) {
     int idx = -1;
     int count = 0;
     LinkedNode<T>* curr = front;
