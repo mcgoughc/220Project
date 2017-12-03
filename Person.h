@@ -14,7 +14,8 @@ class Person {
         std::string phoneNumber;
         std::string email;
         std::string commMethod;
-
+        std::string first;
+        std::string last;
     public:
 
     const int PHONE_CALL = 0;
@@ -24,7 +25,7 @@ class Person {
     Person();
 
     //Constructor
-    Person(std::string nameIn, std::string phoneNumberIn, std::string emailIn, std::string commMethodIN);
+    Person(std::string first, std::string last, std::string phoneNumberIn, std::string emailIn, std::string commMethodIN);
 
     /** Sets the name of the person
      * @param first
