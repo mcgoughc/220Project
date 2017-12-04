@@ -30,7 +30,7 @@ public:
      * @param title
      * @param author
      */
-    Book(std::string title, std::string author);
+    Book(std::string title, std::string author, int want, int have);
 
     //TODO Copy Constructor
     //TODO Assignment Operator

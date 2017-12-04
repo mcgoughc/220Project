@@ -14,11 +14,11 @@ Book::Book() {
     waitList = new LinkedQueue<Person>();
 }
 
-Book::Book(std::string title, std::string author) {
+Book::Book(std::string title, std::string author, int want, int have) {
     this->title = title;
     this->author = author;
-    haveValue = 0;
-    wantValue = 0;
+    haveValue = want;
+    wantValue = have;
     waitListLength = 0;
     waitList = new LinkedQueue<Person>();
 }

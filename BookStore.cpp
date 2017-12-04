@@ -68,8 +68,12 @@ std::string* BookStore::list() {
 }
 
 
-void BookStore::add(std::string title, int want, int have) {
-
+void BookStore::add(std::string title, std::string author, int want, int have) {
+    for(int bi = 0; bi < booksInStore->itemCount(); bi++){
+        if(isAlphabeticallyGreaterThan(booksInStore->getValueAt(bi).getTitle(), title)){
+            booksInStore->insertAt(Book(title, author, want, have), bi);
+        }
+    }
 }
 
 

@@ -4,8 +4,8 @@
 #include "Tests.h"
 
 void runTests(){
-    Book book1 = Book("Autumn", "Ali Smith");
-    Book book2 = Book("Pachinko","Min Jin Lee");
+    Book book1 = Book("Autumn", "Ali Smith", 0, 0);
+    Book book2 = Book("Pachinko","Min Jin Lee", 0, 0);
     Person person1 = Person("First","Last", "Phone Num", "Email", "Text");
     Person person2 = Person("First","Last", "Phone Num", "Email", "Text");
     BookStore bs = BookStore();
