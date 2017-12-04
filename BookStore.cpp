@@ -71,9 +71,13 @@ std::string BookStore::list() {
 void BookStore::add(std::string title, std::string author, int want, int have) {
     int foundIndex = findBook(title);
     if(foundIndex == -1) {
-        for (int bi = 0; bi < booksInStore->itemCount(); bi++) {
-            if (isAlphabeticallyGreaterThan(booksInStore->getValueAt(bi).getTitle(), title)) {
-                booksInStore->insertAt(Book(title, author, want, have), bi);
+        if(booksInStore->itemCount() <= 0){
+            booksInStore->insertAt(Book(title, author, want, have), 0);
+        } else {
+            for (int bi = 0; bi < booksInStore->itemCount(); bi++) {
+                if (isAlphabeticallyGreaterThan(booksInStore->getValueAt(bi).getTitle(), title)) {
+                    booksInStore->insertAt(Book(title, author, want, have), bi);
+                }
             }
         }
     }
