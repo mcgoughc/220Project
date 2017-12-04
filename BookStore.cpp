@@ -63,7 +63,7 @@ bool BookStore::isAlphabeticallyGreaterThan(std::string A, std::string B) {
 }
 
 
-std::string* BookStore::list() {
+std::string BookStore::list() {
     return nullptr;
 }
 

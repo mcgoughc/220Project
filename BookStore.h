@@ -30,7 +30,7 @@ public:
      * List all books alpabetically
      * @return  Array of strings of book titles
      */
-    std::string* list();
+    std::string list();
 
     /**
      * Add new book to inventory
