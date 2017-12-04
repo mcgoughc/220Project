@@ -18,7 +18,14 @@ void personSetGet(Person& person1);
 
 void personAssignOpCopyConst(Person& person1);
 
-//todo Person tests
+void bookstoreAddSell(BookStore& bookstore);
+
+void bookstoreWantHave(BookStore& bookstore);
+
+void bookstoreFind(BookStore& bookstore);
+
+void bookstoreAssignOpCopyConst(BookStore& bookstore);
+
 
 //todo Bookstore tests
 

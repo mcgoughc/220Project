@@ -12,6 +12,14 @@ ArrayQueue<T>::ArrayQueue(){
     qArray = new T[capacity];
 }
 
+ArrayQueue<T>::ArrayQueue(const ArrayQueue<T>& queueToCopy) {
+    //TODO
+}
+
+ArrayQueue<T>& ArrayQueue<T>::operator=(const ArrayQueue &queueToCopy) {
+    //TODO
+}
+
 //adds an item to the end of the queue
 template <class T>
 void ArrayQueue<T>::enqueue(T item){
