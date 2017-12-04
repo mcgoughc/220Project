@@ -21,6 +21,10 @@ void runTests(){
     bookstoreAddSell(bs, book1, book2);
     std::cout << std::endl;
     bookstoreWantHave(bs);
+    std::cout << std::endl;
+    bookstoreFind(bs);
+    std::cout << std::endl;
+    bookstoreWaitlist(bs);
 
 }
 
