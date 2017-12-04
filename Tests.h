@@ -18,11 +18,13 @@ void personSetGet(Person& person1);
 
 void personAssignOpCopyConst(Person& person1);
 
-void bookstoreAddSell(BookStore& bookstore);
+void bookstoreAddSell(BookStore& bookstore, Book& book1, Book& book2);
 
 void bookstoreWantHave(BookStore& bookstore);
 
 void bookstoreFind(BookStore& bookstore);
+
+void bookstoreWaitlist(BookStore& bookstore);
 
 void bookstoreAssignOpCopyConst(BookStore& bookstore);
 

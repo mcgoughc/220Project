@@ -40,14 +40,10 @@ void bookWaitList(Book& book1, Person& person1, Person& person2){
 
     book1.addToWaitList(person1);
     book1.addToWaitList(person2);
-    //std::string output = book1.getWaitList();
-    //std::cout << "Wait list: " << output << std::endl;
 
     book1.removeFromWaitList();
-    //std::cout << "Wait list: " << book1.getWaitList() << std::endl;
 
     book1.removeFromWaitList();
-    //std::cout << "Wait list: " << book1.getWaitList() << std::endl;
 
     try{
         book1.removeFromWaitList();
@@ -61,7 +57,8 @@ void bookWaitList(Book& book1, Person& person1, Person& person2){
         printf("FAIL\n");
     }
 
-
+    book1.addToWaitList(person1);
+    book1.addToWaitList(person2);
 }
 
 void bookAssignOpCopyConst(Book& book1) {
@@ -111,6 +108,72 @@ void personSetGet(Person& person1) {
 
 void personAssignOpCopyConst(Person& person1) {
     printf("personAssignOpCopyConst ----------\n");
+
+}
+
+void bookstoreAddSell(BookStore& bookstore){
+    printf("bookstoreAddSell ----------\n");
+    bool errors = false;
+
+    bookstore.add("Lincoln", 5, 5);
+    bookstore.add("Grant", 5, 1);
+
+    bookstore.list();
+
+    bookstore.sell("Lincoln");
+    bookstore.sell("Lincoln");
+    bookstore.sell("Grant");
+
+    try {
+        bookstore.sell("Grant");
+        printf("Sold more copies than in the store");
+        errors = true;
+    }catch(std::out_of_range &e){}
+
+}
+
+void bookstoreWantHave(BookStore& bookstore){
+    printf("bookstoreAddSell ----------\n");
+    bool errors = false;
+
+    int testHave = bookstore.getHave("Lincoln");
+    int testWant = bookstore.getWant("Lincoln");
+
+    bookstore.setHave("Lincoln", testHave+5);
+    bookstore.setWant("Lincoln", testWant+5);
+
+    if(bookstore.getHave("Lincoln") <= testHave){
+        std::cout << "Did not change have value" << std::endl;
+        errors = true;
+    }
+    if(bookstore.getWant("Lincoln") <= testWant){
+        std::cout << "Did not change want value" << std::endl;
+        errors = true;
+    }
+
+    try {
+        bookstore.setHave("Lincoln", -60);
+        printf("Allows negative have\n");
+        errors = true;
+    }catch(std::out_of_range &e){}
+
+    try {
+        bookstore.setWant("Lincoln", -60);
+        printf("Allows negative want\n");
+        errors = true;
+    }catch(std::out_of_range &e){}
+
+}
+
+void bookstoreFind(BookStore& bookstore){
+
+}
+
+void bookstoreAssignOpCopyConst(BookStore& bookstore){
+
+}
+
+void bookstoreWaitlist(BookStore &bookstore) {
 
 }
 
