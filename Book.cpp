@@ -62,3 +62,7 @@ void Book::setWantValue(int newValue) {
     wantValue = newValue;
 }
 
+std::string Book::getTitle() {
+    return title;
+}
+

@@ -16,6 +16,8 @@ private:
     List<Book>* booksInStore;
     int numBooks;
 
+    int findBook(std::string titleToFind);
+
 public:
 
     BookStore();
@@ -107,6 +109,7 @@ public:
      * @return true if A is greater than B
      */
     bool isAlphabeticallyGreaterThan(std::string A, std::string B);
+
 };
 
 

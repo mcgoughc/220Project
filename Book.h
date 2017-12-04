@@ -72,6 +72,12 @@ public:
      * @param newValue
      */
     void setWantValue(int newValue);
+
+    /**
+     *
+     * @return title
+     */
+    std::string getTitle();
 };
 
 
