@@ -49,7 +49,7 @@ public:
     /**
      * @return The wait list as an array of strings
      */
-    std::string* getWaitList();
+    std::string getWaitList();
 
     /**
      * @return haveValue
