@@ -4,8 +4,7 @@
 #include "LinkedNode.h"
 
 template <class T>
-LinkedNode<T>::LinkedNode(const T& i) :item(i){
-    this->item = item;
+LinkedNode<T>::LinkedNode(const T& i) : item(i){
     next = nullptr;
 }
 
