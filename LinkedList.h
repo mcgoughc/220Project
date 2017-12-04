@@ -7,7 +7,7 @@
 
 #include <stdexcept>
 #include <string>
-#include "List.h"
+#include "Inventory.h"
 #include "LinkedNode.h"
 
 //TODO Clean up + Add comments/headers

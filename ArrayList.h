@@ -7,7 +7,7 @@
 
 #include <stdexcept>
 #include <string>
-#include "List.h"
+#include "Inventory.h"
 
 //TODO Clean up + Add comments/headers
 

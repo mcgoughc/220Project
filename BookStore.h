@@ -8,12 +8,11 @@
 #include <string>
 #include <iostream>
 #include "Book.h"
-#include "List.h"
-
+#include "Inventory.h"
 
 class BookStore{
 private:
-    List<Book>* booksInStore;
+    Inventory<Book>* booksInStore;
     int numBooks;
 
 public:
