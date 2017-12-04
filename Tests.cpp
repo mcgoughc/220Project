@@ -112,10 +112,23 @@ void personAssignOpCopyConst(Person& person1) {
 }
 
 void bookstoreAddSell(BookStore& bookstore){
+
+    bool errors = false;
+
     bookstore.add("Lincoln", 5, 5);
-    bookstore.add("Grant", 5, 5);
+    bookstore.add("Grant", 5, 1);
 
     bookstore.list();
+
+    bookstore.sell("Lincoln");
+    bookstore.sell("Lincoln");
+    bookstore.sell("Grant");
+
+    try {
+        bookstore.sell("Grant");
+        printf("Sold more copies than in the store");
+        errors = true;
+    }catch(std::out_of_range &e){}
 
 }
 
