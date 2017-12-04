@@ -7,12 +7,12 @@
 
 #include <stdexcept>
 #include <string>
-#include "List.h"
+#include "Inventory.h"
 
 //TODO Clean up + Add comments/headers
 
 template <class T>
-class ArrayList : public List<T> {
+class ArrayList{
 private:
     //pointer to the start of the array
     T* array;
