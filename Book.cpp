@@ -40,11 +40,14 @@ Person Book::removeFromWaitList() {
 std::string Book::getWaitList() {
     std::string returnList;
     Queue<Person>* waitListCopy = waitList;
-    for(int listIndex = 0; listIndex < waitListLength; listIndex++){
-        returnList += waitListCopy->dequeue().toString() + ", ";
+    for (int i = 0; i < waitListLength; ++i) {
+        Person curr = waitListCopy->dequeue();
+        returnList += curr.getName() + ". ";
     }
 
-    returnList.erase(returnList.end()-2, returnList.end());
+    if(!returnList.empty()){
+        returnList.erase(returnList.end()-2, returnList.end());
+    }
     return returnList;
 }
 
