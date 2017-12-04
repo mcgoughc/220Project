@@ -82,8 +82,8 @@ void BookStore::add(std::string title, std::string author, int want, int have) {
             }
         }
     } else{
-        int newWant = booksInStore->getValueAt(foundIndex).getWantValue() + 1;
-        booksInStore->getValueAt(foundIndex).setWantValue(newWant);
+        int newHave = booksInStore->getValueAt(foundIndex).getHaveValue() + 1;
+        booksInStore->getValueAt(foundIndex).setHaveValue(newHave);
     }
 }
 
