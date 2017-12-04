@@ -112,7 +112,7 @@ public:
     * @returns a string representing the given list in the exact format shown below
     * {1, 2, 3, 4, 5}
     */
-    std::string toString(); //O(n)
+    //std::string toString(); //O(n)
 
     /**
      * finds the largest value in the array
@@ -124,13 +124,13 @@ public:
      * Searches an int array for a certain value
      * @return the index of the first occurrence of numToFind if it is present, otherwise returns -1
      */
-    int find(T itemToFind);  //O(n)
+    //int find(T itemToFind);  //O(n)
 
     /**
      * Searches an int array for a certain value
      * @return the index of the last occurrence of numToFind if it is present, otherwise returns -1
      */
-    int findLast(T itemToFind); //O(n)
+    //int findLast(T itemToFind); //O(n)
 };
 
 #include "LinkedList.inl"

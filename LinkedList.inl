@@ -210,7 +210,7 @@ void LinkedList<T>::clearList() {
 }
 
 
-
+/*
 //Print list as a string
 template <class T>
 std::string LinkedList<T>::toString() {
@@ -267,7 +267,7 @@ int LinkedList<T>::findLast(T itemToFind) {
 
 }
 
-/*
+
 //Return index of max value
 int LinkedList::findMaxIndex() {
     if(front == nullptr){

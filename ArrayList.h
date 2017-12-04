@@ -113,7 +113,7 @@ public:
      * @returns a string representing the given list in the exact format shown below
      * {1, 2, 3, 4, 5}
      */
-    std::string toString();
+    //std::string toString();
 
     /**
      * finds the largest value in the array
@@ -127,14 +127,14 @@ public:
      * @post numLinesRun is updated to include lines run by this function
      * @return the index of the first occurrence of numToFind if it is present, otherwise returns -1
      */
-    int find(T itemToFind);
+    //int find(T itemToFind);
 
     /**
      * Searches an int array for a certain value
      * @post numLinesRun is updated to include lines run by this function
      * @return the index of the last occurrence of numToFind if it is present, otherwise returns -1
      */
-    int findLast(T itemToFind);
+    //int findLast(T itemToFind);
 
 };
 

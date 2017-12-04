@@ -172,14 +172,15 @@ void ArrayList<T>::clearList() {
     currItemCount = 0;
 }
 
+/*
 template <class T>
-int ArrayList<T>::find(T itemToFind) {
+int ArrayList<T>::find(T& itemToFind) {
     if(currItemCount <= 0){
         return -1;
     }
 
     for (int i = 0; i < currItemCount; ++i) {
-        if(array[i] == itemToFind){
+        if(&array[i] == &itemToFind){
             return i;
         }
 
@@ -201,7 +202,12 @@ int ArrayList<T>::findLast(T itemToFind) {
 
     return -1;
 }
-/*
+
+int ArrayList::findMaxIndex() {
+    int linesRun = 0;
+    return ::findMaxIndex(array, currItemCount, linesRun);
+}
+
 template <class T>
 std::string ArrayList<T>::toString() {
     std::string output = "{";
@@ -219,8 +225,4 @@ std::string ArrayList<T>::toString() {
     return output;
 }
 
-int ArrayList::findMaxIndex() {
-    int linesRun = 0;
-    return ::findMaxIndex(array, currItemCount, linesRun);
-}
 */
