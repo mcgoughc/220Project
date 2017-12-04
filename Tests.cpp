@@ -112,7 +112,7 @@ void personAssignOpCopyConst(Person& person1) {
 }
 
 void bookstoreAddSell(BookStore& bookstore){
-
+    printf("bookstoreAddSell ----------\n");
     bool errors = false;
 
     bookstore.add("Lincoln", 5, 5);
@@ -133,6 +133,35 @@ void bookstoreAddSell(BookStore& bookstore){
 }
 
 void bookstoreWantHave(BookStore& bookstore){
+    printf("bookstoreAddSell ----------\n");
+    bool errors = false;
+
+    int testHave = bookstore.getHave("Lincoln");
+    int testWant = bookstore.getWant("Lincoln");
+
+    bookstore.setHave("Lincoln", testHave+5);
+    bookstore.setWant("Lincoln", testWant+5);
+
+    if(bookstore.getHave("Lincoln") <= testHave){
+        std::cout << "Did not change have value" << std::endl;
+        errors = true;
+    }
+    if(bookstore.getWant("Lincoln") <= testWant){
+        std::cout << "Did not change want value" << std::endl;
+        errors = true;
+    }
+
+    try {
+        bookstore.setHave("Lincoln", -60);
+        printf("Allows negative have\n");
+        errors = true;
+    }catch(std::out_of_range &e){}
+
+    try {
+        bookstore.setWant("Lincoln", -60);
+        printf("Allows negative want\n");
+        errors = true;
+    }catch(std::out_of_range &e){}
 
 }
 

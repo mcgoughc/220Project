@@ -14,7 +14,7 @@ Person::Person(std::string first, std::string last, std::string phoneNumberIn, s
     name = last + ", " + first;
 }
 
-void Person::setName(std::string first, std::string last) { //TODO Do we need this?
+void Person::setName(std::string first, std::string last) {
     this->first = first;
     this->last = last;
 }
@@ -27,7 +27,7 @@ void Person::setEmail(std::string email) {
     this->email = email;
 }
 
-void Person::setCommMethod(int commMethod) {//TODO Throw error if commMethod out of range. Do we want an int or take a string like the constructor
+void Person::setCommMethod(int commMethod) {
     if (commMethod > 3 or commMethod < 1) {
         throw std::out_of_range("Invalid Value, please re-enter");
     }
