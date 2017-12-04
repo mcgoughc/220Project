@@ -163,7 +163,6 @@ void bookstoreWantHave(BookStore& bookstore){
         errors = true;
     }catch(std::out_of_range &e){}
 
-
 }
 
 void bookstoreFind(BookStore& bookstore){
