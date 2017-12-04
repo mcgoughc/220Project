@@ -16,8 +16,6 @@ private:
     List<Book>* booksInStore;
     int numBooks;
 
-    int findBook(std::string titleToFind);
-
 public:
 
     BookStore();
@@ -109,6 +107,14 @@ public:
      * @return true if A is greater than B
      */
     bool isAlphabeticallyGreaterThan(std::string A, std::string B);
+
+    /**
+     * Checks the array for a book that matches titleToFind
+     * Capitialization must match
+     * @param titleToFind
+     * @return index of the book, or -1 if the list is empty/the title does not match any book
+     */
+    int findBook(std::string titleToFind);
 
 };
 
