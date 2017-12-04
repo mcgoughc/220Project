@@ -115,8 +115,8 @@ void bookstoreAddSell(BookStore& bookstore){
     printf("bookstoreAddSell ----------\n");
     bool errors = false;
 
-    bookstore.add("Lincoln", 5, 5);
-    bookstore.add("Grant", 5, 1);
+    bookstore.add("Lincoln", "Abe Lincoln", 5, 5);
+    bookstore.add("Grant", "Bjarn strautsrup", 5, 1);
 
     bookstore.list();
 
@@ -129,7 +129,6 @@ void bookstoreAddSell(BookStore& bookstore){
         printf("Sold more copies than in the store");
         errors = true;
     }catch(std::out_of_range &e){}
-
 }
 
 void bookstoreWantHave(BookStore& bookstore){
