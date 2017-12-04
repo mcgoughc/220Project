@@ -40,7 +40,7 @@ LinkedQueue<T>& LinkedQueue<T>::operator=(const LinkedQueue<T>& queueToCopy) {
     if(this != &queueToCopy){
         while(!isEmpty()){
             LinkedNode<T>* toDelete = front;
-            front = front->getNext();
+            this->front = front->getNext();
             delete toDelete;
         }
 

@@ -25,6 +25,8 @@ void runTests(){
     bookstoreFind(bs);
     //std::cout << std::endl;
     //bookstoreWaitlist(bs);
+    std::cout << std::endl;
+    linkQueueAssignOp();
 
 }
 

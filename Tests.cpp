@@ -266,9 +266,8 @@ void linkQueueAssignOp(){
         printf("Success\n");
     }
 
-    delete returnPerson;
-    returnPerson = origTestQueue->dequeue();
-    if(returnPerson.getName() == testPerson3.getName()){
+    Person returnPerson2 = origTestQueue->dequeue();
+    if(returnPerson2.getName() == testPerson3.getName()){
         printf("Success\n");
     }
 
