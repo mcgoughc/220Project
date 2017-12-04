@@ -169,6 +169,9 @@ void bookstoreFind(BookStore& bookstore){
     printf("bookstoreFind ----------\n");
     bool errors = false;
 
+    bookstore.add("Lincoln", "Abe Lincoln", 5, 5);
+    bookstore.add("Grant", "Bjarn strautsrup", 5, 1);
+
     int linIdx = bookstore.findBook("Lincoln");
     int granIdx = bookstore.findBook("Grant");
 
