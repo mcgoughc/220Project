@@ -111,8 +111,16 @@ void BookStore::returnBooks(std::string outputFile) {
 }
 
 int BookStore::findBook(std::string titleToFind){
-    for (int i = 0; i < booksInStore->itemCount(); ++i) {
-        Book currBook = booksInStore->getValueAt(i);
-        std::string indexTitle = currBook
+    if(booksInStore->itemCount() <= 0){
+        return -1;
     }
+
+    for (int i = 0; i < booksInStore->itemCount(); ++i) {
+        std::string indexTitle = booksInStore->getValueAt(i).getTitle();
+        if(titleToFind == indexTitle){
+            return i;
+        }
+    }
+
+    return -1;
 }
