@@ -51,7 +51,12 @@ int Book::getHaveValue() {
 }
 
 void Book::setHaveValue(int newValue) {
-    haveValue = newValue;
+    if (newValue < 0) {
+        throw std::out_of_range("Invalid entry");
+    }
+    else {
+        haveValue = newValue;
+    }
 }
 
 int Book::getWantValue() {
@@ -59,6 +64,9 @@ int Book::getWantValue() {
 }
 
 void Book::setWantValue(int newValue) {
+    if (newValue < 0) {
+        throw std::out_of_range("Invalid entry");
+    }
     wantValue = newValue;
 }
 
