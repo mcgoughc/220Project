@@ -15,6 +15,8 @@ void runTests(){
     std::cout << std::endl;
     personSetGet(person1);
 
+    BookStore bs = BookStore();
+
 }
 
 void runProgram(){
