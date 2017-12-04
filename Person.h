@@ -16,6 +16,7 @@ class Person {
         std::string commMethod;
         std::string first;
         std::string last;
+
     public:
 
     const int PHONE_CALL = 0;
