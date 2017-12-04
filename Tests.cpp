@@ -133,8 +133,8 @@ void isAlphaGreaterThanTest(BookStore& bookStore){
     if(bookStore.isAlphabeticallyGreaterThan(a5, a4) == false)
         errors = true;
 
-    std::string a6 = "zzzzzzzzzzzz";
-    std::string a7 = "zzzzzzzzzzzza";
+    std::string a6 = "zzz";
+    std::string a7 = "zzza";
     if(bookStore.isAlphabeticallyGreaterThan(a6, a7) == true)
         errors = true;
 
