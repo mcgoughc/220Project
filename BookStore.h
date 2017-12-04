@@ -9,10 +9,12 @@
 #include <iostream>
 #include "Book.h"
 #include "Inventory.h"
+#include "ArrayList.h"
+
 
 class BookStore{
 private:
-    Inventory<Book>* booksInStore;
+    ArrayList<Book>* booksInStore;
     int numBooks;
 
 public:
