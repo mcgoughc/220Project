@@ -6,8 +6,8 @@
 void runTests(){
     Book book1 = Book("Autumn", "Ali Smith");
     Book book2 = Book("Pachinko","Min Jin Lee");
-    Person person1 = Person("Name", "Phone Num", "Email", "Text");
-    Person person2 = Person("Name", "Phone Num", "Email", "Text");
+    Person person1 = Person("First","Last", "Phone Num", "Email", "Text");
+    Person person2 = Person("First","Last", "Phone Num", "Email", "Text");
 
     bookHaveWant(book1);
     std::cout << std::endl;
