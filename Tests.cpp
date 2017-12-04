@@ -166,7 +166,29 @@ void bookstoreWantHave(BookStore& bookstore){
 }
 
 void bookstoreFind(BookStore& bookstore){
+    printf("bookstoreFind ----------\n");
+    bool errors = false;
 
+    int linIdx = bookstore.findBook("Lincoln");
+    int granIdx = bookstore.findBook("Grant");
+
+    if(linIdx != 1){
+        std::cout << "Wrong index for Lincoln" << std::endl;
+        std::cout << "Index returned was: " << linIdx << std::endl;
+        errors = true;
+    }
+
+    if(granIdx != 0){
+        std::cout << "Wrong index for Grant" << std::endl;
+        std::cout << "Index returned was: " << granIdx << std::endl;
+        errors = true;
+    }
+
+    if(!errors){
+        printf("PASS\n");
+    }else{
+        printf("FAIL\n");
+    }
 }
 
 void bookstoreAssignOpCopyConst(BookStore& bookstore){
