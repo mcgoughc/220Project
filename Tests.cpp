@@ -154,9 +154,10 @@ void isAlphaGreaterThanTest(BookStore& bookStore){
 
     std::string a1 = "AAA";
     std::string a2 = "aaa";
-    if(bookStore.isAlphabeticallyGreaterThan(a1, a2) == true)
+    if(bookStore.isAlphabeticallyGreaterThan(a1, a2) == true) {
+        printf("error");
         errors = true;
-
+    }
     std::string a3 = "The Apple Tree";
     std::string a4 = "The-Apple-Tree";
     if(bookStore.isAlphabeticallyGreaterThan(a3, a4) == true)

@@ -16,6 +16,7 @@ void runTests(){
     personSetGet(person1);
 
     BookStore bs = BookStore();
+    isAlphaGreaterThanTest(bs);
 
 }
 
