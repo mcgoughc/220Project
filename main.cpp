@@ -18,12 +18,12 @@ void runTests(){
     std::cout << std::endl;
     isAlphaGreaterThanTest(bs);
     std::cout << std::endl;
-    //bookstoreAddSell(bs);
-    std::cout << std::endl;
+    bookstoreAddSell(bs);
+    //std::cout << std::endl;
     //bookstoreWantHave(bs);
     std::cout << std::endl;
     bookstoreFind(bs);
-    std::cout << std::endl;
+    //std::cout << std::endl;
     //bookstoreWaitlist(bs);
 
 }

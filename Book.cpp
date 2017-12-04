@@ -15,8 +15,8 @@ Book::Book() {
 }
 
 Book::Book(std::string title, std::string author, int want, int have) {
-    this->title = title;
-    this->author = author;
+    this->title = std::move(title);
+    this->author = std::move(author);
     haveValue = want;
     wantValue = have;
     waitListLength = 0;
@@ -37,11 +37,11 @@ Person Book::removeFromWaitList() {
     }
 }
 
-std::string* Book::getWaitList() { //FIXME returns pointer? Should return string?
+std::string* Book::getWaitList() {
     std::string* returnList = new std::string[waitListLength];
     Queue<Person>* waitListCopy = waitList;
     for(int listIndex = 0; listIndex < waitListLength; listIndex++){
-        returnList[listIndex] = waitListCopy->dequeue().toString(); //FIXME Can we get waitlist without emptying it?
+        returnList[listIndex] = waitListCopy->dequeue().toString();
     }
     return returnList;
 }

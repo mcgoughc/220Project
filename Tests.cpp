@@ -119,7 +119,7 @@ void bookstoreAddSell(BookStore& bookstore){
     bookstore.add("Lincoln", "Abe Lincoln", 5, 5);
     bookstore.add("Grant", "Bjarn strautsrup", 5, 1);
 
-    bookstore.list();
+    //bookstore.list();
 
     bookstore.sell("Lincoln");
     bookstore.sell("Lincoln");
