@@ -240,3 +240,19 @@ void isAlphaGreaterThanTest(BookStore& bookStore){
 
 }
 
+void linkQueueAssignOp(){
+    printf("linkedQueueAssignOp ----------\n");
+    bool errors = false;
+
+    Person testPerson1 = Person("Bill", "Sapsis", "18007854444", "billy@sri.org", "Text");
+    Person testPerson2 = Person("Kim", "Turncliffe", "9048753000", "kimmie@yahoo.com", "Email");
+    LinkedQueue<Person>* origTestQueue = new LinkedQueue<Person>();
+    LinkedQueue<Person>* newTestQueue = new LinkedQueue<Person>();
+
+    origTestQueue->enqueue(testPerson1);
+    origTestQueue->enqueue(testPerson2);
+
+
+
+}
+

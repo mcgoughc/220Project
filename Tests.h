@@ -6,6 +6,7 @@
 
 #include "Book.h"
 #include "BookStore.h"
+#include "LinkedQueue.h"
 #include <iostream>
 
 void bookHaveWant(Book& book1);
@@ -28,10 +29,9 @@ void bookstoreWaitlist(BookStore& bookstore);
 
 void bookstoreAssignOpCopyConst(BookStore& bookstore);
 
-
-//todo Bookstore tests
-
 void isAlphaGreaterThanTest(BookStore& bookStore);
+
+void linkQueueAssignOp();
 
 #define INC_220PROJECT_BOOKTESTS_H
 
