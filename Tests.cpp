@@ -267,7 +267,10 @@ void linkQueueAssignOp(){
     }
 
     Person returnPerson2 = origTestQueue->dequeue();
-    if(returnPerson2.getName() == testPerson3.getName()){
+    if(returnPerson2.getName() == testPerson1.getName()){
+        printf("Fail. origTestQueue looking at origTestQueue\n");
+        errors = true;
+    }else if(returnPerson2.getName() == testPerson3.getName()){
         printf("Success\n");
     }
 
