@@ -4,14 +4,6 @@
 
 #include "Person.h"
 
-Person::Person() {
-    first = "NONE";
-    phoneNumber = "NONE";
-    email = "NONE";
-    commMethod = "NONE";
-    last = "NONE";
-    name = "NONE";
-}
 
 Person::Person(std::string first, std::string last, std::string phoneNumberIn, std::string emailIn, std::string commMethodIN) {
     this->first = first;

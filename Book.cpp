@@ -11,7 +11,7 @@ Book::Book() {
     haveValue = 0;
     wantValue = 0;
     waitListLength = 0;
-    waitList = new LinkedQueue<Person>;
+    waitList = new LinkedQueue<Person>();
 }
 
 Book::Book(std::string title, std::string author) {
@@ -33,7 +33,7 @@ Person Book::removeFromWaitList() {
         throw std::out_of_range("No people in waitlist");
     }else {
         waitListLength--;
-        return waitList->dequeue();;
+        return waitList->dequeue();
     }
 }
 

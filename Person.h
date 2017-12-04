@@ -22,8 +22,6 @@ class Person {
     const int SEND_TEXT = 1;
     const int SEND_EMAIL = 2;
 
-    Person();
-
     //Constructor
     Person(std::string first, std::string last, std::string phoneNumberIn, std::string emailIn, std::string commMethodIN);
 

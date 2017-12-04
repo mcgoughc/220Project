@@ -137,7 +137,7 @@ void bookstoreWaitlist(BookStore &bookstore) {
 
 void isAlphaGreaterThanTest(BookStore& bookStore){
     bool errors = false;
-    printf("isAlphaGreaterThanTest ------------\n";
+    printf("isAlphaGreaterThanTest ------------\n");
 
     std::string a1 = "AAA";
     std::string a2 = "aaa";
