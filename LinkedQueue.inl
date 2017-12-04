@@ -35,8 +35,9 @@ LinkedQueue<T>::LinkedQueue(const LinkedQueue& queueToCopy){
 }
 
 //Assignment Operator
+template <class T>
 LinkedQueue<T>& LinkedQueue::operator=(const LinkedQueue<T>& queueToCopy) {
-    if(this != &listToCopy){
+    if(this != &queueToCopy){
         while(!isEmpty()){
             LinkedNode<T>* toDelete = front;
             front = front->getNext();
