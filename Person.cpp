@@ -27,9 +27,9 @@ void Person::setEmail(std::string email) {
     this->email = email;
 }
 
-void Person::setCommMethod(int commMethod) {//TODO Throw error if commMethod out of range. Do we want an int or take a string like the constructor?
+void Person::setCommMethod(int commMethod) {//TODO Throw error if commMethod out of range. Do we want an int or take a string like the constructor
     if (commMethod > 3 and commMethod < 1) {
-
+        throw std::out_of_range("Invalid Value, please re-enter");
     }
     if (commMethod == 1) {
         this->commMethod = "Phone call";
