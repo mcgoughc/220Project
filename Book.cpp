@@ -17,8 +17,8 @@ Book::Book() {
 Book::Book(std::string title, std::string author, int want, int have) {
     this->title = std::move(title);
     this->author = std::move(author);
-    haveValue = want;
-    wantValue = have;
+    haveValue = have;
+    wantValue = want;
     waitListLength = 0;
     waitList = new LinkedQueue<Person>();
 }

@@ -72,7 +72,6 @@ void BookStore::add(std::string title, std::string author, int want, int have) {
     int foundIndex = findBook(title);
     if(foundIndex == -1) {
         if(booksInStore->itemCount() <= 0){
-
             booksInStore->insertAtFront(Book(title, author, want, have));
         } else {
             for (int bi = 0; bi <= booksInStore->itemCount(); bi++) {
@@ -82,10 +81,9 @@ void BookStore::add(std::string title, std::string author, int want, int have) {
                 }
             }
         }
-    }
-    else{
-        booksInStore->getValueAt(foundIndex).setWantValue(want);
-        booksInStore->getValueAt(foundIndex).setWantValue(have);
+    } else{
+        int newWant = booksInStore->getValueAt(foundIndex).getWantValue() + 1;
+        booksInStore->getValueAt(foundIndex).setWantValue(newWant);
     }
 }
 
@@ -119,9 +117,12 @@ void BookStore::sell(std::string title) {
     for (int bi = 0; bi < booksInStore->itemCount(); bi++) {
         if(booksInStore->getValueAt(bi).getTitle() == title){
             int haveValue = booksInStore->getValueAt(bi).getHaveValue();
-            if(haveValue > 0)
+            if(haveValue > 0) {
                 haveValue -= 1;
-            booksInStore->getValueAt(bi).setHaveValue(haveValue);
+                booksInStore->getValueAt(bi).setHaveValue(haveValue);
+            }else{
+                throw std::out_of_range("No more copies");
+            }
         }
     }
 }

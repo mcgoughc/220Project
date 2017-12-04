@@ -127,9 +127,15 @@ void bookstoreAddSell(BookStore& bookstore){
 
     try {
         bookstore.sell("Grant");
-        printf("Sold more copies than in the store");
+        printf("Sold more copies than in the store\n");
         errors = true;
     }catch(std::out_of_range &e){}
+
+    if(!errors){
+        printf("PASS\n");
+    }else{
+        printf("FAIL\n");
+    }
 }
 
 void bookstoreWantHave(BookStore& bookstore){
