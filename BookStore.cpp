@@ -69,10 +69,17 @@ std::string* BookStore::list() {
 
 
 void BookStore::add(std::string title, std::string author, int want, int have) {
-    for(int bi = 0; bi < booksInStore->itemCount(); bi++){
-        if(isAlphabeticallyGreaterThan(booksInStore->getValueAt(bi).getTitle(), title)){
-            booksInStore->insertAt(Book(title, author, want, have), bi);
+    int foundIndex = findBook(title);
+    if(foundIndex == -1) {
+        for (int bi = 0; bi < booksInStore->itemCount(); bi++) {
+            if (isAlphabeticallyGreaterThan(booksInStore->getValueAt(bi).getTitle(), title)) {
+                booksInStore->insertAt(Book(title, author, want, have), bi);
+            }
         }
+    }
+    else{
+        booksInStore->getValueAt(foundIndex).setWantValue(want);
+        booksInStore->getValueAt(foundIndex).setWantValue(have);
     }
 }
 
@@ -103,7 +110,14 @@ std::string* BookStore::getWaitList(std::string title) {
 
 
 void BookStore::sell(std::string title) {
-
+    for (int bi = 0; bi < booksInStore->itemCount(); bi++) {
+        if(booksInStore->getValueAt(bi).getTitle() == title){
+            int haveValue = booksInStore->getValueAt(bi).getHaveValue();
+            if(haveValue > 0)
+                haveValue -= 1;
+            booksInStore->getValueAt(bi).setHaveValue(haveValue);
+        }
+    }
 }
 
 

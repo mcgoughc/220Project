@@ -112,6 +112,7 @@ void personAssignOpCopyConst(Person& person1) {
 }
 
 void bookstoreAddSell(BookStore& bookstore){
+    //TODO Also check if book is added in proper place, and there are no duplicate entries
     printf("bookstoreAddSell ----------\n");
     bool errors = false;
 

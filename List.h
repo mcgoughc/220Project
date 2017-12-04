@@ -44,10 +44,10 @@ public:
     /**
      * gets a value from the list
      * @param index the location from which to get the value
-     * @returns a copy of the item at index
+     * @returns a reference to the item at index
      * @throws out_of_range exception if index is invalid
      */
-    virtual T getValueAt(int index)=0;
+    virtual T& getValueAt(int index)=0;
 
     /**
      * removes the item at index from the list, and returns a copy of that item

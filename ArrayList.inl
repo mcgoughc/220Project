@@ -133,7 +133,7 @@ void ArrayList<T>::insertAt(T itemToAdd, int index) {
 }
 
 template <class T>
-T ArrayList<T>::getValueAt(int index) {
+T& ArrayList<T>::getValueAt(int index) {
     if(index < currItemCount && index >= 0){
         return array[index];
     } else{

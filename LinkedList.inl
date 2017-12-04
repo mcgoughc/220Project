@@ -134,7 +134,7 @@ void LinkedList<T>::insertAt(T itemToAdd, int index) {
 
 //Return value at index
 template <class T>
-T LinkedList<T>::getValueAt(int index) {
+T& LinkedList<T>::getValueAt(int index) {
     if(index < 0 || index > currItemCount){
         throw std::out_of_range("Index not in range");
     }
