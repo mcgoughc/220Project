@@ -22,14 +22,8 @@ class Person {
     const int SEND_TEXT = 1;
     const int SEND_EMAIL = 2;
 
-    Person();
-
     //Constructor
     Person(std::string first, std::string last, std::string phoneNumberIn, std::string emailIn, std::string commMethodIN);
-
-    Person& operator=(const Person& personToCopy);
-
-    Person(const Person& personToCopy);
 
     /** Sets the name of the person
      * @param first
