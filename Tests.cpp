@@ -246,13 +246,36 @@ void linkQueueAssignOp(){
 
     Person testPerson1 = Person("Bill", "Sapsis", "18007854444", "billy@sri.org", "Text");
     Person testPerson2 = Person("Kim", "Turncliffe", "9048753000", "kimmie@yahoo.com", "Email");
+    Person testPerson3 = Person("Rachel", "Young", "3356874300", "ryoung@gmail.com", "Phone");
     LinkedQueue<Person>* origTestQueue = new LinkedQueue<Person>();
     LinkedQueue<Person>* newTestQueue = new LinkedQueue<Person>();
 
     origTestQueue->enqueue(testPerson1);
     origTestQueue->enqueue(testPerson2);
+    newTestQueue->enqueue(testPerson2);
 
+    newTestQueue = origTestQueue;
 
+    origTestQueue->enqueue(testPerson3);
 
+    Person returnPerson = newTestQueue->dequeue();
+    if(returnPerson.getName() == testPerson3.getName()){
+        printf("Fail. newTestQueue looking at origTestQueue\n");
+        errors = true;
+    }else if(returnPerson.getName() == testPerson1.getName()){
+        printf("Success\n");
+    }
+
+    delete returnPerson;
+    returnPerson = origTestQueue->dequeue();
+    if(returnPerson.getName() == testPerson3.getName()){
+        printf("Success\n");
+    }
+
+    if(!errors){
+        printf("PASS\n");
+    }else{
+        printf("FAIL\n");
+    }
 }
 
