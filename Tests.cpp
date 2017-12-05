@@ -112,7 +112,6 @@ void personAssignOpCopyConst(Person& person1) {
 }
 
 void bookstoreAddSell(BookStore& bookstore){
-    //TODO Also check if book is added in proper place, and there are no duplicate entries
     printf("bookstoreAddSell ----------\n");
     bool errors = false;
 
@@ -279,5 +278,25 @@ void linkQueueAssignOp(){
     }else{
         printf("FAIL\n");
     }
+}
+
+void arrayInventoryAddItem(){
+    printf("arrayInventoryAddItem ---------- \n");
+    Book b1 = Book("Aab", "Jon", 5, 5);
+    Book b2 = Book("Aaa", "Mon", 5, 5);
+    Book b3 = Book("Ccc", "Bon", 5, 5);
+    Book b4 = Book("Dad", "Ron", 5, 5);
+    Inventory myInv = Inventory();
+
+    myInv.addItem(b1);
+    myInv.addItem(b2);
+    myInv.addItem(b3);
+    myInv.addItem(b4);
+
+    std::cout <<  &myInv.getItem("Aaa");
+    std::cout <<  &myInv.getItem("Aab");
+    std::cout <<  &myInv.getItem("Ccc");
+    std::cout <<  &myInv.getItem("Dad");
+
 }
 
