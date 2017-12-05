@@ -38,18 +38,13 @@ Person Book::removeFromWaitList() {
 }
 
 std::string Book::getWaitList() {
-    std::string returnList;
-    Queue<Person>* waitListCopy = new LinkedQueue<Person>();
-    waitListCopy = waitList;
-    for (int i = 0; i < waitListLength; ++i) {
-        Person curr = waitListCopy->dequeue();
-        returnList += curr.getName() + ". ";
+    std::string output;
+    if(waitList->isEmpty()){
+        output = "Waitlist is empty";
+    }else{
+        output = waitList->toString();
     }
-
-    if(!returnList.empty()){
-        returnList.erase(returnList.end()-2, returnList.end());
-    }
-    return returnList;
+    return output;
 }
 
 int Book::getHaveValue() {
@@ -78,5 +73,9 @@ void Book::setWantValue(int newValue) {
 
 std::string Book::getTitle() {
     return title;
+}
+
+std::string Book::getAuthor() {
+    return author;
 }
 

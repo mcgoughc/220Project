@@ -41,13 +41,12 @@ void bookWaitList(Book& book1, Person& person1, Person& person2){
     book1.addToWaitList(person1);
     book1.addToWaitList(person2);
     std::cout << book1.getWaitList() << std::endl;
-/*
+
     book1.removeFromWaitList();
     std::cout << book1.getWaitList() << std::endl;
     book1.removeFromWaitList();
     std::cout << book1.getWaitList() << std::endl;
 
- */
     try{
         book1.removeFromWaitList();
         printf("Removed from empty wait list\n");
@@ -113,6 +112,7 @@ void personAssignOpCopyConst(Person& person1) {
 }
 
 void bookstoreAddSell(BookStore& bookstore){
+    //TODO Also check if book is added in proper place, and there are no duplicate entries
     printf("bookstoreAddSell ----------\n");
     bool errors = false;
 
@@ -279,32 +279,5 @@ void linkQueueAssignOp(){
     }else{
         printf("FAIL\n");
     }
-}
-
-void arrayInventoryAddItem(){
-    printf("arrayInventoryAddItem ---------- \n");
-    Book b1 = Book("FA FA", "Jon", 5, 5);
-    Book b2 = Book("Ccc", "Jon", 5, 5);
-    Book b3 = Book("Aaa", "Mon", 5, 5);
-    Book b4 = Book("Aab", "Bon", 5, 5);
-    Book b5 = Book("Dad", "Ron", 5, 5);
-    ArrayInventory* myInv = new ArrayInventory();
-
-    myInv->addItem(b1);
-    myInv->addItem(b2);
-    myInv->addItem(b3);
-    myInv->addItem(b4);
-    myInv->addItem(b5);
-
-    std::cout << "Expected: -101234" << std::endl;
-    std::cout << "Actual: ";
-    std::cout << myInv->getIndex("Zo Zo");
-    std::cout << myInv->getIndex("Aaa");
-    std::cout << myInv->getIndex("Aab");
-    std::cout << myInv->getIndex("Ccc");
-    std::cout << myInv->getIndex("Dad");
-    std::cout << myInv->getIndex("FA FA") << std::endl;
-
-    delete myInv;
 }
 
