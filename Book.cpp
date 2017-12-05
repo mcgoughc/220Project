@@ -51,7 +51,14 @@ std::string Book::getWaitList() {
     }
     return returnList;
      */
-    std::string output = waitList->toString();
+
+
+    std::string output;
+    if(waitList->isEmpty()){
+        output = "Waitlist is empty";
+    }else{
+        output = waitList->toString();
+    }
     return output;
 }
 
