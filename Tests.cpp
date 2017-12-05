@@ -41,12 +41,13 @@ void bookWaitList(Book& book1, Person& person1, Person& person2){
     book1.addToWaitList(person1);
     book1.addToWaitList(person2);
     std::cout << book1.getWaitList() << std::endl;
-
+/*
     book1.removeFromWaitList();
     std::cout << book1.getWaitList() << std::endl;
     book1.removeFromWaitList();
     std::cout << book1.getWaitList() << std::endl;
 
+ */
     try{
         book1.removeFromWaitList();
         printf("Removed from empty wait list\n");
@@ -282,21 +283,28 @@ void linkQueueAssignOp(){
 
 void arrayInventoryAddItem(){
     printf("arrayInventoryAddItem ---------- \n");
-    Book b1 = Book("Aab", "Jon", 5, 5);
-    Book b2 = Book("Aaa", "Mon", 5, 5);
-    Book b3 = Book("Ccc", "Bon", 5, 5);
-    Book b4 = Book("Dad", "Ron", 5, 5);
-    Inventory myInv = Inventory();
+    Book b1 = Book("FA FA", "Jon", 5, 5);
+    Book b2 = Book("Ccc", "Jon", 5, 5);
+    Book b3 = Book("Aaa", "Mon", 5, 5);
+    Book b4 = Book("Aab", "Bon", 5, 5);
+    Book b5 = Book("Dad", "Ron", 5, 5);
+    ArrayInventory* myInv = new ArrayInventory();
 
-    myInv.addItem(b1);
-    myInv.addItem(b2);
-    myInv.addItem(b3);
-    myInv.addItem(b4);
+    myInv->addItem(b1);
+    myInv->addItem(b2);
+    myInv->addItem(b3);
+    myInv->addItem(b4);
+    myInv->addItem(b5);
 
-    std::cout <<  &myInv.getItem("Aaa");
-    std::cout <<  &myInv.getItem("Aab");
-    std::cout <<  &myInv.getItem("Ccc");
-    std::cout <<  &myInv.getItem("Dad");
+    std::cout << "Expected: -101234" << std::endl;
+    std::cout << "Actual: ";
+    std::cout << myInv->getIndex("Zo Zo");
+    std::cout << myInv->getIndex("Aaa");
+    std::cout << myInv->getIndex("Aab");
+    std::cout << myInv->getIndex("Ccc");
+    std::cout << myInv->getIndex("Dad");
+    std::cout << myInv->getIndex("FA FA") << std::endl;
 
+    delete myInv;
 }
 
