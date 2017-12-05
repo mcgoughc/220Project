@@ -71,10 +71,19 @@ public:
 
     /**
     * Finds and returns a reference to an item
+     * Linear Search
     * @param title The title of the book
     * @return The book
     */
     Book& getItem(std::string title);
+
+    /**
+     * Finds and returns a reference to an item
+     * Binary Search
+     * @param title The title of the book
+     * @return The book
+     */
+    Book& binGetItem(std::string title);
 
     /**
      * checks if there are any valid items in the inventory

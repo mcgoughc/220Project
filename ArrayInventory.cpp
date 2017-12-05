@@ -121,6 +121,22 @@ Book& ArrayInventory::getItem(std::string title) {//TODO make this a bin find in
     }
 }
 
+int binFind(Book* arrayPtr, int min, int max, std::string titleToFind){
+    if(min <= max){
+        int middle = (min + max)/2;
+
+        if(isAlphabeticallyGreaterThan(arrayPtr[middle].getTitle(), titleToFind)){
+
+        }
+    }
+}
+
+Book& ArrayInventory::binGetItem(std::string title) {
+    int idx = binFind(array, 0, currItemCount-1, title);
+    return array[idx];
+}
+
+
 bool ArrayInventory::isEmpty() {
     return currItemCount == 0;
 }
@@ -129,5 +145,40 @@ int ArrayInventory::itemCount() {
     return currItemCount;
 }
 
+/**
+ * Helper function for isAlphabeticallyGreaterThan
+ * Gets alphabetical position of char
+ * @param input char to calculate value of
+ * @return value input char of to be used for comparison
+ */
+int charValue(char input){
+    int characterValue = (int)input;                      //Gets the ASCII value of the character
+    if(characterValue >= 65 && characterValue <= 90)      //If char is between capital A to Z
+        characterValue -= 64;                             //subtract so that A = 1 and Z = 26
+    else if(characterValue >= 97 && characterValue <= 122)//If char is between lower-case a to z
+        characterValue -= 96;                             //subtract so that a = 1 and z = 26
+    else
+        characterValue = 0;                               //All other characters will be ignored
+    return characterValue;
+}
+
+
+bool isAlphabeticallyGreaterThan(std::string A, std::string B) {
+    int shorterLength = std::min(A.length(), B.length());
+    bool foundGreaterCharacter = false;
+    bool allEqual = true;
+    for(int s = 0; s < shorterLength; s++){
+        if(charValue(A.at(s)) > charValue(B.at(s))) {
+            foundGreaterCharacter = true;
+            allEqual = false;
+        }
+        else if(charValue(A.at(s)) < charValue(B.at(s))){
+            allEqual = false;
+        }
+    }
+    if(allEqual && A.length() != B.length())
+        foundGreaterCharacter = false;
+    return foundGreaterCharacter;
+}
 
 
