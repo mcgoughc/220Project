@@ -38,21 +38,6 @@ Person Book::removeFromWaitList() {
 }
 
 std::string Book::getWaitList() {
-    /*
-    std::string returnList;
-    Queue<Person>* waitListCopy = waitList;
-    for (int i = 0; i < waitListLength; ++i) {
-        Person curr = waitListCopy->dequeue();
-        returnList += curr.getName() + ". ";
-    }
-
-    if(!returnList.empty()){
-        returnList.erase(returnList.end()-2, returnList.end());
-    }
-    return returnList;
-     */
-
-
     std::string output;
     if(waitList->isEmpty()){
         output = "Waitlist is empty";
