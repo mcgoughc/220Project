@@ -128,3 +128,6 @@ bool ArrayInventory::isEmpty() {
 int ArrayInventory::itemCount() {
     return currItemCount;
 }
+
+
+
