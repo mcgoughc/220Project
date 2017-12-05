@@ -3,11 +3,11 @@
 //
 
 #include "BookStore.h"
-#include "ArrayList.h"
+#include "ArrayInventory.h"
 #include <iostream>
 
 BookStore::BookStore() {
-    booksInStore = new ArrayList<Book>();
+    booksInStore = new ArrayInventory();
 
 }
 
@@ -69,22 +69,7 @@ std::string BookStore::list() {
 
 
 void BookStore::add(std::string title, std::string author, int want, int have) {
-    int foundIndex = findBook(title);
-    if(foundIndex == -1) {
-        if(booksInStore->itemCount() <= 0){
-            booksInStore->insertAtFront(Book(title, author, want, have));
-        } else {
-            for (int bi = 0; bi <= booksInStore->itemCount(); bi++) {
-                if (isAlphabeticallyGreaterThan(booksInStore->getValueAt(bi).getTitle(), title)) {
-                    booksInStore->insertAt(Book(title, author, want, have), bi);
-                    return;
-                }
-            }
-        }
-    } else{
-        int newHave = booksInStore->getValueAt(foundIndex).getHaveValue() + 1;
-        booksInStore->getValueAt(foundIndex).setHaveValue(newHave);
-    }
+    booksInStore->addItem(Book(title, author, want, have));
 }
 
 
@@ -114,17 +99,7 @@ std::string* BookStore::getWaitList(std::string title) {
 
 
 void BookStore::sell(std::string title) {
-    for (int bi = 0; bi < booksInStore->itemCount(); bi++) {
-        if(booksInStore->getValueAt(bi).getTitle() == title){
-            int haveValue = booksInStore->getValueAt(bi).getHaveValue();
-            if(haveValue > 0) {
-                haveValue -= 1;
-                booksInStore->getValueAt(bi).setHaveValue(haveValue);
-            }else{
-                throw std::out_of_range("No more copies");
-            }
-        }
-    }
+    booksInStore->sellItem(title);
 }
 
 

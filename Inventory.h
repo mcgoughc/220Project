@@ -9,8 +9,8 @@
 #define TEMPLATELIST_LIST_H
 
 #include <stdexcept>
+#include "Book.h"
 
-template <class T>
 class Inventory {
 public:
     //Destructor
@@ -20,14 +20,20 @@ public:
      * Adds a new type of item to the inventory
      * @param item The item to add
      */
-    virtual void addItem(T item)=0;
+    virtual void addItem(Book item)=0;
 
     /**
      * Sell an item in the inventory
-     * @param item Item to sell
+     * @param title Title of Item to sell
      */
-    virtual void sellItem(T item)=0;
+    virtual void sellItem(std::string title)=0;
 
+    /**
+     * Finds and returns a reference to an item
+     * @param title The title of the book
+     * @return The book
+     */
+    virtual Book& getItem(std::string title)=0;
     /**
      * checks if there are any valid items in the list
      * @returns true if there are no valid items in the list, false otherwise
