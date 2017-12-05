@@ -114,3 +114,15 @@ template <class T>
 bool LinkedQueue<T>::isEmpty(){
     return front == nullptr;
 }
+
+template <class T>
+std::string LinkedQueue<T>::toString(){
+    LinkedNode<T>* curr = this->front;
+    std::string output;
+    while(curr != this->end){
+        output += curr->getItem().getName + ", ";
+        curr = curr->getNext();
+    }
+
+    return output;
+}

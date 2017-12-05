@@ -47,6 +47,9 @@ public:
     //returns true if the queue has no items, false otherwise
     bool isEmpty();
 
+    //Returns a string of names
+    std::string toString();
+
 };
 
 #include "LinkedQueue.inl"

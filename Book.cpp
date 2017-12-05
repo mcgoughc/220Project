@@ -38,9 +38,9 @@ Person Book::removeFromWaitList() {
 }
 
 std::string Book::getWaitList() {
+    /*
     std::string returnList;
-    Queue<Person>* waitListCopy = new LinkedQueue<Person>();
-    waitListCopy = waitList;
+    Queue<Person>* waitListCopy = waitList;
     for (int i = 0; i < waitListLength; ++i) {
         Person curr = waitListCopy->dequeue();
         returnList += curr.getName() + ". ";
@@ -50,6 +50,9 @@ std::string Book::getWaitList() {
         returnList.erase(returnList.end()-2, returnList.end());
     }
     return returnList;
+     */
+    std::string output = waitList->toString();
+    return output;
 }
 
 int Book::getHaveValue() {
