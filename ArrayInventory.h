@@ -80,7 +80,7 @@ public:
      * @param title The title of the book
      * @return The book
      */
-    int binGetItem(std::string title);
+    Book& binGetItem(std::string title);
 
     /**
      * checks if there are any valid items in the inventory
@@ -93,6 +93,24 @@ public:
      * @returns the number of valid items in the inventory
      */
     int itemCount();
+
+    /**
+     *
+     * @param A a book title
+     * @param B a book title
+     * @return true or false based on comparison
+     */
+    bool isAlphabeticallyGreaterThan(std::string A, std::string B);
+
+    /**
+     *
+     * @param arrayPtr
+     * @param min
+     * @param max
+     * @param titleToFind
+     * @return index of the book
+     */
+    int binFind(Book* arrayPtr, int min, int max, std::string titleToFind);
 
 
 };

@@ -146,7 +146,7 @@ int charValue(char input){
 }
 
 
-bool isAlphabeticallyGreaterThan(std::string A, std::string B) {
+bool ArrayInventory::isAlphabeticallyGreaterThan(std::string A, std::string B) {
     int shorterLength = std::min(A.length(), B.length());
     bool foundGreaterCharacter = false;
     bool allEqual = true;
@@ -164,7 +164,7 @@ bool isAlphabeticallyGreaterThan(std::string A, std::string B) {
     return foundGreaterCharacter;
 }
 
-int binFind(Book* arrayPtr, int min, int max, std::string titleToFind){
+int ArrayInventory::binFind(Book* arrayPtr, int min, int max, std::string titleToFind){
     if(min <= max){
         int middle = (min + max)/2;
 
@@ -182,13 +182,12 @@ int binFind(Book* arrayPtr, int min, int max, std::string titleToFind){
 
 int ArrayInventory::binGetItem(std::string title) {
     int idx = binFind(array, 0, currItemCount-1, title);
-    return idx;
-    /*
+    //return idx;
     if(idx == -1){
         throw std::out_of_range("No such book exists");
     }else{
         return array[idx];
-    }*/
+    }
 
 }
 

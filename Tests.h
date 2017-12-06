@@ -20,7 +20,7 @@ void personSetGet(Person& person1);
 
 void personAssignOpCopyConst(Person& person1);
 
-void bookstoreAddSell(BookStore& bookstore);
+//void bookstoreAddSell(BookStore& bookstore);
 
 void bookstoreWantHave(BookStore& bookstore);
 
@@ -30,7 +30,7 @@ void bookstoreWaitlist(BookStore& bookstore);
 
 void bookstoreAssignOpCopyConst(BookStore& bookstore);
 
-void isAlphaGreaterThanTest(BookStore& bookStore);
+void isAlphaGreaterThanTest(ArrayInventory& inventory);
 
 void linkQueueAssignOp();
 

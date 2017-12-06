@@ -18,7 +18,7 @@ void runTests(){
     std::cout << std::endl;
     //isAlphaGreaterThanTest(bs);
     std::cout << std::endl;
-    bookstoreAddSell(bs);
+    //bookstoreAddSell(bs);
     //std::cout << std::endl;
     //bookstoreWantHave(bs);
     std::cout << std::endl;
@@ -27,8 +27,6 @@ void runTests(){
     //bookstoreWaitlist(bs);
     std::cout << std::endl;
     linkQueueAssignOp();
-    std::cout << std::endl;
-    //arrayInventoryAddItem();
 
 }
 
