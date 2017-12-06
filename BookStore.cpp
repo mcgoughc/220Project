@@ -36,27 +36,27 @@ void BookStore::add(std::string title, std::string author, int want, int have) {
 
 
 void BookStore::setWant(std::string title, int newWant) {
-
+    booksInStore->binGetItem(title).setWantValue(newWant);
 }
 
 
 void BookStore::setHave(std::string title, int newHave) {
-
+    booksInStore->binGetItem(title).setHaveValue(newHave);
 }
 
 
 int BookStore::getWant(std::string title) {
-    return booksInStore->binGetItem(title).wantValue();
+    return booksInStore->binGetItem(title).getWantValue();
 }
 
 
 int BookStore::getHave(std::string title) {
-    return booksInStore->binGetItem(title).haveValue();
+    return booksInStore->binGetItem(title).getHaveValue();
 }
 
 
 std::string BookStore::getWaitList(std::string title) {
-    return nullptr;
+    return booksInStore->binGetItem(title).getWaitList();
 }
 
 
