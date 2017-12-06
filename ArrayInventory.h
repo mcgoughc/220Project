@@ -80,7 +80,7 @@ public:
      * @param title The title of the book
      * @return The book
      */
-    int binGetItem(std::string title);
+    Book& binGetItem(std::string title);
 
     /**
      * checks if there are any valid items in the inventory

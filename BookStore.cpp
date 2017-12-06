@@ -116,6 +116,6 @@ void BookStore::returnBooks(std::string outputFile) {
     //TODO file IO
 }
 
-int BookStore::findBook(std::string titleToFind){
+Book& BookStore::findBook(std::string titleToFind){
     return booksInStore->binGetItem(titleToFind);
 }

@@ -115,7 +115,7 @@ public:
      * @param titleToFind
      * @return index of the book, or -1 if the list is empty/the title does not match any book
      */
-    int findBook(std::string titleToFind);
+    Book& findBook(std::string titleToFind);
 
 };
 
