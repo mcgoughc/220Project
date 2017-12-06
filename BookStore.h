@@ -74,7 +74,7 @@ public:
      * @param title  Book to get waitlist of
      * @return  Array of strings of people's names
      */
-    std::string* getWaitList(std::string title);
+    std::string getWaitList(std::string title);
 
     /**
      * Sell a book, decrease have value by one
