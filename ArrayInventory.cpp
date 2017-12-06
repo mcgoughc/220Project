@@ -128,6 +128,14 @@ int ArrayInventory::itemCount() {
     return currItemCount;
 }
 
+std::string ArrayInventory::listInventory(){
+    std::string output;
+    for(int b = 0; b < currItemCount; b++){
+        output += array[b].getTitle() + "\n";
+    }
+    return output;
+}
+
 /**
  * Helper function for isAlphabeticallyGreaterThan
  * Gets alphabetical position of char

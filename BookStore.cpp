@@ -26,7 +26,7 @@ BookStore::~BookStore() {
 
 
 std::string BookStore::list() {
-    return nullptr;
+    return booksInStore->listInventory();
 }
 
 

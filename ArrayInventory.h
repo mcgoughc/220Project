@@ -112,6 +112,12 @@ public:
      */
     int binFind(Book* arrayPtr, int min, int max, std::string titleToFind);
 
+    /**
+    * Lists items in the inventory
+    * @return A string list of the inventory
+    */
+    std::string listInventory();
+
 
 };
 
