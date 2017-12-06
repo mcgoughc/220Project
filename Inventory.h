@@ -57,6 +57,12 @@ public:
      * @returns the number of valid items in the list
      */
     virtual int itemCount()=0;
+
+    /**
+     * Lists items in the inventory
+     * @return A string list of the inventory
+     */
+    virtual std::string listInventory()=0;
 };
 
 #endif //TEMPLATELIST_LIST_H
