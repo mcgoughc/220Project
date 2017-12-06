@@ -110,7 +110,7 @@ void personAssignOpCopyConst(Person& person1) {
     printf("personAssignOpCopyConst ----------\n");
 
 }
-/*
+
 void bookstoreAddSell(BookStore& bookstore){
     //TODO Also check if book is added in proper place, and there are no duplicate entries
     printf("bookstoreAddSell ----------\n");
@@ -137,7 +137,7 @@ void bookstoreAddSell(BookStore& bookstore){
         printf("FAIL\n");
     }
 }
-*/
+
 void bookstoreWantHave(BookStore& bookstore){
     printf("bookstoreAddSell ----------\n");
     bool errors = false;
