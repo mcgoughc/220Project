@@ -178,18 +178,18 @@ void bookstoreFind(BookStore& bookstore){
     bookstore.add("Lincoln", "Abe Lincoln", 5, 5);
     bookstore.add("Grant", "Bjarn strautsrup", 5, 1);
 
-    int linIdx = bookstore.findBook("Lincoln");
-    int granIdx = bookstore.findBook("Grant");
+    Book& lin = bookstore.findBook("Lincoln");
+    Book& gran = bookstore.findBook("Grant");
 
-    if(linIdx != 1){
+    if(lin.getTitle() != "Lincoln"){
         std::cout << "Wrong index for Lincoln" << std::endl;
-        std::cout << "Index returned was: " << linIdx << std::endl;
+        std::cout << "Index returned was: " << lin.getTitle() << std::endl;
         errors = true;
     }
 
-    if(granIdx != 0){
+    if(gran.getTitle() != "Grant"){
         std::cout << "Wrong index for Grant" << std::endl;
-        std::cout << "Index returned was: " << granIdx << std::endl;
+        std::cout << "Index returned was: " << gran.getTitle() << std::endl;
         errors = true;
     }
 
