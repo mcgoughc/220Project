@@ -180,7 +180,7 @@ int ArrayInventory::binFind(Book* arrayPtr, int min, int max, std::string titleT
     }
 }
 
-int ArrayInventory::binGetItem(std::string title) {
+Book& ArrayInventory::binGetItem(std::string title) {
     int idx = binFind(array, 0, currItemCount-1, title);
     //return idx;
     if(idx == -1){
