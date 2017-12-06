@@ -15,13 +15,14 @@ Book::Book() {
 }
 
 Book::Book(std::string title, std::string author, int want, int have) {
-    this->title = std::move(title);
-    this->author = std::move(author);
+    this->title = title;
+    this->author = author;
     haveValue = have;
     wantValue = want;
     waitListLength = 0;
     waitList = new LinkedQueue<Person>();
 }
+
 
 void Book::addToWaitList(Person &p) {
     waitList->enqueue(p);
