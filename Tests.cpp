@@ -3,7 +3,6 @@
 //
 
 #include "Tests.h"
-#include "ArrayInventory.h"
 
 
 void bookHaveWant(Book& book1){
@@ -208,14 +207,14 @@ void bookstoreAssignOpCopyConst(BookStore& bookstore){
 void bookstoreWaitlist(BookStore &bookstore) {
 
 }
-
-void isAlphaGreaterThanTest(ArrayInventory& inventory){
+/*
+void isAlphaGreaterThanTest(BookStore& bookStore){
     bool errors = false;
     printf("isAlphaGreaterThanTest ------------\n");
 
     std::string a1 = "AAA";
     std::string a2 = "aaa";
-    if(inventory.isAlphabeticallyGreaterThan(a1, a2) == true) {
+    if(bookStore.isAlphabeticallyGreaterThan(a1, a2) == true) {
         printf("error");
         errors = true;
     }
@@ -240,7 +239,7 @@ void isAlphaGreaterThanTest(ArrayInventory& inventory){
     }
 
 }
-
+*/
 
 void linkQueueAssignOp(){
     printf("linkedQueueAssignOp ----------\n");
