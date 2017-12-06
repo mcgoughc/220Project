@@ -8,7 +8,8 @@ void runTests(){
     Book book2 = Book("Pachinko","Min Jin Lee", 0, 0);
     Person person1 = Person("First","Last", "Phone Num", "Email", "Text");
     Person person2 = Person("First","Last", "Phone Num", "Email", "Text");
-    BookStore bs = BookStore();
+    ArrayInventory bs = ArrayInventory();
+    BookStore b1 = BookStore();
 
     bookHaveWant(book1);
     std::cout << std::endl;
@@ -16,13 +17,13 @@ void runTests(){
     std::cout << std::endl;
     personSetGet(person1);
     std::cout << std::endl;
-    //isAlphaGreaterThanTest(bs);
+    isAlphaGreaterThanTest(bs);
     std::cout << std::endl;
     //bookstoreAddSell(bs);
     //std::cout << std::endl;
     //bookstoreWantHave(bs);
     std::cout << std::endl;
-    bookstoreFind(bs);
+    bookstoreFind(b1);
     //std::cout << std::endl;
     //bookstoreWaitlist(bs);
     std::cout << std::endl;
