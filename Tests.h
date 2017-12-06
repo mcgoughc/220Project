@@ -7,6 +7,7 @@
 #include "Book.h"
 #include "BookStore.h"
 #include "LinkedQueue.h"
+#include "ArrayInventory.h"
 #include <iostream>
 
 void bookHaveWant(Book& book1);
@@ -32,6 +33,8 @@ void bookstoreAssignOpCopyConst(BookStore& bookstore);
 void isAlphaGreaterThanTest(BookStore& bookStore);
 
 void linkQueueAssignOp();
+
+void arrayInventoryAddItem();
 
 #define INC_220PROJECT_BOOKTESTS_H
 

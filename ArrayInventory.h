@@ -5,10 +5,7 @@
 #ifndef TEMPLATELIST_ARRAYLIST_H
 #define TEMPLATELIST_ARRAYLIST_H
 
-#include <stdexcept>
-#include <string>
 #include "Inventory.h"
-#include "Book.h"
 
 //TODO Clean up + Add comments/headers
 
@@ -71,10 +68,19 @@ public:
 
     /**
     * Finds and returns a reference to an item
+     * Linear Search
     * @param title The title of the book
     * @return The book
     */
     Book& getItem(std::string title);
+
+    /**
+     * Finds and returns a reference to an item
+     * Binary Search
+     * @param title The title of the book
+     * @return The book
+     */
+    int binGetItem(std::string title);
 
     /**
      * checks if there are any valid items in the inventory
@@ -87,7 +93,6 @@ public:
      * @returns the number of valid items in the inventory
      */
     int itemCount();
-
 
 
 };
