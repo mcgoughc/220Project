@@ -9,6 +9,8 @@
 #define TEMPLATELIST_LIST_H
 
 #include <stdexcept>
+#include <string>
+#include <iostream>
 #include "Book.h"
 
 class Inventory {
@@ -42,7 +44,7 @@ public:
      * @param title The title of the book
      * @return The book
      */
-    virtual Book& binGetItem(std::string title)=0;
+    virtual int binGetItem(std::string title)=0;
 
     /**
      * checks if there are any valid items in the list

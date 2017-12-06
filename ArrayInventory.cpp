@@ -3,9 +3,7 @@
 //
 
 
-#include <iostream>
 #include "ArrayInventory.h"
-#include "Book.h"
 
 //Constructor
 ArrayInventory::ArrayInventory(int initialCapacity) {
@@ -182,13 +180,15 @@ int binFind(Book* arrayPtr, int min, int max, std::string titleToFind){
     }
 }
 
-Book& ArrayInventory::binGetItem(std::string title) {
+int ArrayInventory::binGetItem(std::string title) {
     int idx = binFind(array, 0, currItemCount-1, title);
+    return idx;
+    /*
     if(idx == -1){
         throw std::out_of_range("No such book exists");
     }else{
         return array[idx];
-    }
+    }*/
 
 }
 

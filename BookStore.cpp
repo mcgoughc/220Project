@@ -3,6 +3,7 @@
 //
 
 #include "BookStore.h"
+#include "ArrayInventory.h"
 
 BookStore::BookStore() {
     booksInStore = new ArrayInventory();
@@ -116,5 +117,5 @@ void BookStore::returnBooks(std::string outputFile) {
 }
 
 int BookStore::findBook(std::string titleToFind){
-    booksInStore->binGetItem(titleToFind);
+    return booksInStore->binGetItem(titleToFind);
 }

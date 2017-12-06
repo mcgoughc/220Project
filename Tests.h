@@ -7,6 +7,7 @@
 #include "Book.h"
 #include "BookStore.h"
 #include "LinkedQueue.h"
+#include "ArrayInventory.h"
 #include <iostream>
 
 void bookHaveWant(Book& book1);
