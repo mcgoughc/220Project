@@ -31,6 +31,7 @@ BookStore::~BookStore() {
  * @param input char to calculate value of
  * @return value input char of to be used for comparison
  */
+/*
 int charValue(char input){
         int characterValue = (int)input;                      //Gets the ASCII value of the character
         if(characterValue >= 65 && characterValue <= 90)      //If char is between capital A to Z
@@ -60,7 +61,7 @@ bool BookStore::isAlphabeticallyGreaterThan(std::string A, std::string B) {
         foundGreaterCharacter = false;
     return foundGreaterCharacter;
 }
-
+*/
 
 std::string BookStore::list() {
     return nullptr;

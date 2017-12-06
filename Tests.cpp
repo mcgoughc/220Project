@@ -207,7 +207,7 @@ void bookstoreAssignOpCopyConst(BookStore& bookstore){
 void bookstoreWaitlist(BookStore &bookstore) {
 
 }
-
+/*
 void isAlphaGreaterThanTest(BookStore& bookStore){
     bool errors = false;
     printf("isAlphaGreaterThanTest ------------\n");
@@ -239,6 +239,7 @@ void isAlphaGreaterThanTest(BookStore& bookStore){
     }
 
 }
+*/
 
 void linkQueueAssignOp(){
     printf("linkedQueueAssignOp ----------\n");
