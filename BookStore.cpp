@@ -7,12 +7,11 @@
 
 BookStore::BookStore() {
     booksInStore = new ArrayInventory();
-
 }
 
 
 BookStore::BookStore(const BookStore &bookstoreToCopy) {
-
+    //TODO
 }
 
 
@@ -104,17 +103,17 @@ void BookStore::sell(std::string title) {
 
 
 void BookStore::order(std::string outputFile) {
-
+    //TODO file IO
 }
 
 
 void BookStore::deliver(std::string inputFile) {
-
+    //TODO file IO
 }
 
 
 void BookStore::returnBooks(std::string outputFile) {
-
+    //TODO file IO
 }
 
 int BookStore::findBook(std::string titleToFind){
