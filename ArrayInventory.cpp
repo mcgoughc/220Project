@@ -114,11 +114,12 @@ void ArrayInventory::sellItem(std::string title){
     }
 }
 
-Book& ArrayInventory::getItem(std::string title) {//TODO make this a bin find instead of a linear search
+Book& ArrayInventory::getItem(std::string title) {
     for(int b = 0; b < currItemCount; b++) {
         if(array[b].getTitle() == title)
             return array[b];
     }
+    throw std::out_of_range("No such book exists");
 }
 
 bool ArrayInventory::isEmpty() {
@@ -170,9 +171,9 @@ int binFind(Book* arrayPtr, int min, int max, std::string titleToFind){
         int middle = (min + max)/2;
 
         if(isAlphabeticallyGreaterThan(arrayPtr[middle].getTitle(), titleToFind)){
-            binFind(arrayPtr, min, middle-1, titleToFind);
+            return binFind(arrayPtr, min, middle-1, titleToFind);
         }else if(!isAlphabeticallyGreaterThan(arrayPtr[middle].getTitle(), titleToFind)){
-            binFind(arrayPtr, middle+1, max, titleToFind);
+            return binFind(arrayPtr, middle+1, max, titleToFind);
         }else{
             return middle;
         }
@@ -183,6 +184,11 @@ int binFind(Book* arrayPtr, int min, int max, std::string titleToFind){
 
 Book& ArrayInventory::binGetItem(std::string title) {
     int idx = binFind(array, 0, currItemCount-1, title);
-    return array[idx];
+    if(idx == -1){
+        throw std::out_of_range("No such book exists");
+    }else{
+        return array[idx];
+    }
+
 }
 

@@ -28,7 +28,7 @@ void runTests(){
     std::cout << std::endl;
     linkQueueAssignOp();
     std::cout << std::endl;
-    arrayInventoryAddItem();
+    //arrayInventoryAddItem();
 
 }
 

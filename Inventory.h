@@ -30,10 +30,20 @@ public:
 
     /**
      * Finds and returns a reference to an item
+     * Linear Search
      * @param title The title of the book
      * @return The book
      */
     virtual Book& getItem(std::string title)=0;
+
+    /**
+     * Finds and returns a reference to an item
+     * Binary Search
+     * @param title The title of the book
+     * @return The book
+     */
+    virtual Book& binGetItem(std::string title)=0;
+
     /**
      * checks if there are any valid items in the list
      * @returns true if there are no valid items in the list, false otherwise
