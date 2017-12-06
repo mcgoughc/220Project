@@ -27,8 +27,6 @@ void runTests(){
     //bookstoreWaitlist(bs);
     std::cout << std::endl;
     linkQueueAssignOp();
-    std::cout << std::endl;
-    //arrayInventoryAddItem();
 
 }
 

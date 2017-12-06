@@ -207,8 +207,6 @@ void bookstoreAssignOpCopyConst(BookStore& bookstore){
 void bookstoreWaitlist(BookStore &bookstore) {
 
 }
-
-//TODO Change to isAlphabeticallyGreaterThanTest in ArrayInventory
 /*
 void isAlphaGreaterThanTest(BookStore& bookStore){
     bool errors = false;
