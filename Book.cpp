@@ -75,3 +75,7 @@ std::string Book::getTitle() {
     return title;
 }
 
+std::string Book::getAuthor() {
+    return author;
+}
+

@@ -78,6 +78,11 @@ public:
      * @return title
      */
     std::string getTitle();
+
+    /**
+     * @return author of book
+     */
+    std::string getAuthor();
 };
 
 

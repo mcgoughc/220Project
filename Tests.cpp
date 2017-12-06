@@ -40,12 +40,12 @@ void bookWaitList(Book& book1, Person& person1, Person& person2){
 
     book1.addToWaitList(person1);
     book1.addToWaitList(person2);
-    std::cout << "1 " << book1.getWaitList() << std::endl;
+    std::cout << book1.getWaitList() << std::endl;
 
     book1.removeFromWaitList();
-    std::cout << "2 " << book1.getWaitList() << std::endl;
+    std::cout << book1.getWaitList() << std::endl;
     book1.removeFromWaitList();
-    std::cout << "3 " << book1.getWaitList() << std::endl;
+    std::cout << book1.getWaitList() << std::endl;
 
     try{
         book1.removeFromWaitList();
