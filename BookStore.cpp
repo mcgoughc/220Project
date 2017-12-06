@@ -68,7 +68,8 @@ std::string BookStore::list() {
 
 
 void BookStore::add(std::string title, std::string author, int want, int have) {
-    booksInStore->addItem(Book(title, author, want, have));
+    Book bkToAdd = Book(title, author, want, have);
+    booksInStore->addItem(bkToAdd);
 }
 
 
