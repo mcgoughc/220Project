@@ -24,46 +24,9 @@ BookStore::~BookStore() {
     delete booksInStore;
 }
 
-/**
- * Helper function for isAlphabeticallyGreaterThan
- * Gets alphabetical position of char
- * @param input char to calculate value of
- * @return value input char of to be used for comparison
- */
-/*
-int charValue(char input){
-        int characterValue = (int)input;                      //Gets the ASCII value of the character
-        if(characterValue >= 65 && characterValue <= 90)      //If char is between capital A to Z
-            characterValue -= 64;                             //subtract so that A = 1 and Z = 26
-        else if(characterValue >= 97 && characterValue <= 122)//If char is between lower-case a to z
-            characterValue -= 96;                             //subtract so that a = 1 and z = 26
-        else
-            characterValue = 0;                               //All other characters will be ignored
-    return characterValue;
-}
-
-
-bool BookStore::isAlphabeticallyGreaterThan(std::string A, std::string B) {
-    int shorterLength = std::min(A.length(), B.length());
-    bool foundGreaterCharacter = false;
-    bool allEqual = true;
-    for(int s = 0; s < shorterLength; s++){
-        if(charValue(A.at(s)) > charValue(B.at(s))) {
-            foundGreaterCharacter = true;
-            allEqual = false;
-        }
-        else if(charValue(A.at(s)) < charValue(B.at(s))){
-            allEqual = false;
-        }
-    }
-    if(allEqual && A.length() != B.length())
-        foundGreaterCharacter = false;
-    return foundGreaterCharacter;
-}
-*/
 
 std::string BookStore::list() {
-    return nullptr;
+    return booksInStore->listInventory();
 }
 
 
@@ -74,27 +37,27 @@ void BookStore::add(std::string title, std::string author, int want, int have) {
 
 
 void BookStore::setWant(std::string title, int newWant) {
-
+    booksInStore->binGetItem(title).setWantValue(newWant);
 }
 
 
 void BookStore::setHave(std::string title, int newHave) {
-
+    booksInStore->binGetItem(title).setHaveValue(newHave);
 }
 
 
 int BookStore::getWant(std::string title) {
-    return 0;
+    return booksInStore->binGetItem(title).getWantValue();
 }
 
 
 int BookStore::getHave(std::string title) {
-    return 0;
+    return booksInStore->binGetItem(title).getHaveValue();
 }
 
 
-std::string* BookStore::getWaitList(std::string title) {
-    return nullptr;
+std::string BookStore::getWaitList(std::string title) {
+    return booksInStore->binGetItem(title).getWaitList();
 }
 
 

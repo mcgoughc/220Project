@@ -90,17 +90,22 @@ void ArrayInventory::addItem(Book itemToAdd) {
     if(currCapacity-2 <= currItemCount){
         doubleCapacity();
     }
-    std::string itemTitle = itemToAdd.getTitle();
-    //Make title all lower case for comparison purposes:
-    std::transform(itemTitle.begin(), itemTitle.end(), itemTitle.begin(), ::tolower);
-    for(int i = 0; i < currItemCount; i++){
-        std::string currTitle = array[i].getTitle();
-        std::transform(currTitle.begin(), currTitle.end(), currTitle.begin(), ::tolower);
-
-        if(itemToAdd.getTitle() < array[i].getTitle())
-            insertAt(itemToAdd, i);
+    if(currItemCount == 0)
+        insertAt(itemToAdd, 0);
+    else {
+        std::string itemTitle = itemToAdd.getTitle();
+        //Make title all lower case for comparison purposes:
+        std::transform(itemTitle.begin(), itemTitle.end(), itemTitle.begin(), ::tolower);
+        for (int i = 0; i < currItemCount; i++) {
+            std::string currTitle = array[i].getTitle();
+            std::transform(currTitle.begin(), currTitle.end(), currTitle.begin(), ::tolower);
+            if (itemTitle < currTitle) {
+                insertAt(itemToAdd, i);
+                i = currItemCount;//break condition
+            }
+        }
+        insertAt(itemToAdd, currItemCount - 1);
     }
-    currItemCount++;
 }
 
 void ArrayInventory::sellItem(std::string title){
@@ -126,6 +131,14 @@ bool ArrayInventory::isEmpty() {
 
 int ArrayInventory::itemCount() {
     return currItemCount;
+}
+
+std::string ArrayInventory::listInventory(){
+    std::string output;
+    for(int b = 0; b < currItemCount; b++){
+        output += array[b].getTitle() + "\n";
+    }
+    return output;
 }
 
 /**

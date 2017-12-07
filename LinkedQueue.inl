@@ -120,11 +120,11 @@ std::string LinkedQueue<T>::toString(){
     LinkedNode<T>* curr = front;
     std::string output;
     while(curr != end){
-        output += curr->getItem().getName() + ". ";
+        output += curr->getItem().getName() + "\n ";
         curr = curr->getNext();
     }
 
-    output += end->getItem().getName() + ". ";
+    output += end->getItem().getName() + "\n ";
 
     return output;
 }
