@@ -32,9 +32,22 @@ public:
      */
     Book(std::string title, std::string author, int want, int have);
 
-    //TODO Copy Constructor
-    //TODO Assignment Operator
-    //TODO Destructor
+    /**
+     * copy constructor
+     * @param booktoCopy
+     */
+    Book(const Book& booktoCopy);
+
+    /**
+     * Overloaded assignment operator
+     * @param booktoCopy
+     */
+    Book& operator=(const Book& booktoCopy);
+
+    /**
+     * Book Destructor
+     */
+    ~Book();
 
     /**
      * Adds person to the end of the wait list.

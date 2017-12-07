@@ -13,6 +13,23 @@ Book::Book() {
     waitListLength = 0;
     waitList = new LinkedQueue<Person>();
 }
+//Copy Constructor
+Book::Book(const Book& booktoCopy) {
+    title = booktoCopy.title;
+    author = booktoCopy.author;
+    haveValue = booktoCopy.haveValue;
+    wantValue = booktoCopy.wantValue;
+    waitListLength = booktoCopy.waitListLength;
+    waitList = new LinkedQueue<Person>();
+    for (int i = 0; i < waitListLength; i++) {
+
+    }
+
+}
+
+Book::~Book() {
+    delete waitList;
+}
 
 Book::Book(std::string title, std::string author, int want, int have) {
     this->title = std::move(title);
