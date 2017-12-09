@@ -29,10 +29,10 @@ public:
     LinkedQueue();
 
     //Copy Constructor
-    LinkedQueue(const LinkedQueue& queueToCopy);
+    LinkedQueue(const LinkedQueue<T>* queueToCopy);
 
     //Assignment Operator
-    LinkedQueue& operator=(const LinkedQueue& queueToCopy);
+    LinkedQueue<T>& operator=(const LinkedQueue<T>& queueToCopy);
 
     //Destructor
     ~LinkedQueue();

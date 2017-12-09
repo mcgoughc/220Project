@@ -13,13 +13,13 @@ LinkedQueue<T>::LinkedQueue(){
 
 //Copy Constructor
 template <class T>
-LinkedQueue<T>::LinkedQueue(const LinkedQueue& queueToCopy){
-    if (queueToCopy.front == nullptr){
+LinkedQueue<T>::LinkedQueue(const LinkedQueue<T>* queueToCopy){
+    if (queueToCopy->front == nullptr){
         front = nullptr;
         end = nullptr;
     }
     else {
-        LinkedNode<T>* nodeToCopy = queueToCopy.front;
+        LinkedNode<T>* nodeToCopy = queueToCopy->front;
         front = new LinkedNode<T>(nodeToCopy->getItem());
         LinkedNode<T>* endOfNewChain = front;
 
