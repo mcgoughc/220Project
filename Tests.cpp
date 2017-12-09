@@ -240,7 +240,6 @@ void isAlphaGreaterThanTest(ArrayInventory& inventory){
 
 }
 
-
 void linkQueueAssignOp(){
     printf("linkedQueueAssignOp ----------\n");
     bool errors = false;

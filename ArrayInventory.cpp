@@ -201,6 +201,9 @@ Book& ArrayInventory::binGetItem(std::string title) {
     }else{
         return array[idx];
     }
+}
 
+int ArrayInventory::getIndex(std::string title) {
+    return binFind(array, 0, currItemCount-1, title);
 }
 
