@@ -139,8 +139,11 @@ void bookstoreAddSell(BookStore& bookstore){
 }
 
 void bookstoreWantHave(BookStore& bookstore){
-    printf("bookstoreAddSell ----------\n");
+    printf("bookstoreWantHave ----------\n");
     bool errors = false;
+
+    bookstore.add("Lincoln", "Abe Lincoln", 5, 5);
+    bookstore.add("Grant", "Bjarn strautsrup", 5, 1);
 
     int testHave = bookstore.getHave("Lincoln");
     int testWant = bookstore.getWant("Lincoln");
@@ -169,6 +172,11 @@ void bookstoreWantHave(BookStore& bookstore){
         errors = true;
     }catch(std::out_of_range &e){}
 
+    if(!errors){
+        printf("PASS\n");
+    }else{
+        printf("FAIL\n");
+    }
 }
 
 void bookstoreFind(BookStore& bookstore){
@@ -205,7 +213,7 @@ void bookstoreAssignOpCopyConst(BookStore& bookstore){
 }
 
 void bookstoreWaitlist(BookStore &bookstore) {
-
+    //TODO
 }
 
 void isAlphaGreaterThanTest(ArrayInventory& inventory){
