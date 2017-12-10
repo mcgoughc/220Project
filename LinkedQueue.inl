@@ -64,8 +64,9 @@ LinkedQueue<T>& LinkedQueue<T>::operator=(const LinkedQueue<T>& queueToCopy) {
 //Destructor
 template <class T>
 LinkedQueue<T>::~LinkedQueue(){
+
     while (front != nullptr){
-        LinkedNode<T>* toDelete = end;
+        LinkedNode<T>* toDelete = front;
         front = front->getNext();
         delete toDelete;
     }
