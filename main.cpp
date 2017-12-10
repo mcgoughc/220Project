@@ -21,7 +21,7 @@ void runTests(){
     std::cout << std::endl;
     bookstoreAddSell(b1);
     //std::cout << std::endl;
-    //bookstoreWantHave(bs);
+    bookstoreWantHave(b1);
     std::cout << std::endl;
     bookstoreFind(b1);
     //std::cout << std::endl;
@@ -32,7 +32,7 @@ void runTests(){
 }
 
 void runProgram(){
-
+    //TODO
 }
 
 int main() {

@@ -34,7 +34,7 @@ void isAlphaGreaterThanTest(ArrayInventory& inventory);
 
 void linkQueueAssignOp();
 
-//void arrayInventoryAddItem();
+void arrayInventoryAddItem();
 
 #define INC_220PROJECT_BOOKTESTS_H
 
