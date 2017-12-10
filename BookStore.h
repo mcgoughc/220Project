@@ -14,7 +14,6 @@
 class BookStore{
 private:
     Inventory* booksInStore;
-    int numBooks;
 
 public:
 
