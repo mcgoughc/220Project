@@ -213,7 +213,7 @@ void bookstoreAssignOpCopyConst(BookStore& bookstore){
 }
 
 void bookstoreWaitlist(BookStore &bookstore) {
-
+    //TODO
 }
 
 void isAlphaGreaterThanTest(ArrayInventory& inventory){
