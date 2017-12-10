@@ -66,9 +66,7 @@ template <class T>
 LinkedQueue<T>::~LinkedQueue(){
     while (front != nullptr){
         LinkedNode<T>* toDelete = end;
-        if (front != nullptr) {
-            front = front->getNext();
-        }
+        front = front->getNext();
         delete toDelete;
     }
 }
