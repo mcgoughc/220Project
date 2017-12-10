@@ -20,7 +20,7 @@ void personSetGet(Person& person1);
 
 void personAssignOpCopyConst(Person& person1);
 
-//void bookstoreAddSell(BookStore& bookstore);
+void bookstoreAddSell(BookStore& bookstore);
 
 void bookstoreWantHave(BookStore& bookstore);
 
@@ -34,7 +34,7 @@ void isAlphaGreaterThanTest(ArrayInventory& inventory);
 
 void linkQueueAssignOp();
 
-//void arrayInventoryAddItem();
+void arrayInventoryAddItem();
 
 #define INC_220PROJECT_BOOKTESTS_H
 
