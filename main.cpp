@@ -19,7 +19,7 @@ void runTests(){
     std::cout << std::endl;
     isAlphaGreaterThanTest(bs);
     std::cout << std::endl;
-    //bookstoreAddSell(bs);
+    bookstoreAddSell(b1);
     //std::cout << std::endl;
     //bookstoreWantHave(bs);
     std::cout << std::endl;
