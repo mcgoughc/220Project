@@ -20,7 +20,7 @@ void personSetGet(Person& person1);
 
 void personAssignOpCopyConst(Person& person1);
 
-//void bookstoreAddSell(BookStore& bookstore);
+void bookstoreAddSell(BookStore& bookstore);
 
 void bookstoreWantHave(BookStore& bookstore);
 

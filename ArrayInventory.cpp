@@ -112,12 +112,11 @@ void ArrayInventory::addItem(Book itemToAdd) {
 }
 
 void ArrayInventory::sellItem(std::string title){
-    for(int b = 0; b < currItemCount; b++){
-        int haveValue = array[b].getHaveValue();
-        if(haveValue == 0)
-            throw std::out_of_range("Trying to sell too many inventory items.");
-        array[b].setHaveValue(haveValue - 1);
-    }
+    Book item = binGetItem(title);
+    int haveValue = item.getHaveValue();
+    if(haveValue == 0)
+        throw std::out_of_range("Trying to sell too many inventory items.");
+    item.setHaveValue(haveValue - 1);
 }
 
 Book& ArrayInventory::getItem(std::string title) {
