@@ -7,7 +7,7 @@
 
 #include <string>
 #include "Person.h"
-#include "Queue.h"
+#include "LinkedQueue.h"
 
 class Book {
 private:
@@ -15,7 +15,7 @@ private:
     std::string author;
     int haveValue;
     int wantValue;
-    Queue<Person>* waitList;
+    LinkedQueue<Person>* waitList;
     int waitListLength;
 
 public:

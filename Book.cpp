@@ -20,16 +20,19 @@ Book::Book(const Book& booktoCopy) {
     haveValue = booktoCopy.haveValue;
     wantValue = booktoCopy.wantValue;
     waitListLength = booktoCopy.waitListLength;
-    LinkedNode* start = new LinkedNode(waitList);
+    //delete waitList;
+    waitList = new LinkedQueue<Person>(booktoCopy.waitList);
+
+    /*
     for (int i = 0; i < waitListLength; i++) {
         booktoCopy.waitList->enqueue(start->getItem());
         start->getNext();
-    }
+    }*/
 
 }
 
 //Assignment Operator
-Book& operator=(const Book& booktoCopy) {
+Book& Book::operator=(const Book& booktoCopy) {
     if (this != &booktoCopy) {
         delete waitList;
 
@@ -38,11 +41,13 @@ Book& operator=(const Book& booktoCopy) {
         haveValue = booktoCopy.haveValue;
         wantValue = booktoCopy.wantValue;
         waitListLength = booktoCopy.waitListLength;
-        LinkedNode *start = new LinkedNode(waitList);
+        waitList = new LinkedQueue<Person>(booktoCopy.waitList);
+        /*
+        LinkedNode<Person>* start = new LinkedNode(waitList);
         for (int i = 0; i < waitListLength; i++) {
             booktoCopy.waitList->enqueue(start->getItem());
             start->getNext();
-        }
+        }*/
     }
     return *this;
 }

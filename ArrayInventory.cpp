@@ -181,12 +181,16 @@ int ArrayInventory::binFind(Book* arrayPtr, int min, int max, std::string titleT
     if(min <= max){
         int middle = (min + max)/2;
 
-        if(isAlphabeticallyGreaterThan(arrayPtr[middle].getTitle(), titleToFind)){
+        if(arrayPtr[middle].getTitle() == titleToFind){
+            return middle;
+        }else if(arrayPtr[middle].getTitle() > titleToFind){
+            //std::cout << arrayPtr[middle].getTitle() << std::endl;
             return binFind(arrayPtr, min, middle-1, titleToFind);
-        }else if(!isAlphabeticallyGreaterThan(arrayPtr[middle].getTitle(), titleToFind)){
+        }else if(arrayPtr[middle].getTitle() < titleToFind){
+            //std::cout << arrayPtr[middle].getTitle() << std::endl;
             return binFind(arrayPtr, middle+1, max, titleToFind);
         }else{
-            return middle;
+            return -1;
         }
     }else{
         return -1;
@@ -201,6 +205,9 @@ Book& ArrayInventory::binGetItem(std::string title) {
     }else{
         return array[idx];
     }
+}
 
+int ArrayInventory::getIndex(std::string title) {
+    return binFind(array, 0, currItemCount-1, title);
 }
 

@@ -83,6 +83,14 @@ public:
     Book& binGetItem(std::string title);
 
     /**
+     * Finds and returns the index of an item
+     * Binary Search
+     * @param title The tile of the book
+     * @return The index of the book, or -1 if no book is found
+     */
+    int getIndex(std::string title);
+
+    /**
      * checks if there are any valid items in the inventory
      * @returns true if there are no valid items in the inventory, false otherwise
      */
