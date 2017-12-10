@@ -28,6 +28,8 @@ void runTests(){
     //bookstoreWaitlist(bs);
     std::cout << std::endl;
     linkQueueAssignOp();
+    bookstoreFind(b1);
+    //arrayInventoryAddItem();
 
 }
 

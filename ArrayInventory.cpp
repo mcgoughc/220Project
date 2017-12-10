@@ -96,15 +96,18 @@ void ArrayInventory::addItem(Book itemToAdd) {
         std::string itemTitle = itemToAdd.getTitle();
         //Make title all lower case for comparison purposes:
         std::transform(itemTitle.begin(), itemTitle.end(), itemTitle.begin(), ::tolower);
+        bool inserted = false;
         for (int i = 0; i < currItemCount; i++) {
             std::string currTitle = array[i].getTitle();
             std::transform(currTitle.begin(), currTitle.end(), currTitle.begin(), ::tolower);
             if (itemTitle < currTitle) {
                 insertAt(itemToAdd, i);
+                inserted = true;
                 i = currItemCount;//break condition
             }
         }
-        insertAt(itemToAdd, currItemCount - 1);
+        if(!inserted)
+            insertAt(itemToAdd, currItemCount);
     }
 }
 

@@ -299,11 +299,11 @@ void arrayInventoryAddItem(){
     std::cout << "Expected: -101234" << std::endl;
     std::cout << "Actual: ";
     std::cout << myInv->getIndex("Zo Zo");
-    std::cout << myInv->getIndex("FA FA");
     std::cout << myInv->getIndex("Aaa");
     std::cout << myInv->getIndex("Aab");
     std::cout << myInv->getIndex("Ccc");
-    std::cout << myInv->getIndex("Dad") << std::endl;
+    std::cout << myInv->getIndex("Dad");
+    std::cout << myInv->getIndex("FA FA") << std::endl;
 
     delete myInv;
 }
