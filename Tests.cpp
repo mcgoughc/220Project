@@ -129,7 +129,9 @@ void bookstoreAddSell(BookStore& bookstore){
         bookstore.sell("Grant");
         printf("Sold more copies than in the store\n");
         errors = true;
-    }catch(std::out_of_range &e){}
+    }catch(std::out_of_range e){
+
+    }
 
     if(!errors){
         printf("PASS\n");
