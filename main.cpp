@@ -21,15 +21,17 @@ void runTests(){
     std::cout << std::endl;
     bookstoreAddSell(b1);
     std::cout << std::endl;
-    //bookstoreWantHave(bs);
+    bookstoreWantHave(b1);
     std::cout << std::endl;
     bookstoreFind(b1);
-    //std::cout << std::endl;
-    //bookstoreWaitlist(bs);
+    std::cout << std::endl;
+    bookstoreWaitlist(b1);
     std::cout << std::endl;
     linkQueueAssignOp();
+    std::cout << std::endl;
     bookstoreFind(b1);
-    //arrayInventoryAddItem();
+    std::cout << std::endl;
+    arrayInventoryAddItem();
 
 }
 
