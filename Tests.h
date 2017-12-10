@@ -36,6 +36,8 @@ void linkQueueAssignOp();
 
 void arrayInventoryAddItem();
 
+void bookstoreFind(BookStore& bookstore);
+
 #define INC_220PROJECT_BOOKTESTS_H
 
 #endif //INC_220PROJECT_BOOKTESTS_H
