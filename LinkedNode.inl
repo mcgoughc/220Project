@@ -9,7 +9,7 @@ LinkedNode<T>::LinkedNode(const T& i) : item(i){
 }
 
 template <class T>
-LinkedNode<T>::LinkedNode( const LinkedNode<T>& nodeToCopy){
+LinkedNode<T>::LinkedNode(const LinkedNode<T>& nodeToCopy){
     item = nodeToCopy.item;
     next = nullptr;
 }

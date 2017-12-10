@@ -3,7 +3,6 @@
 //
 
 #include "Book.h"
-#include "LinkedQueue.h"
 
 Book::Book() {
     title = "NONE";

@@ -62,6 +62,9 @@ std::string BookStore::getWaitList(std::string title) {
 
 
 void BookStore::sell(std::string title) {
+    if (booksInStore->itemCount() <= 0) {
+        throw std::out_of_range("No books left to sell");
+    }
     booksInStore->sellItem(title);
 }
 
