@@ -1,7 +1,7 @@
 #include <iostream>
 
-#include "BookStore.h"
 #include "Tests.h"
+#include "Run.h"
 
 void runTests(){
     Book book1 = Book("Autumn", "Ali Smith", 0, 0);
