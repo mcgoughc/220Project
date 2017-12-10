@@ -112,7 +112,7 @@ void ArrayInventory::addItem(Book itemToAdd) {
 }
 
 void ArrayInventory::sellItem(std::string title){
-    Book item = binGetItem(title);
+    Book& item = binGetItem(title);
     int haveValue = item.getHaveValue();
     if(haveValue == 0)
         throw std::out_of_range("Trying to sell too many inventory items.");
