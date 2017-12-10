@@ -20,19 +20,21 @@ void runTests(){
     isAlphaGreaterThanTest(bs);
     std::cout << std::endl;
     bookstoreAddSell(b1);
-    //std::cout << std::endl;
-    bookstoreWantHave(b1);
+    std::cout << std::endl;
+    //bookstoreWantHave(bs);
     std::cout << std::endl;
     bookstoreFind(b1);
     //std::cout << std::endl;
     //bookstoreWaitlist(bs);
     std::cout << std::endl;
     linkQueueAssignOp();
+    bookstoreFind(b1);
+    //arrayInventoryAddItem();
 
 }
 
 void runProgram(){
-    //TODO
+
 }
 
 int main() {

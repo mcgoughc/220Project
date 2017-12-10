@@ -96,27 +96,28 @@ void ArrayInventory::addItem(Book itemToAdd) {
         std::string itemTitle = itemToAdd.getTitle();
         //Make title all lower case for comparison purposes:
         std::transform(itemTitle.begin(), itemTitle.end(), itemTitle.begin(), ::tolower);
+        bool inserted = false;
         for (int i = 0; i < currItemCount; i++) {
             std::string currTitle = array[i].getTitle();
             std::transform(currTitle.begin(), currTitle.end(), currTitle.begin(), ::tolower);
             if (itemTitle < currTitle) {
                 insertAt(itemToAdd, i);
+                inserted = true;
                 i = currItemCount;//break condition
             }
         }
-        insertAt(itemToAdd, currItemCount - 1);
+        if(!inserted)
+            insertAt(itemToAdd, currItemCount);
     }
 }
 
 void ArrayInventory::sellItem(std::string title){
-    for(int b = 0; b < currItemCount; b++) {
-        int haveValue = array[b].getHaveValue();
-        if (haveValue == 0) {
+    Book item = binGetItem(title);
+    int haveValue = item.getHaveValue();
+    if(haveValue == 0)
         throw std::out_of_range("Trying to sell too many inventory items.");
-    }
-        array[b].setHaveValue(haveValue - 1);
-    }
-}\
+    item.setHaveValue(haveValue - 1);
+}
 
 Book& ArrayInventory::getItem(std::string title) {
     for(int b = 0; b < currItemCount; b++) {
