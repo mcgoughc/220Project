@@ -185,7 +185,7 @@ void bookstoreFind(BookStore& bookstore){
     printf("bookstoreFind ----------\n");
     bool errors = false;
 
-    bookstore.add("Lincoln", "Abe Lincoln", 5, 5);
+    bookstore.add("Lincoln", "Abe Lincoln", 10, 5);
     bookstore.add("Grant", "Bjarn strautsrup", 5, 1);
 
     Book& lin = bookstore.findBook("Lincoln");
@@ -316,5 +316,12 @@ void arrayInventoryAddItem(){
     std::cout << myInv->getIndex("FA FA") << std::endl;
 
     delete myInv;
+}
+
+void fileIOTests(BookStore& bookstore){
+    bookstore.add("Red", "John Dodd", 10, 8);
+    bookstore.add("Blue", "Betty Sweaty", 9, 0);
+    bookstore.add("Orange", "Pope Francis", 3, 2);
+    bookstore.order("order.txt");
 }
 
