@@ -1,5 +1,4 @@
 #include <iostream>
-
 #include "Tests.h"
 #include "Run.h"
 
@@ -36,7 +35,38 @@ void runTests(){
 }
 
 void runProgram(){
-    //TODO
+    BookStore bkStore;
+    bool run = true;
+    while(run){
+        std::cout << "Enter function letter key or 'h' for help: ";
+        std::string input = getLineFromTerminal();
+        if(input.length() != 1){
+            std::cout << "Invalid input" << std::endl;
+        }else if(input == "h"){
+            help();
+        }else if(input == "i"){
+            inquire(bkStore);
+        }else if(input == "l"){
+            list(bkStore);
+        }else if(input == "a"){
+            add(bkStore);
+        }else if(input == "m"){
+            modify(bkStore);
+        }else if(input == "s"){
+            sell(bkStore);
+        }else if(input == "o"){
+            order(bkStore);
+        }else if(input == "d"){
+            delivery(bkStore);
+        }else if(input == "r"){
+            returnBooks(bkStore);
+        }else if(input == "q"){
+            quit(bkStore);
+            run = false;
+        }else{
+            std::cout << "Invalid input" << std::endl;
+        }
+    }
 }
 
 int main() {
