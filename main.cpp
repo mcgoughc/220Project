@@ -25,11 +25,11 @@ void runTests(){
     std::cout << std::endl;
     bookstoreFind(b1);
     std::cout << std::endl;
-    //bookstoreWaitlist(bs);
+    bookstoreWaitlist(bs);
     std::cout << std::endl;
     linkQueueAssignOp();
     bookstoreFind(b1);
-    //arrayInventoryAddItem();
+    arrayInventoryAddItem();
 
 }
 
