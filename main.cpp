@@ -1,7 +1,7 @@
 #include <iostream>
 
-#include "BookStore.h"
 #include "Tests.h"
+#include "Run.h"
 
 void runTests(){
     Book book1 = Book("Autumn", "Ali Smith", 0, 0);
@@ -25,18 +25,16 @@ void runTests(){
     std::cout << std::endl;
     bookstoreFind(b1);
     std::cout << std::endl;
-    bookstoreWaitlist(b1);
+    //bookstoreWaitlist(bs);
     std::cout << std::endl;
     linkQueueAssignOp();
-    std::cout << std::endl;
     bookstoreFind(b1);
-    std::cout << std::endl;
-    arrayInventoryAddItem();
+    //arrayInventoryAddItem();
 
 }
 
 void runProgram(){
-
+    //TODO
 }
 
 int main() {
