@@ -86,7 +86,7 @@ void ArrayInventory::insertAt(Book itemToAdd, int index) {
     currItemCount++;
 }
 
-void ArrayInventory::addItem(Book itemToAdd) {
+void ArrayInventory::addItem(Book itemToAdd) {//TODO Prevent duplicate entries
     if(currCapacity-2 <= currItemCount){
         doubleCapacity();
     }
