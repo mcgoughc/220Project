@@ -10,7 +10,6 @@
 #include "Book.h"
 #include "Inventory.h"
 
-
 class BookStore{
 private:
     Inventory* booksInStore;
@@ -117,7 +116,6 @@ public:
     Book& findBook(std::string titleToFind);
 
 };
-
 
 
 #endif //INC_220PROJECT_BOOKSTORE_H

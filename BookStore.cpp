@@ -67,12 +67,12 @@ void BookStore::order(std::string outputFile) {
         std::stringstream bookList(printData);
         while(bookList){
             std::string book;
-            try {
-                getline(bookList, book);
+            getline(bookList, book);
+            if(book != "") {
                 int orderNumber = getWant(book) - getHave(book);
-                book += " " + std::to_string(orderNumber);
+                book =  std::to_string(orderNumber) + " " + book;
                 fout << book << std::endl;
-            }catch(std::out_of_range e){break;}
+            }
         }
         fout.close();
     }
