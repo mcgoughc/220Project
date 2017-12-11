@@ -8,7 +8,7 @@
 #include "BookStore.h"
 #include <iostream>
 
-void help(BookStore& bk1);
+void help();
 
 void inquire(BookStore& bk1);
 
@@ -27,5 +27,7 @@ void delivery(BookStore& bk1);
 void returnBooks(BookStore& bk1);
 
 void quit(BookStore& bk1);
+
+std::string getLineFromTerminal();
 
 #endif //INC_220PROJECT_RUN_H

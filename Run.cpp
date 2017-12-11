@@ -4,7 +4,7 @@
 
 #include "Run.h"
 
-void help(BookStore& bk1){
+void help(){
     //TODO
 }
 
@@ -42,4 +42,10 @@ void returnBooks(BookStore& bk1){
 
 void quit(BookStore& bk1){
     //TODO
+}
+
+std::string getLineFromTerminal(){
+    std::string line;
+    getline(std::cin, line);
+    return line;
 }
