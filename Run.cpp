@@ -68,7 +68,9 @@ void returnBooks(BookStore& bk1){
 }
 
 void quit(BookStore& bk1){
+    for (int i = 0; i < bk1->; ++i) {
 
+    }
 }
 
 std::string getLineFromTerminal(){
@@ -77,8 +79,8 @@ std::string getLineFromTerminal(){
     return line;
 }
 
-void printToFile(std::string line, char delimiter){
-    std::ofstream fout ("bookstore.txt");
+void printToFile(std::string line, char delimiter, std::string fileName){
+    std::ofstream fout (fileName);
     if (fout) {
         std::stringstream parts (line);
         while(parts){
@@ -89,6 +91,6 @@ void printToFile(std::string line, char delimiter){
         fout.close();
     }
     else {
-        std::cout << "Error in opening bookstore.txt";
+        std::cout << "Error in opening " << fileName << std::endl;
     }
 }

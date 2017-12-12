@@ -116,7 +116,18 @@ public:
      */
     Book& findBook(std::string titleToFind);
 
+    /**
+     *
+     * @param idx
+     * @return
+     */
     Book& findBookByIndex(int idx);
+
+    /**
+     *
+     * @return
+     */
+    int bookCount();
 
 };
 

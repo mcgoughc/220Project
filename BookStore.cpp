@@ -101,5 +101,8 @@ Book& BookStore::findBookByIndex(int idx) { //todo pointer instead of reference?
         Book newBook;
         return newBook;
     }
+}
 
+int BookStore::bookCount() {
+    return booksInStore->itemCount();
 }
