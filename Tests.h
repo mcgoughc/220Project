@@ -9,6 +9,8 @@
 #include "LinkedQueue.h"
 #include "ArrayInventory.h"
 #include <iostream>
+#include <fstream>
+#include <sstream>
 
 void bookHaveWant(Book& book1);
 
@@ -31,6 +33,8 @@ void linkQueueAssignOp();
 void arrayInventoryAddItem();
 
 void fileIOTests(BookStore& bookstore);
+
+void fileWriteTest();
 
 #define INC_220PROJECT_BOOKTESTS_H
 
