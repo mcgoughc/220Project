@@ -14,11 +14,7 @@ void bookHaveWant(Book& book1);
 
 void bookWaitList(Book& book1, Person& person1, Person& person2);
 
-void bookAssignOpCopyConst(Book& book1);
-
 void personSetGet(Person& person1);
-
-void personAssignOpCopyConst(Person& person1);
 
 void bookstoreAddSell(BookStore& bookstore);
 
@@ -27,8 +23,6 @@ void bookstoreWantHave(BookStore& bookstore);
 void bookstoreFind(BookStore& bookstore);
 
 void bookstoreWaitlist(BookStore& bookstore);
-
-void bookstoreAssignOpCopyConst(BookStore& bookstore);
 
 void isAlphaGreaterThanTest(ArrayInventory& inventory);
 
