@@ -4,7 +4,6 @@
 
 #include "BookStore.h"
 #include "ArrayInventory.h"
-#include <iostream>
 #include <fstream>
 #include <sstream>
 
@@ -82,7 +81,14 @@ void BookStore::order(std::string outputFile) {
 }
 
 void BookStore::deliver(std::string inputFile) {
-    //TODO file IO
+    std::ifstream fin (inputFile);
+    if(fin){
+
+    }
+    else{
+        std::cout << "Error in opening " + inputFile;
+    }
+    //TODO finish up
 }
 
 void BookStore::returnBooks(std::string outputFile) {
