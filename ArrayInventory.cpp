@@ -119,12 +119,14 @@ void ArrayInventory::sellItem(std::string title){
     item.setHaveValue(haveValue - 1);
 }
 
-Book& ArrayInventory::getItem(std::string title) {
-    for(int b = 0; b < currItemCount; b++) {
-        if(array[b].getTitle() == title)
-            return array[b];
+Book& ArrayInventory::getItemAt(int index) {
+    if(isEmpty()){
+        throw std::out_of_range("Array is empty");
+    }else if(index > currItemCount || index < 0){
+        throw std::out_of_range("Index out of range");
+    }else{
+        return array[index];
     }
-    throw std::out_of_range("No such book exists");
 }
 
 bool ArrayInventory::isEmpty() {

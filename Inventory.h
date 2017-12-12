@@ -36,7 +36,7 @@ public:
      * @param title The title of the book
      * @return The book
      */
-    virtual Book& getItem(std::string title)=0;
+    virtual Book& getItemAt(int index)=0;
 
     /**
      * Finds and returns a reference to an item

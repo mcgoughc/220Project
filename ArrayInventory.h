@@ -72,7 +72,7 @@ public:
     * @param title The title of the book
     * @return The book
     */
-    Book& getItem(std::string title);
+    Book& getItemAt(int index);
 
     /**
      * Finds and returns a reference to an item
