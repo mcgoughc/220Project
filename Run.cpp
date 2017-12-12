@@ -41,11 +41,27 @@ void returnBooks(BookStore& bk1){
 }
 
 void quit(BookStore& bk1){
-    //TODO
+
 }
 
 std::string getLineFromTerminal(){
     std::string line;
     getline(std::cin, line);
     return line;
+}
+
+void printToFile(std::string line, char delimiter){
+    std::ofstream fout ("bookstore.txt");
+    if (fout) {
+        std::stringstream parts (line);
+        while(parts){
+            std::string part;
+            getline(parts, part, delimiter);
+            fout << part << std::endl;
+        }
+        fout.close();
+    }
+    else {
+        std::cout << "Error in opening bookstore.txt";
+    }
 }
