@@ -5,7 +5,7 @@
 #include "Run.h"
 #include "Book.h"
 
-void help(BookStore& bk1){
+void help(){
     std::cout << "Help(H) - provides summary of all commands" << std::endl;
     std::cout << "Inquire(I) - display information about a book" << std::endl;
     std::cout << "List(L) - displays a list of our entire inventory of books in alphabetical order" << std::endl;
@@ -68,5 +68,27 @@ void returnBooks(BookStore& bk1){
 }
 
 void quit(BookStore& bk1){
-    //TODO
+
+}
+
+std::string getLineFromTerminal(){
+    std::string line;
+    getline(std::cin, line);
+    return line;
+}
+
+void printToFile(std::string line, char delimiter){
+    std::ofstream fout ("bookstore.txt");
+    if (fout) {
+        std::stringstream parts (line);
+        while(parts){
+            std::string part;
+            getline(parts, part, delimiter);
+            fout << part << std::endl;
+        }
+        fout.close();
+    }
+    else {
+        std::cout << "Error in opening bookstore.txt";
+    }
 }
