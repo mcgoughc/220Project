@@ -10,7 +10,7 @@
 #include <fstream>
 #include <sstream>
 
-void help();
+void help(BookStore& bk1);
 
 void inquire(BookStore& bk1);
 
