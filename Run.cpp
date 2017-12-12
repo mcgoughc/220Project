@@ -68,8 +68,13 @@ void returnBooks(BookStore& bk1){
 }
 
 void quit(BookStore& bk1){
-    for (int i = 0; i < bk1->; ++i) {
-
+    for (int i = 0; i < bk1.bookCount(); ++i) {
+        Book& temp = bk1.findBookByIndex(i);
+        printToFile(temp.getTitle(), '', "bookstore.txt");
+        printToFile(temp.getAuthor(), '', "bookstore.txt");
+        printToFile(std::to_string(temp.getWantValue()), '', "bookstore.txt");
+        printToFile(std::to_string(temp.getHaveValue()), '', "bookstore.txt");
+        printToFile(temp.getWaitList(), '', "bookstore.txt");
     }
 }
 
