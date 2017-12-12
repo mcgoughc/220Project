@@ -77,6 +77,8 @@ void quit(BookStore& bk1){
 
         printToFile(output, ',', "bookstore.txt");
     }
+    std::cout << "Bookstore data saved to bookstore.txt. Quitting Bookstore operation...";
+    delete bk1;
 }
 
 std::string getLineFromTerminal(){
