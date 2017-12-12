@@ -59,11 +59,15 @@ void order(BookStore& bk1){
 }
 
 void delivery(BookStore& bk1){
-    //TODO
+    std::cout << "Enter title of delivery file: ";
+    std::string fileName = getLineFromTerminal();
+    bk1.deliver(fileName);
+    std::cout << "Delivery added to Bookstore." << std::endl;
 }
 
 void returnBooks(BookStore& bk1){
-    //TODO
+    bk1.returnBooks("returns.txt");
+    std::cout << "Book return file written to 'returns.txt'." << std::endl;
 }
 
 void quit(BookStore& bk1){
@@ -77,7 +81,7 @@ void quit(BookStore& bk1){
 
         printToFile(output, ',', "bookstore.txt");
     }
-    std::cout << "Bookstore data saved to bookstore.txt. Quitting Bookstore operation...";
+    std::cout << "Bookstore data saved to 'bookstore.txt'. Quitting Bookstore operation..." << std::endl;
     delete bk1;
 }
 
