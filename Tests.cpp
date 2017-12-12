@@ -311,6 +311,7 @@ void fileIOTests(BookStore& bookstore){
     bookstore.order("order.txt");
 }
 
+/*
 void printToFile(std::string line, char delimiter, std::string fileName){
     std::ofstream fout (fileName);
     if (fout) {
@@ -326,18 +327,20 @@ void printToFile(std::string line, char delimiter, std::string fileName){
         std::cout << "Error in opening " << fileName << std::endl;
     }
 }
+*/
 
 void fileWriteTest(){
     Book tempBook = Book("test Title", "test Author", 5, 5);
     Person tempPerson = Person("fName", "lName", "phone#", "email", "email");
     tempBook.addToWaitList(tempPerson);
 
-    printToFile(tempBook.getTitle(), '', "bookstore.txt");
-    printToFile(tempBook.getAuthor(), '', "bookstore.txt");
-    printToFile(std::to_string(tempBook.getWantValue()), '', "bookstore.txt");
-    printToFile(std::to_string(tempBook.getHaveValue()), '', "bookstore.txt");
-    printToFile(tempBook.getWaitList(), '', "bookstore.txt");
+    std::string output = tempBook.getTitle() + "," +
+                         tempBook.getAuthor() + "," +
+                         std::to_string(tempBook.getWantValue()) + "," +
+                         std::to_string(tempBook.getHaveValue()) + "," +
+                         tempBook.getWaitList();
 
+    printToFile(output, ',', "bookstore.txt");
 }
 
 

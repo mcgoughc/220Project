@@ -93,14 +93,8 @@ Book& BookStore::findBook(std::string titleToFind){
     return booksInStore->binGetItem(titleToFind);
 }
 
-Book& BookStore::findBookByIndex(int idx) { //todo pointer instead of reference?
-    try {
-        return booksInStore->getItemAt(idx);
-    }catch(std::out_of_range &e){
-        std::cout << "No book exists at: " << idx << std::endl;
-        Book newBook;
-        return newBook;
-    }
+Book& BookStore::findBookByIndex(int idx) {
+    return booksInStore->getItemAt(idx);
 }
 
 int BookStore::bookCount() {
