@@ -115,6 +115,8 @@ public:
      */
     Book& findBook(std::string titleToFind);
 
+    Book& findBookByIndex(int idx);
+
 };
 
 
