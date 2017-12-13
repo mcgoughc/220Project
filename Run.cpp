@@ -3,6 +3,7 @@
 //
 
 #include "Run.h"
+#include "ArrayInventory.h"
 
 void help(){
     std::cout << "Help(H) - provides summary of all commands" << std::endl;
@@ -55,8 +56,32 @@ void sell(BookStore& bk1){
     std::string bookTitle = getLineFromTerminal();
     try {
         bk1.sell(bookTitle);
-    }catch(std::out_of_range &e){
+    }catch(MissingBook &e){
         std::cout << "No book exists with that title" << std::endl;
+    }catch(BookHaveEmpty &e){
+        std::cout << "No more copies of " << bookTitle << std::endl;
+        std::cout << "Would you like to join the waitlist? (y/n): ";
+        if(getLineFromTerminal() == "y"){
+            std::cout << "Enter first name: ";
+            std::string fName = getLineFromTerminal();
+            std::cout << "Enter last name: ";
+            std::string lName = getLineFromTerminal();
+            std::cout << "Enter phone number: ";
+            std::string phNum = getLineFromTerminal();
+            std::cout << "Enter email: ";
+            std::string email = getLineFromTerminal();
+            std::cout << "Enter preferred communication: ";
+            std::string pref = getLineFromTerminal();
+
+            Person newP = Person(fName, lName, phNum, email, pref);
+            bk1.findBook(bookTitle).addToWaitList(newP);
+
+            std::cout << "Added to the waitlist" << std::endl;
+        }else if(getLineFromTerminal() == "n"){
+            std::cout << std::endl;
+        }else{
+            std::cout << "Invalid input." << std::endl;
+        }
     }
 }
 
