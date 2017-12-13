@@ -5,7 +5,7 @@
 #include "Run.h"
 #include "Book.h"
 
-void help(BookStore& bk1){
+void help(){
     std::cout << "Help(H) - provides summary of all commands" << std::endl;
     std::cout << "Inquire(I) - display information about a book" << std::endl;
     std::cout << "List(L) - displays a list of our entire inventory of books in alphabetical order" << std::endl;
