@@ -319,9 +319,15 @@ void arrayInventoryAddItem(){
 }
 
 void fileIOTests(BookStore& bookstore){
+    //Order test
     bookstore.add("Red", "John Dodd", 10, 8);
     bookstore.add("Blue", "Betty Sweaty", 9, 0);
     bookstore.add("Orange", "Pope Francis", 3, 2);
     bookstore.order("order.txt");
+
+    //Delivery test
+    bookstore.deliver("order.txt");
 }
+
+
 
