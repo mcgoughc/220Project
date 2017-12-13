@@ -55,7 +55,8 @@ void sell(BookStore& bk1){
 }
 
 void order(BookStore& bk1){
-    //TODO
+    bk1.order("order.txt");
+    std::cout << "Book order file written to 'order.txt'.";
 }
 
 void delivery(BookStore& bk1){
