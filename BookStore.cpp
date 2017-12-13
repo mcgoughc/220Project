@@ -88,11 +88,12 @@ void BookStore::deliver(std::string inputFile) {
             fin >> numberInput;
             std::string titleInput;
             fin >> titleInput;
-            std::cout << numberInput;
+
+            if(numberInput == "" || titleInput == "")
+                break;
             int numberOfBook;
             try {
-                if (numberInput != "")
-                    numberOfBook = std::stoi(numberInput);
+                numberOfBook = std::stoi(numberInput);
             }catch(std::invalid_argument e){
                 std::cout << "Delivery file not formatted properly" << std::endl;
                 fin.close();
@@ -100,7 +101,13 @@ void BookStore::deliver(std::string inputFile) {
             }
 
             Book& currentBook = findBook(titleInput);
-            currentBook.setHaveValue(currentBook.getHaveValue() + numberOfBook);
+            std::stringstream waitList(currentBook.getWaitList());
+            int newHaveValue = currentBook.getHaveValue() + numberOfBook;
+            while(!waitList.eof()){
+                std::string line;
+                waitList >> line;
+                std::cout << line << std::endl;
+            }
         }
         fin.close();
     }

@@ -254,9 +254,9 @@ void linkQueueAssignOp(){
     printf("linkedQueueAssignOp ----------\n");
     bool errors = false;
 
-    Person testPerson1 = Person("Bill", "Sapsis", "18007854444", "billy@sri.org", "Text");
-    Person testPerson2 = Person("Kim", "Turncliffe", "9048753000", "kimmie@yahoo.com", "Email");
-    Person testPerson3 = Person("Rachel", "Young", "3356874300", "ryoung@gmail.com", "Phone");
+    Person testPerson1 = Person("Bill", "Sapsis", "18007854444", "billy@sri.org", Person::SEND_TEXT);
+    Person testPerson2 = Person("Kim", "Turncliffe", "9048753000", "kimmie@yahoo.com", Person::SEND_EMAIL);
+    Person testPerson3 = Person("Rachel", "Young", "3356874300", "ryoung@gmail.com", Person::PHONE_CALL);
     LinkedQueue<Person>* origTestQueue = new LinkedQueue<Person>();
     LinkedQueue<Person>* newTestQueue = new LinkedQueue<Person>();
 
@@ -323,6 +323,8 @@ void fileIOTests(BookStore& bookstore){
     bookstore.add("Red", "John Dodd", 10, 8);
     bookstore.add("Blue", "Betty Sweaty", 9, 0);
     bookstore.add("Orange", "Pope Francis", 3, 2);
+    Person tempPerson("Johnny", "Johnson", "555-5555", "John@ithaca.edu", Person::SEND_TEXT);
+    bookstore.findBook("Red").addToWaitList(tempPerson);
     bookstore.order("order.txt");
 
     //Delivery test

@@ -13,18 +13,18 @@ class Person {
         std::string name;
         std::string phoneNumber;
         std::string email;
-        std::string commMethod;
+        int commMethod;
         std::string first;
         std::string last;
 
     public:
 
-    const int PHONE_CALL = 0;
-    const int SEND_TEXT = 1;
-    const int SEND_EMAIL = 2;
+    static const int PHONE_CALL = 0;
+    static const int SEND_TEXT = 1;
+    static const int SEND_EMAIL = 2;
 
     //Constructor
-    Person(std::string first, std::string last, std::string phoneNumberIn, std::string emailIn, std::string commMethodIN);
+    Person(std::string first, std::string last, std::string phoneNumberIn, std::string emailIn, int commMethodIN);
 
     /** Sets the name of the person
      * @param first

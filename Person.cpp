@@ -5,7 +5,7 @@
 #include "Person.h"
 
 
-Person::Person(std::string first, std::string last, std::string phoneNumberIn, std::string emailIn, std::string commMethodIN) {
+Person::Person(std::string first, std::string last, std::string phoneNumberIn, std::string emailIn, int commMethodIN) {
     this->first = first;
     this->last = last;
     phoneNumber = phoneNumberIn;
@@ -31,15 +31,7 @@ void Person::setCommMethod(int commMethod) {
     if (commMethod > 3 or commMethod < 1) {
         throw std::out_of_range("Invalid Value, please re-enter");
     }
-    if (commMethod == 1) {
-        this->commMethod = "Phone call";
-    }
-    if (commMethod == 2) {
-        this->commMethod = "Send Text";
-    }
-    if (commMethod == 3) {
-        this->commMethod = "Send Email";
-    }
+    this->commMethod = commMethod;
 }
 
 std::string Person::getName() {
@@ -55,13 +47,20 @@ std::string Person::getEmail() {
 }
 
 std::string Person::getCommMethod() {
-    return this->commMethod;
+    switch(commMethod){
+        case PHONE_CALL:
+            return "Phone Call";
+        case SEND_TEXT:
+            return "Send Text";
+        case SEND_EMAIL:
+            return "Send Email";
+    }
 }
 
 std::string Person::toString() {
     std::string result = "Name: " + name +
     "\nPhone Number: " + phoneNumber +
     "\nEmail: " + email +
-    "\nCommunication Method: " + commMethod;
+    "\nCommunication Method: " + getCommMethod();
     return result;
 }
