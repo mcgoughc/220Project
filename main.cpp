@@ -39,7 +39,9 @@ void runProgram(){
     bool run = true;
     while(run){
         std::cout << "Enter function letter key or 'h' for help: ";
-        std::string input = getLineFromTerminal();
+        std::string input;
+        std::getline(std::cin, input);
+
         if(input.length() != 1){
             std::cout << "Invalid input" << std::endl;
         }else if(input == "h"){
