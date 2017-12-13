@@ -51,12 +51,18 @@ void modify(BookStore& bk1){
 }
 
 void sell(BookStore& bk1){
-    //TODO
+    std::cout << "Enter name of book to order: ";
+    std::string bookTitle = getLineFromTerminal();
+    try {
+        bk1.sell(bookTitle);
+    }catch(std::out_of_range &e){
+        std::cout << "No book exists with that title" << std::endl;
+    }
 }
 
 void order(BookStore& bk1){
     bk1.order("order.txt");
-    std::cout << "Book order file written to 'order.txt'.";
+    std::cout << "Book order file written to 'order.txt'." << std::endl;
 }
 
 void delivery(BookStore& bk1){
