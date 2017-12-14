@@ -26,14 +26,14 @@ void inquire(BookStore& bk1){
         std::cout << "Bookstore is empty" << std::endl;
     }else {
         std::cout << "Please enter a book title: ";
-        std::string titleToFind;
-        std::cin >> titleToFind;
+        std::string bookTitle;
+        std::getline(std::cin, bookTitle);
 
-        if(bk1.bookCheck(titleToFind)){
-            std::cout << "Title: " + titleToFind << std::endl;
-            std::cout << "Have: " + std::to_string(bk1.getHave(titleToFind)) << std::endl;
-            std::cout << "Want: " + std::to_string(bk1.getWant(titleToFind)) << std::endl;
-            std::cout << "Waitlist: " + bk1.getWaitList(titleToFind) << std::endl;
+        if(bk1.bookCheck(bookTitle)){
+            std::cout << "Title: " + bookTitle << std::endl;
+            std::cout << "Have: " + std::to_string(bk1.getHave(bookTitle)) << std::endl;
+            std::cout << "Want: " + std::to_string(bk1.getWant(bookTitle)) << std::endl;
+            std::cout << "Waitlist: " + bk1.getWaitList(bookTitle) << std::endl;
 
         }else{
             std::cout << "Book does not exist" << std::endl;
@@ -60,7 +60,7 @@ void list(BookStore& bk1){
 void add(BookStore& bk1){
     std::cout << "Enter title of book to add: ";
     std::string bookTitle;
-    std::cin >> bookTitle;
+    std::getline(std::cin, bookTitle);
 
     if (bk1.bookCheck(bookTitle)) {
         std::cout << "Book already exists" << std::endl;
@@ -77,7 +77,7 @@ void add(BookStore& bk1){
         std::cin >> have;
 
         bk1.add(bookTitle, want, have);
-        std::cout << "Sucessfully added" << std::endl;
+        std::cout << "Successfully added" << std::endl;
     }
 }
 
@@ -87,7 +87,7 @@ void modify(BookStore& bk1){
     }else {
         std::cout << "Enter name of book to modify: ";
         std::string bookTitle;
-        std::cin >> bookTitle;
+        std::getline(std::cin, bookTitle);
 
         if (bk1.bookCheck(bookTitle)) {
             std::string wantHave = bookTitle + "\nWant: " + std::to_string(bk1.getWant(bookTitle)) +
@@ -110,7 +110,7 @@ void sell(BookStore& bk1){
     }else {
         std::cout << "Enter name of book to order: ";
         std::string bookTitle;
-        std::cin >> bookTitle;
+        std::getline(std::cin, bookTitle);
 
         if (bk1.bookCheck(bookTitle)) {
             if (bk1.getHave(bookTitle) <= 0) {
@@ -124,13 +124,13 @@ void sell(BookStore& bk1){
                     int pref;
 
                     std::cout << "Enter first name: ";
-                    std::cin >> fName;
+                    std::getline(std::cin, fName);
                     std::cout << "Enter last name: ";
-                    std::cin >> lName;
+                    std::getline(std::cin, lName);
                     std::cout << "Enter phone number: ";
-                    std::cin >> phNum;
+                    std::getline(std::cin, phNum);
                     std::cout << "Enter email: ";
-                    std::cin >> email;
+                    std::getline(std::cin, email);
                     std::cout << "Enter preferred communication: ";
                     std::cin >> pref;
 
@@ -169,10 +169,11 @@ void order(BookStore& bk1){
 void delivery(BookStore& bk1){
     std::cout << "Enter title of delivery file: ";
     std::string fileName;
-    std::cin >> fileName;
+    std::getline(std::cin, fileName);
 
     bk1.deliver(fileName);
     std::cout << "Delivery added to Bookstore." << std::endl;
+
 }
 
 void returnBooks(BookStore& bk1){
