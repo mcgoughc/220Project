@@ -68,11 +68,15 @@ Person Book::removeFromWaitList() {
 std::string Book::getWaitList() {
     std::string output;
     if(waitList->isEmpty()){
-        output = "Waitlist is empty";
+        output = ""; //I set this to empty string because it is easier to handle in bookstore
     }else{
         output = waitList->toString();
     }
     return output;
+}
+
+bool Book::isWaitListEmpty() {
+    return waitList->isEmpty();
 }
 
 int Book::getHaveValue() {

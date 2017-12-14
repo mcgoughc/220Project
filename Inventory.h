@@ -63,6 +63,13 @@ public:
      * @return A string list of the inventory
      */
     virtual std::string listInventory()=0;
+
+    /**
+     *
+     * @param title
+     * @return
+     */
+    virtual bool itemExists(std::string title)=0;
 };
 
 #endif //TEMPLATELIST_LIST_H

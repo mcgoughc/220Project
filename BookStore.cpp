@@ -83,7 +83,36 @@ void BookStore::order(std::string outputFile) {
 void BookStore::deliver(std::string inputFile) {
     std::ifstream fin (inputFile);
     if(fin){
+        while(!fin.eof()) {
+            std::string numberInput;
+            fin >> numberInput;
+            std::string titleInput;
+            fin >> titleInput;
 
+            if(numberInput == "" || titleInput == "")
+                break;
+            int numberOfBook;
+            try {
+                numberOfBook = std::stoi(numberInput);
+            }catch(std::invalid_argument e){
+                std::cout << "Delivery file not formatted properly" << std::endl;
+                fin.close();
+                return;
+            }
+
+            Book& currentBook = findBook(titleInput);
+            int newHaveValue = currentBook.getHaveValue() + numberOfBook;
+            bool endOfWaitList = false;
+            std::cout << "Deliver " + titleInput + " to the following customers on the wait list:" << std::endl;
+            while(!endOfWaitList){
+                try {
+                    std::cout << currentBook.removeFromWaitList().toString() << std::endl;
+                }catch(std::out_of_range e){
+                    endOfWaitList = true;
+                }
+            }
+        }
+        fin.close();
     }
     else{
         std::cout << "Error in opening " + inputFile;
@@ -105,4 +134,8 @@ Book& BookStore::findBookByIndex(int idx) {
 
 int BookStore::bookCount() {
     return booksInStore->itemCount();
+}
+
+bool BookStore::bookCheck(std::string title) {
+    return booksInStore->itemExists(title);
 }
