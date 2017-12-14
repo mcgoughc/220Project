@@ -27,8 +27,8 @@ std::string BookStore::list() {
     return booksInStore->listInventory();
 }
 
-void BookStore::add(std::string title, std::string author, int want, int have) {
-    Book bkToAdd = Book(title, author, want, have);
+void BookStore::add(std::string title, int want, int have) {
+    Book bkToAdd = Book(title, want, have);
     booksInStore->addItem(bkToAdd);
 }
 
@@ -69,7 +69,7 @@ void BookStore::order(std::string outputFile) {
             getline(bookList, book);
             if(book != "") {
                 int orderNumber = getWant(book) - getHave(book);
-                book =  std::to_string(orderNumber) + " " + book;
+                std::string output = std::to_string(orderNumber) + ", " + book;
                 fout << book << std::endl;
             }
         }
@@ -104,7 +104,7 @@ void BookStore::deliver(std::string inputFile) {
             if(booksInStore->itemExists(titleInput))
                 currentBook = findBook(titleInput);
             else
-                currentBook = Book(titleInput, "", 0, 0);
+                currentBook = Book(titleInput, 0, 0);
             int newHaveValue = currentBook.getHaveValue() + numberOfBook;
             bool endOfWaitList = false;
             std::cout << "Deliver " + titleInput + " to the following customers on the wait list:" << std::endl;

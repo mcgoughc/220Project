@@ -38,7 +38,7 @@ public:
      * @param want The ideal number of copies in stock
      * @param have The actual number of copies in stock
      */
-    void add(std::string title, std::string author, int want, int have);
+    void add(std::string title, int want, int have);
 
     /**
      * Set ideal number of copies for inventory

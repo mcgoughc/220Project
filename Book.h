@@ -12,7 +12,6 @@
 class Book {
 private:
     std::string title;
-    std::string author;
     int haveValue;
     int wantValue;
     LinkedQueue<Person>* waitList;
@@ -30,7 +29,7 @@ public:
      * @param title
      * @param author
      */
-    Book(std::string title, std::string author, int want, int have);
+    Book(std::string title, int want, int have);
 
     /**
      * copy constructor
@@ -96,11 +95,6 @@ public:
      * @return title
      */
     std::string getTitle();
-
-    /**
-     * @return author of book
-     */
-    std::string getAuthor();
 };
 
 

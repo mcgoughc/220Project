@@ -6,7 +6,6 @@
 
 Book::Book() {
     title = "NONE";
-    author = "NONE";
     haveValue = 0;
     wantValue = 0;
     waitListLength = 0;
@@ -15,7 +14,6 @@ Book::Book() {
 //Copy Constructor
 Book::Book(const Book& booktoCopy) {
     title = booktoCopy.title;
-    author = booktoCopy.author;
     haveValue = booktoCopy.haveValue;
     wantValue = booktoCopy.wantValue;
     waitListLength = booktoCopy.waitListLength;
@@ -28,7 +26,6 @@ Book& Book::operator=(const Book& booktoCopy) {
         delete waitList;
 
         title = booktoCopy.title;
-        author = booktoCopy.author;
         haveValue = booktoCopy.haveValue;
         wantValue = booktoCopy.wantValue;
         waitListLength = booktoCopy.waitListLength;
@@ -41,9 +38,8 @@ Book::~Book() {
     delete waitList;
 }
 
-Book::Book(std::string title, std::string author, int want, int have) {
+Book::Book(std::string title, int want, int have) {
     this->title = title;
-    this->author = author;
     haveValue = have;
     wantValue = want;
     waitListLength = 0;
@@ -106,10 +102,5 @@ void Book::setWantValue(int newValue) {
 std::string Book::getTitle() {
     return title;
 }
-
-std::string Book::getAuthor() {
-    return author;
-}
-
 
 
