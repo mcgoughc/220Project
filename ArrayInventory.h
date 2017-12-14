@@ -106,24 +106,6 @@ public:
     int itemCount();
 
     /**
-     *
-     * @param A a book title
-     * @param B a book title
-     * @return true or false based on comparison
-     */
-    bool isAlphabeticallyGreaterThan(std::string A, std::string B);
-
-    /**
-     *
-     * @param arrayPtr
-     * @param min
-     * @param max
-     * @param titleToFind
-     * @return index of the book
-     */
-    int binFind(Book* arrayPtr, int min, int max, std::string titleToFind);
-
-    /**
     * Lists items in the inventory
     * @return A string list of the inventory
     */

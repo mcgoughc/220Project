@@ -163,26 +163,7 @@ int charValue(char input){
     return characterValue;
 }
 
-
-bool ArrayInventory::isAlphabeticallyGreaterThan(std::string A, std::string B) {
-    int shorterLength = std::min(A.length(), B.length());
-    bool foundGreaterCharacter = false;
-    bool allEqual = true;
-    for(int s = 0; s < shorterLength; s++){
-        if(charValue(A.at(s)) > charValue(B.at(s))) {
-            foundGreaterCharacter = true;
-            allEqual = false;
-        }
-        else if(charValue(A.at(s)) < charValue(B.at(s))){
-            allEqual = false;
-        }
-    }
-    if(allEqual && A.length() != B.length())
-        foundGreaterCharacter = false;
-    return foundGreaterCharacter;
-}
-
-int ArrayInventory::binFind(Book* arrayPtr, int min, int max, std::string titleToFind){
+int binFind(Book* arrayPtr, int min, int max, std::string titleToFind){
     if(min <= max){
         int middle = (min + max)/2;
 
@@ -221,3 +202,22 @@ bool ArrayInventory::itemExists(std::string title) {
     return idx != -1;
 }
 
+
+/*
+bool isAlphabeticallyGreaterThan(std::string A, std::string B) {
+    int shorterLength = std::min(A.length(), B.length());
+    bool foundGreaterCharacter = false;
+    bool allEqual = true;
+    for(int s = 0; s < shorterLength; s++){
+        if(charValue(A.at(s)) > charValue(B.at(s))) {
+            foundGreaterCharacter = true;
+            allEqual = false;
+        }
+        else if(charValue(A.at(s)) < charValue(B.at(s))){
+            allEqual = false;
+        }
+    }
+    if(allEqual && A.length() != B.length())
+        foundGreaterCharacter = false;
+    return foundGreaterCharacter;
+}*/
