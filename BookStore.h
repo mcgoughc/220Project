@@ -129,6 +129,13 @@ public:
      */
     int bookCount();
 
+    /**
+     *
+     * @param title
+     * @return
+     */
+    bool bookCheck(std::string title);
+
 };
 
 

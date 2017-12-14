@@ -10,7 +10,6 @@
 //TODO Clean up + Add comments/headers
 
 class MissingBook : public std::exception{};
-class BookHaveEmpty : public std::exception{};
 
 class ArrayInventory : public Inventory{
 private:
@@ -106,28 +105,12 @@ public:
     int itemCount();
 
     /**
-     *
-     * @param A a book title
-     * @param B a book title
-     * @return true or false based on comparison
-     */
-    bool isAlphabeticallyGreaterThan(std::string A, std::string B);
-
-    /**
-     *
-     * @param arrayPtr
-     * @param min
-     * @param max
-     * @param titleToFind
-     * @return index of the book
-     */
-    int binFind(Book* arrayPtr, int min, int max, std::string titleToFind);
-
-    /**
     * Lists items in the inventory
     * @return A string list of the inventory
     */
     std::string listInventory();
+
+    bool itemExists(std::string title);
 
 
 };

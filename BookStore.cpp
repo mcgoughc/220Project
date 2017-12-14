@@ -136,3 +136,7 @@ Book& BookStore::findBookByIndex(int idx) {
 int BookStore::bookCount() {
     return booksInStore->itemCount();
 }
+
+bool BookStore::bookCheck(std::string title) {
+    return booksInStore->itemExists(title);
+}
