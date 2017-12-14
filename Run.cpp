@@ -22,23 +22,22 @@ void help(){
 }
 
 void inquire(BookStore& bk1){
-    std::cout << "Please enter a book title: " << std::endl;
-    std::string titleToFind;
-    std::cin >> titleToFind;
-    bool haveBook;
-    Book b1;
-    try {
-        b1 = bk1.findBook(titleToFind);
-        std::cout << "We have the book" << std::endl;
-        haveBook = true;
-    }
-    catch(std::out_of_range&e){
-        std::cout << "We do not have that book" << std::endl;
-        haveBook = false;
-    }
-    if (haveBook) {
-        std::cout << "Book Title: " + b1.getTitle() << std::endl;
-        std::cout << "Book Wait list: " + b1.getWaitList() << std::endl;
+    if(bk1.bookCount() <= 0){
+        std::cout << "Bookstore is empty" << std::endl;
+    }else {
+        std::cout << "Please enter a book title: " << std::endl;
+        std::string titleToFind;
+        std::cin >> titleToFind;
+
+        if(bk1.bookCheck(titleToFind)){
+            std::cout << "Title: " + titleToFind << std::endl;
+            std::cout << "Have: " + bk1.getHave(titleToFind) << std::endl;
+            std::cout << "Want: " + bk1.getWant(titleToFind) << std::endl;
+            std::cout << "Waitlist: " + bk1.getWaitList(titleToFind) << std::endl;
+
+        }else{
+            std::cout << "Book does not exist" << std::endl;
+        }
     }
 }
 
@@ -60,20 +59,22 @@ void list(BookStore& bk1){
 
 void add(BookStore& bk1){
     std::cout << "Enter title of book to add: ";
-    std::string bookTitle = getLineFromTerminal();
+    std::string bookTitle;
+    std::cin >> bookTitle;
 
     if (bk1.bookCheck(bookTitle)) {
         std::cout << "Book already exists" << std::endl;
-        std::cout << bookTitle << "\nWant: " << std::to_string(bk1.getWant(bookTitle)) << "\nHave: "
-                  << std::to_string(bk1.getHave(bookTitle)) << std::endl;
+        std::cout << bookTitle << "\nWant: " << std::to_string(bk1.getWant(bookTitle))
+                  << "\nHave: " << std::to_string(bk1.getHave(bookTitle)) << std::endl;
 
     } else {
-        std::cout << "Enter author of book: ";
-        std::string author = getLineFromTerminal();
+        int want;
+        int have;
+
         std::cout << "Enter want value: ";
-        int want = stoi(getLineFromTerminal());
+        std::cin >> want;
         std::cout << "Enter have value: ";
-        int have = stoi(getLineFromTerminal());
+        std::cin >> have;
 
         bk1.add(bookTitle, want, have);
         std::cout << "Sucessfully added" << std::endl;
@@ -85,13 +86,16 @@ void modify(BookStore& bk1){
         std::cout << "Bookstore is empty" << std::endl;
     }else {
         std::cout << "Enter name of book to modify: ";
-        std::string bookTitle = getLineFromTerminal();
+        std::string bookTitle;
+        std::cin >> bookTitle;
 
         if (bk1.bookCheck(bookTitle)) {
-            std::string wantHave = bookTitle + "\nWant: " + std::to_string(bk1.getWant(bookTitle)) + "\nHave: " +
-                                   std::to_string(bk1.getHave(bookTitle));
+            std::string wantHave = bookTitle + "\nWant: " + std::to_string(bk1.getWant(bookTitle)) +
+                                   "\nHave: " + std::to_string(bk1.getHave(bookTitle));
+
             std::cout << "Enter new want: ";
-            int newWant = stoi(getLineFromTerminal());
+            int newWant;
+            std::cin >> newWant;
             bk1.setWant(bookTitle, newWant);
 
         } else {
@@ -100,28 +104,33 @@ void modify(BookStore& bk1){
     }
 }
 
-void sell(BookStore& bk1){
+void sell(BookStore& bk1){//TODO negative sell???
     if(bk1.bookCount() <= 0) {
         std::cout << "Bookstore is empty" << std::endl;
     }else {
         std::cout << "Enter name of book to order: ";
-        std::string bookTitle = getLineFromTerminal();
+        std::string bookTitle;
+        std::cin >> bookTitle;
 
         if (bk1.bookCheck(bookTitle)) {
             if (bk1.getHave(bookTitle) <= 0) {
+
                 std::cout << "No more copies of " << bookTitle << std::endl;
                 std::cout << "Would you like to join the waitlist? (y/n): ";
+
                 if (getLineFromTerminal() == "y") {
-                    std::cout << "Enter first name: ";
-                    std::string fName = getLineFromTerminal();
-                    std::cout << "Enter last name: ";
-                    std::string lName = getLineFromTerminal();
-                    std::cout << "Enter phone number: ";
-                    std::string phNum = getLineFromTerminal();
-                    std::cout << "Enter email: ";
-                    std::string email = getLineFromTerminal();
-                    std::cout << "Enter preferred communication: ";
+                    std::string fName, lName, phNum, email;
                     int pref;
+
+                    std::cout << "Enter first name: ";
+                    std::cin >> fName;
+                    std::cout << "Enter last name: ";
+                    std::cin >> lName;
+                    std::cout << "Enter phone number: ";
+                    std::cin >> phNum;
+                    std::cout << "Enter email: ";
+                    std::cin >> email;
+                    std::cout << "Enter preferred communication: ";
                     std::cin >> pref;
 
                     Person newP = Person(fName, lName, phNum, email, pref);
@@ -160,7 +169,9 @@ void delivery(BookStore& bk1){
         std::cout << "Bookstore is empty" << std::endl;
     }else {
         std::cout << "Enter title of delivery file: ";
-        std::string fileName = getLineFromTerminal();
+        std::string fileName;
+        std::cin >> fileName;
+
         bk1.deliver(fileName);
         std::cout << "Delivery added to Bookstore." << std::endl;
     }
