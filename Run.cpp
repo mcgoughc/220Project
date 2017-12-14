@@ -146,6 +146,7 @@ void sell(BookStore& bk1){//TODO negative sell???
                 }
 
             } else {
+                bk1.sell(bookTitle);
                 std::cout << "1 copy sold" << std::endl;
             }
 
