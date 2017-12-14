@@ -69,8 +69,13 @@ void BookStore::order(std::string outputFile) {
             getline(bookList, book);
             if(book != "") {
                 int orderNumber = getWant(book) - getHave(book);
-                book = std::to_string(orderNumber) + ", " + book;
-                fout << book << std::endl;
+                if(orderNumber > 0) {
+                    book = std::to_string(orderNumber) + " " + book;
+                    fout << book << std::endl;
+                }
+                else{
+                    std::cout << "Note: " << book << "'s have value is greater than want. You should create a return invoice" << std::endl;
+                }
             }
         }
         fout.close();
@@ -129,7 +134,31 @@ void BookStore::deliver(std::string inputFile) {
 }
 
 void BookStore::returnBooks(std::string outputFile) {
-    //TODO file IO
+    std::ofstream fout (outputFile);
+    if (fout) {
+        std::string printData = booksInStore->listInventory();
+        std::stringstream bookList(printData);
+        while(bookList){
+            std::string book;
+            getline(bookList, book);
+            if(book != "") {
+                int wantValue = getWant(book);
+                int returnNumber = getHave(book) - wantValue;
+                if(returnNumber > 0) {
+                    setHave(book, wantValue);
+                    book = std::to_string(returnNumber) + " " + book;
+                    fout << book << std::endl;
+                }
+                else{
+                    std::cout << "Note: " << book << "'s want value is greater than have. You should create an order" << std::endl;
+                }
+            }
+        }
+        fout.close();
+    }
+    else {
+        std::cout << "Error in opening " + outputFile;
+    }
 }
 
 Book& BookStore::findBook(std::string titleToFind){
