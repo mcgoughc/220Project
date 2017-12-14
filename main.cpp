@@ -16,8 +16,6 @@ void runTests(){
     std::cout << std::endl;
     personSetGet(person1);
     std::cout << std::endl;
-    isAlphaGreaterThanTest(bs);
-    std::cout << std::endl;
     bookstoreAddSell(b1);
     std::cout << std::endl;
     bookstoreWantHave(b1);
@@ -32,8 +30,6 @@ void runTests(){
 
     BookStore b2 = BookStore();
     fileIOTests(b2);
-
-    fileWriteTest();
 
 }
 

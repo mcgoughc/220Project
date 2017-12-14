@@ -330,7 +330,7 @@ void fileIOTests(BookStore& bookstore){
     bookstore.order("order.txt");
 
     //Delivery test
-    bookstore.deliver("order.txt");
+    //bookstore.deliver("order.txt");
 }
 
 
