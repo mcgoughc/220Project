@@ -25,14 +25,14 @@ void inquire(BookStore& bk1){
     if(bk1.bookCount() <= 0){
         std::cout << "Bookstore is empty" << std::endl;
     }else {
-        std::cout << "Please enter a book title: " << std::endl;
+        std::cout << "Please enter a book title: ";
         std::string titleToFind;
         std::cin >> titleToFind;
 
         if(bk1.bookCheck(titleToFind)){
             std::cout << "Title: " + titleToFind << std::endl;
-            std::cout << "Have: " + bk1.getHave(titleToFind) << std::endl;
-            std::cout << "Want: " + bk1.getWant(titleToFind) << std::endl;
+            std::cout << "Have: " + std::to_string(bk1.getHave(titleToFind)) << std::endl;
+            std::cout << "Want: " + std::to_string(bk1.getWant(titleToFind)) << std::endl;
             std::cout << "Waitlist: " + bk1.getWaitList(titleToFind) << std::endl;
 
         }else{
@@ -104,7 +104,7 @@ void modify(BookStore& bk1){
     }
 }
 
-void sell(BookStore& bk1){//TODO negative sell???
+void sell(BookStore& bk1){
     if(bk1.bookCount() <= 0) {
         std::cout << "Bookstore is empty" << std::endl;
     }else {
@@ -117,8 +117,9 @@ void sell(BookStore& bk1){//TODO negative sell???
 
                 std::cout << "No more copies of " << bookTitle << std::endl;
                 std::cout << "Would you like to join the waitlist? (y/n): ";
-
-                if (getLineFromTerminal() == "y") {
+                char yesNo;
+                std::cin >> yesNo;
+                if (yesNo == 'y') {
                     std::string fName, lName, phNum, email;
                     int pref;
 
@@ -138,7 +139,7 @@ void sell(BookStore& bk1){//TODO negative sell???
 
                     std::cout << "Added to the waitlist" << std::endl;
 
-                } else if (getLineFromTerminal() == "n") {
+                } else if (yesNo == 'n') {
                     std::cout << std::endl;
 
                 } else {
@@ -146,6 +147,7 @@ void sell(BookStore& bk1){//TODO negative sell???
                 }
 
             } else {
+                bk1.sell(bookTitle);
                 std::cout << "1 copy sold" << std::endl;
             }
 
@@ -197,12 +199,6 @@ void quit(BookStore& bk1){
         }
         std::cout << "Bookstore data saved to 'bookstore.txt'. Quitting Bookstore operation..." << std::endl;
     }
-}
-
-std::string getLineFromTerminal(){
-    std::string line;
-    getline(std::cin, line);
-    return line;
 }
 
 void printToFile(std::string line, char delimiter, std::string fileName){
