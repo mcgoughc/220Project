@@ -26,8 +26,7 @@ void inquire(BookStore& bk1){
         std::cout << "Bookstore is empty" << std::endl;
     }else {
         std::cout << "Please enter a book title: ";
-        std::string bookTitle;
-        getline(std::cin, bookTitle);
+        std::string bookTitle = getLineFromTerminal();
 
         if(bk1.bookCheck(bookTitle)){
             std::cout << "Title: " + bookTitle << std::endl;
@@ -67,13 +66,10 @@ void add(BookStore& bk1){
                   << "\nHave: " << std::to_string(bk1.getHave(bookTitle)) << std::endl;
 
     } else {
-        int want;
-        int have;
-
         std::cout << "Enter want value: ";
-        std::cin >> want;
+        int want = stoi(getLineFromTerminal());
         std::cout << "Enter have value: ";
-        std::cin >> have;
+        int have = stoi(getLineFromTerminal());
 
         bk1.add(bookTitle, want, have);
         std::cout << "Successfully added" << std::endl;
@@ -85,16 +81,14 @@ void modify(BookStore& bk1){
         std::cout << "Bookstore is empty" << std::endl;
     }else {
         std::cout << "Enter name of book to modify: ";
-        std::string bookTitle;
-        getline(std::cin, bookTitle);
+        std::string bookTitle = getLineFromTerminal();
 
         if (bk1.bookCheck(bookTitle)) {
             std::string wantHave = bookTitle + "\nWant: " + std::to_string(bk1.getWant(bookTitle)) +
                                    "\nHave: " + std::to_string(bk1.getHave(bookTitle));
 
             std::cout << "Enter new want: ";
-            int newWant;
-            std::cin >> newWant;
+            int newWant = stoi(getLineFromTerminal());
             bk1.setWant(bookTitle, newWant);
 
         } else {
@@ -108,37 +102,33 @@ void sell(BookStore& bk1){
         std::cout << "Bookstore is empty" << std::endl;
     }else {
         std::cout << "Enter name of book to order: ";
-        std::string bookTitle;
-        std::getline(std::cin, bookTitle);
+        std::string bookTitle = getLineFromTerminal();
 
         if (bk1.bookCheck(bookTitle)) {
             if (bk1.getHave(bookTitle) <= 0) {
 
                 std::cout << "No more copies of " << bookTitle << std::endl;
                 std::cout << "Would you like to join the waitlist? (y/n): ";
-                char yesNo;
-                std::cin >> yesNo;
-                if (yesNo == 'y') {
-                    std::string fName, lName, phNum, email;
-                    int pref;
+                std::string yesNo = getLineFromTerminal();
 
+                if (yesNo == "y") {
                     std::cout << "Enter first name: ";
-                    std::getline(std::cin, fName);
+                    std::string fName = getLineFromTerminal();
                     std::cout << "Enter last name: ";
-                    std::getline(std::cin, lName);
+                    std::string lName = getLineFromTerminal();
                     std::cout << "Enter phone number: ";
-                    std::getline(std::cin, phNum);
+                    std::string phNum = getLineFromTerminal();
                     std::cout << "Enter email: ";
-                    std::getline(std::cin, email);
+                    std::string email = getLineFromTerminal();
                     std::cout << "Enter preferred communication: ";
-                    std::cin >> pref;
+                    int pref = stoi(getLineFromTerminal());
 
                     Person newP = Person(fName, lName, phNum, email, pref);
                     bk1.findBook(bookTitle).addToWaitList(newP);
 
                     std::cout << "Added to the waitlist" << std::endl;
 
-                } else if (yesNo == 'n') {
+                } else if (yesNo == "n") {
                     std::cout << std::endl;
 
                 } else {
@@ -167,8 +157,7 @@ void order(BookStore& bk1){
 
 void delivery(BookStore& bk1){
     std::cout << "Enter title of delivery file: ";
-    std::string fileName;
-    std::getline(std::cin, fileName);
+    std::string fileName = getLineFromTerminal();
 
     bk1.deliver(fileName);
     std::cout << "Delivery added to Bookstore." << std::endl;
