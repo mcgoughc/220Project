@@ -218,6 +218,7 @@ void bookstoreWaitlist(BookStore &bookstore) {
     //TODO
 }
 
+/*
 void isAlphaGreaterThanTest(ArrayInventory& inventory){
     bool errors = false;
     printf("isAlphaGreaterThanTest ------------\n");
@@ -249,14 +250,14 @@ void isAlphaGreaterThanTest(ArrayInventory& inventory){
     }
 
 }
-
+*/
 void linkQueueAssignOp(){
     printf("linkedQueueAssignOp ----------\n");
     bool errors = false;
 
-    Person testPerson1 = Person("Bill", "Sapsis", "18007854444", "billy@sri.org", "Text");
-    Person testPerson2 = Person("Kim", "Turncliffe", "9048753000", "kimmie@yahoo.com", "Email");
-    Person testPerson3 = Person("Rachel", "Young", "3356874300", "ryoung@gmail.com", "Phone");
+    Person testPerson1 = Person("Bill", "Sapsis", "18007854444", "billy@sri.org", 1);
+    Person testPerson2 = Person("Kim", "Turncliffe", "9048753000", "kimmie@yahoo.com", 2);
+    Person testPerson3 = Person("Rachel", "Young", "3356874300", "ryoung@gmail.com", 3);
     LinkedQueue<Person>* origTestQueue = new LinkedQueue<Person>();
     LinkedQueue<Person>* newTestQueue = new LinkedQueue<Person>();
 
@@ -323,7 +324,8 @@ void fileIOTests(BookStore& bookstore){
     bookstore.add("Red", "John Dodd", 10, 8);
     bookstore.add("Blue", "Betty Sweaty", 9, 0);
     bookstore.add("Orange", "Pope Francis", 3, 2);
-    bookstore.findBook("Red").addToWaitList(new Person("Johnny", "Johnson", "555-5555", "John@ithaca.edu", Person::SEND_TEXT));
+    Person p = ("Johnny", "Johnson", "555-5555", "John@ithaca.edu",Pers);
+    bookstore.findBook("Red").addToWaitList(p);
     bookstore.order("order.txt");
 
     //Delivery test
