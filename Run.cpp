@@ -43,7 +43,6 @@ void list(BookStore& bk1){
         for (int i = 0; i < bk1.bookCount(); ++i) {
             Book &temp = bk1.findBookByIndex(i);
             std::string output = temp.getTitle() +
-                                 "\nBy: " + temp.getAuthor() +
                                  "\nWant: " + std::to_string(temp.getWantValue()) +
                                  "\nHave: " + std::to_string(temp.getHaveValue()) +
                                  "\nWaitlist: " + temp.getWaitList() + "\n";
@@ -64,18 +63,15 @@ void add(BookStore& bk1){
                   << "\nHave: " << std::to_string(bk1.getHave(bookTitle)) << std::endl;
 
     } else {
-        std::string author;
         int want;
         int have;
 
-        std::cout << "Enter author of book: ";
-        std::cin >> author;
         std::cout << "Enter want value: ";
         std::cin >> want;
         std::cout << "Enter have value: ";
         std::cin >> have;
 
-        bk1.add(bookTitle, author, want, have);
+        bk1.add(bookTitle, want, have);
         std::cout << "Sucessfully added" << std::endl;
     }
 }
@@ -170,6 +166,7 @@ void delivery(BookStore& bk1){
         std::cout << "Enter title of delivery file: ";
         std::string fileName;
         std::cin >> fileName;
+
         bk1.deliver(fileName);
         std::cout << "Delivery added to Bookstore." << std::endl;
     }
@@ -191,7 +188,6 @@ void quit(BookStore& bk1){
         for (int i = 0; i < bk1.bookCount(); ++i) {
             Book &temp = bk1.findBookByIndex(i);
             std::string output = temp.getTitle() + "," +
-                                 temp.getAuthor() + "," +
                                  std::to_string(temp.getWantValue()) + "," +
                                  std::to_string(temp.getHaveValue()) + "," +
                                  temp.getWaitList();
