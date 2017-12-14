@@ -44,22 +44,39 @@ void list(BookStore& bk1){
 }
 
 void add(BookStore& bk1){
-    //TODO
+    std::cout << "Enter title of book to add: ";
+    std::string bookTitle = getLineFromTerminal();
+
+    if(bk1.bookCheck(bookTitle)){
+        std::cout << "Book already exists" << std::endl;
+        std::cout << bookTitle << "\nWant: " << std::to_string(bk1.getWant(bookTitle)) << "\nHave: " << std::to_string(bk1.getHave(bookTitle)) << std::endl;
+
+    }else{
+        std::cout << "Enter author of book: ";
+        std::string author = getLineFromTerminal();
+        std::cout << "Enter want value: ";
+        int want = stoi(getLineFromTerminal());
+        std::cout << "Enter have value: ";
+        int have = stoi(getLineFromTerminal());
+
+        bk1.add(bookTitle, author, want, have);
+        std::cout << "Sucessfully added" << std::endl;
+    }
 }
 
 void modify(BookStore& bk1){
     std::cout << "Enter name of book to modify: ";
     std::string bookTitle = getLineFromTerminal();
-    try{
-        bk1.findBook(bookTitle);
-    }catch(MissingBook &e){
+
+    if(bk1.bookCheck(bookTitle)){
+        std::string wantHave = bookTitle + "\nWant: " + std::to_string(bk1.getWant(bookTitle)) + "\nHave: " + std::to_string(bk1.getHave(bookTitle));
+        std::cout << "Enter new want: ";
+        int newWant = stoi(getLineFromTerminal());
+        bk1.setWant(bookTitle, newWant);
+
+    }else{
         std::cout << "No book exists with that title" << std::endl;
-        return;
     }
-    std::string wantHave = bookTitle + "\nWant: " + std::to_string(bk1.getWant(bookTitle)) + "\nHave: " + std::to_string(bk1.getHave(bookTitle));
-    std::cout << "Enter new want: ";
-    int newWant = stoi(getLineFromTerminal());
-    bk1.setWant(bookTitle, newWant);
 }
 
 void sell(BookStore& bk1){
@@ -86,14 +103,18 @@ void sell(BookStore& bk1){
                 bk1.findBook(bookTitle).addToWaitList(newP);
 
                 std::cout << "Added to the waitlist" << std::endl;
+
             }else if(getLineFromTerminal() == "n"){
                 std::cout << std::endl;
+
             }else{
                 std::cout << "Invalid input." << std::endl;
             }
+
         }else{
             std::cout << "1 copy sold" << std::endl;
         }
+
     }else{
         std::cout << "No book exists with that title" << std::endl;
     }
