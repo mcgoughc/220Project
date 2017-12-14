@@ -87,8 +87,8 @@ void BookStore::deliver(std::string inputFile) {
             std::string numberInput;
             fin >> numberInput;
             std::string titleInput;
-            fin >> titleInput;
-
+            std::getline(fin, titleInput);
+            titleInput.erase(0, 1);
             if(numberInput == "" || titleInput == "")
                 break;
             int numberOfBook;
