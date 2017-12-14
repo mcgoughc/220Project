@@ -11,7 +11,7 @@ Person::Person(std::string first, std::string last, std::string phoneNumberIn, s
     phoneNumber = phoneNumberIn;
     email = emailIn;
     commMethod = commMethodIN;
-    name = last + ", " + first;
+    name = first + " " + last;
 }
 
 void Person::setName(std::string first, std::string last) {

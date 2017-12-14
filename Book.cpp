@@ -75,6 +75,10 @@ std::string Book::getWaitList() {
     return output;
 }
 
+bool Book::isWaitListEmpty() {
+    return waitList->isEmpty();
+}
+
 int Book::getHaveValue() {
     return haveValue;
 }

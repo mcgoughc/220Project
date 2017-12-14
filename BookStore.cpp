@@ -101,12 +101,15 @@ void BookStore::deliver(std::string inputFile) {
             }
 
             Book& currentBook = findBook(titleInput);
-            std::stringstream waitList(currentBook.getWaitList());
             int newHaveValue = currentBook.getHaveValue() + numberOfBook;
-            while(!waitList.eof()){
-                std::string line;
-                waitList >> line;
-                std::cout << line << std::endl;
+            bool endOfWaitList = false;
+            std::cout << "Deliver " + titleInput + " to the following customers on the wait list:" << std::endl;
+            while(!endOfWaitList){
+                try {
+                    std::cout << currentBook.removeFromWaitList().toString() << std::endl;
+                }catch(std::out_of_range e){
+                    endOfWaitList = true;
+                }
             }
         }
         fin.close();

@@ -65,6 +65,10 @@ public:
     std::string getWaitList();
 
     /**
+     * @return If the waitlist is empty or not
+     */
+    bool isWaitListEmpty();
+    /**
      * @return haveValue
      */
     int getHaveValue();
