@@ -5,8 +5,8 @@
 void runTests(){
     Book book1 = Book("Autumn", "Ali Smith", 0, 0);
     Book book2 = Book("Pachinko","Min Jin Lee", 0, 0);
-    Person person1 = Person("First","Last", "Phone Num", "Email", "Text");
-    Person person2 = Person("First","Last", "Phone Num", "Email", "Text");
+    Person person1 = Person("First","Last", "Phone Num", "Email", Person::SEND_TEXT);
+    Person person2 = Person("First","Last", "Phone Num", "Email", Person::SEND_TEXT);
     ArrayInventory bs = ArrayInventory();
     BookStore b1 = BookStore();
 
