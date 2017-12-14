@@ -205,12 +205,6 @@ void quit(BookStore& bk1){
     }
 }
 
-std::string getLineFromTerminal(){
-    std::string line;
-    getline(std::cin, line);
-    return line;
-}
-
 void printToFile(std::string line, char delimiter, std::string fileName){
     std::ofstream fout (fileName);
     if (fout) {
