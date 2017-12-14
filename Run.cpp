@@ -48,7 +48,18 @@ void add(BookStore& bk1){
 }
 
 void modify(BookStore& bk1){
-    //TODO
+    std::cout << "Enter name of book to modify: ";
+    std::string bookTitle = getLineFromTerminal();
+    try{
+        bk1.findBook(bookTitle);
+    }catch(MissingBook &e){
+        std::cout << "No book exists with that title" << std::endl;
+        return;
+    }
+    std::string wantHave = bookTitle + "\nWant: " + std::to_string(bk1.getWant(bookTitle)) + "\nHave: " + std::to_string(bk1.getHave(bookTitle));
+    std::cout << "Enter new want: ";
+    int newWant = stoi(getLineFromTerminal());
+    bk1.setWant(bookTitle, newWant);
 }
 
 void sell(BookStore& bk1){
@@ -58,6 +69,7 @@ void sell(BookStore& bk1){
         bk1.sell(bookTitle);
     }catch(MissingBook &e){
         std::cout << "No book exists with that title" << std::endl;
+        return;
     }catch(BookHaveEmpty &e){
         std::cout << "No more copies of " << bookTitle << std::endl;
         std::cout << "Would you like to join the waitlist? (y/n): ";
