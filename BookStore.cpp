@@ -69,7 +69,7 @@ void BookStore::order(std::string outputFile) {
             getline(bookList, book);
             if(book != "") {
                 int orderNumber = getWant(book) - getHave(book);
-                std::string output = std::to_string(orderNumber) + ", " + book;
+                book = std::to_string(orderNumber) + ", " + book;
                 fout << book << std::endl;
             }
         }
@@ -100,23 +100,26 @@ void BookStore::deliver(std::string inputFile) {
                 return;
             }
 
-            Book currentBook;
-            if(booksInStore->itemExists(titleInput))
-                currentBook = findBook(titleInput);
-            else
-                currentBook = Book(titleInput, 0, 0);
-            int newHaveValue = currentBook.getHaveValue() + numberOfBook;
-            bool endOfWaitList = false;
-            std::cout << "Deliver " + titleInput + " to the following customers on the wait list:" << std::endl;
-            while(!endOfWaitList && newHaveValue > 0){
-                try {
-                    std::cout << currentBook.removeFromWaitList().toString() << std::endl;
-                    newHaveValue--;
-                }catch(std::out_of_range e){
-                    endOfWaitList = true;
+            if(booksInStore->itemExists(titleInput)) {
+                Book& currentBook = findBook(titleInput);
+                int newHaveValue = currentBook.getHaveValue() + numberOfBook;
+                bool endOfWaitList = false;
+                if(!currentBook.isWaitListEmpty())
+                    std::cout << "Deliver " + titleInput + " to the following customers on the wait list:" << std::endl;
+                while (!currentBook.isWaitListEmpty() && newHaveValue > 0) {
+                    try {
+                        std::cout << currentBook.removeFromWaitList().toString() << std::endl;
+                        newHaveValue--;
+                    } catch (std::out_of_range e) {
+                        endOfWaitList = true;
+                    }
                 }
+                currentBook.setHaveValue(newHaveValue);
             }
-            currentBook.setHaveValue(newHaveValue);
+            else{
+                add(titleInput, 0, numberOfBook);
+            }
+
         }
         fin.close();
     }

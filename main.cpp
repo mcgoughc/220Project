@@ -69,7 +69,7 @@ void runProgram(){
 }
 
 int main() {
-    runTests();
-    //runProgram();
+    //runTests();
+    runProgram();
     return 0;
 }
