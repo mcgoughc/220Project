@@ -80,7 +80,8 @@ void sell(BookStore& bk1){
                 std::cout << "Enter email: ";
                 std::string email = getLineFromTerminal();
                 std::cout << "Enter preferred communication: ";
-                std::string pref = getLineFromTerminal();
+                int pref;
+                std::cin >> pref;
 
                 Person newP = Person(fName, lName, phNum, email, pref);
                 bk1.findBook(bookTitle).addToWaitList(newP);
@@ -128,7 +129,6 @@ void quit(BookStore& bk1){
         printToFile(output, ',', "bookstore.txt");
     }
     std::cout << "Bookstore data saved to 'bookstore.txt'. Quitting Bookstore operation..." << std::endl;
-    delete bk1;
 }
 
 std::string getLineFromTerminal(){
