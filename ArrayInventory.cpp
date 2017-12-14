@@ -4,7 +4,7 @@
 
 
 #include "ArrayInventory.h"
-#include "BookStore.h"
+
 
 //Constructor
 ArrayInventory::ArrayInventory(int initialCapacity) {
@@ -12,7 +12,6 @@ ArrayInventory::ArrayInventory(int initialCapacity) {
     currCapacity = initialCapacity;
     currItemCount = 0;
 }
-
 
 //Copy Constructor
 ArrayInventory::ArrayInventory(const ArrayInventory& inventoryToCopy) {
@@ -24,7 +23,6 @@ ArrayInventory::ArrayInventory(const ArrayInventory& inventoryToCopy) {
         array[i] = inventoryToCopy.array[i];
     }
 }
-
 
 //Overloaded Assignment Operator
 ArrayInventory& ArrayInventory::operator=(const ArrayInventory &inventoryToCopy) {
@@ -42,11 +40,12 @@ ArrayInventory& ArrayInventory::operator=(const ArrayInventory &inventoryToCopy)
     return *this;
 }
 
-
 //Destructor
 ArrayInventory::~ArrayInventory() {
     delete[] array;
 }
+
+
 
 Book* ArrayInventory::copyArray(const Book* arrayToCopy, int size) {
     Book* dupArray = new Book[size];
@@ -116,7 +115,7 @@ void ArrayInventory::sellItem(std::string title){
     Book& item = binGetItem(title);
     int haveValue = item.getHaveValue();
     if(haveValue == 0)
-        throw BookHaveEmpty();
+        throw std::out_of_range("No more copies");
     item.setHaveValue(haveValue - 1);
 }
 
@@ -146,35 +145,19 @@ std::string ArrayInventory::listInventory(){
     return output;
 }
 
-/**
- * Helper function for isAlphabeticallyGreaterThan
- * Gets alphabetical position of char
- * @param input char to calculate value of
- * @return value input char of to be used for comparison
- */
-int charValue(char input){
-    int characterValue = (int)input;                      //Gets the ASCII value of the character
-    if(characterValue >= 65 && characterValue <= 90)      //If char is between capital A to Z
-        characterValue -= 64;                             //subtract so that A = 1 and Z = 26
-    else if(characterValue >= 97 && characterValue <= 122)//If char is between lower-case a to z
-        characterValue -= 96;                             //subtract so that a = 1 and z = 26
-    else
-        characterValue = 0;                               //All other characters will be ignored
-    return characterValue;
-}
-
 int binFind(Book* arrayPtr, int min, int max, std::string titleToFind){
     if(min <= max){
         int middle = (min + max)/2;
 
         if(arrayPtr[middle].getTitle() == titleToFind){
             return middle;
+
         }else if(arrayPtr[middle].getTitle() > titleToFind){
-            //std::cout << arrayPtr[middle].getTitle() << std::endl;
             return binFind(arrayPtr, min, middle-1, titleToFind);
+
         }else if(arrayPtr[middle].getTitle() < titleToFind){
-            //std::cout << arrayPtr[middle].getTitle() << std::endl;
             return binFind(arrayPtr, middle+1, max, titleToFind);
+
         }else{
             return -1;
         }
@@ -203,7 +186,25 @@ bool ArrayInventory::itemExists(std::string title) {
 }
 
 
+
+/**
+ * Helper function for isAlphabeticallyGreaterThan
+ * Gets alphabetical position of char
+ * @param input char to calculate value of
+ * @return value input char of to be used for comparison
+ */
 /*
+int charValue(char input){
+    int characterValue = (int)input;                      //Gets the ASCII value of the character
+    if(characterValue >= 65 && characterValue <= 90)      //If char is between capital A to Z
+        characterValue -= 64;                             //subtract so that A = 1 and Z = 26
+    else if(characterValue >= 97 && characterValue <= 122)//If char is between lower-case a to z
+        characterValue -= 96;                             //subtract so that a = 1 and z = 26
+    else
+        characterValue = 0;                               //All other characters will be ignored
+    return characterValue;
+}
+
 bool isAlphabeticallyGreaterThan(std::string A, std::string B) {
     int shorterLength = std::min(A.length(), B.length());
     bool foundGreaterCharacter = false;

@@ -10,7 +10,6 @@
 //TODO Clean up + Add comments/headers
 
 class MissingBook : public std::exception{};
-class BookHaveEmpty : public std::exception{};
 
 class ArrayInventory : public Inventory{
 private:
