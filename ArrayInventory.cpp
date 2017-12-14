@@ -216,3 +216,8 @@ int ArrayInventory::getIndex(std::string title) {
     return binFind(array, 0, currItemCount-1, title);
 }
 
+bool ArrayInventory::itemExists(std::string title) {
+    int idx = binFind(array, 0, currItemCount-1, title);
+    return idx != -1;
+}
+

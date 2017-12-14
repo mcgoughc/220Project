@@ -129,6 +129,8 @@ public:
     */
     std::string listInventory();
 
+    bool itemExists(std::string title);
+
 
 };
 
