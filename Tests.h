@@ -8,17 +8,16 @@
 #include "BookStore.h"
 #include "LinkedQueue.h"
 #include "ArrayInventory.h"
+#include "Run.h"
 #include <iostream>
+#include <fstream>
+#include <sstream>
 
 void bookHaveWant(Book& book1);
 
 void bookWaitList(Book& book1, Person& person1, Person& person2);
 
-void bookAssignOpCopyConst(Book& book1);
-
 void personSetGet(Person& person1);
-
-void personAssignOpCopyConst(Person& person1);
 
 void bookstoreAddSell(BookStore& bookstore);
 
@@ -28,8 +27,6 @@ void bookstoreFind(BookStore& bookstore);
 
 void bookstoreWaitlist(BookStore& bookstore);
 
-void bookstoreAssignOpCopyConst(BookStore& bookstore);
-
 void isAlphaGreaterThanTest(ArrayInventory& inventory);
 
 void linkQueueAssignOp();
@@ -37,6 +34,8 @@ void linkQueueAssignOp();
 void arrayInventoryAddItem();
 
 void fileIOTests(BookStore& bookstore);
+
+void fileWriteTest();
 
 #define INC_220PROJECT_BOOKTESTS_H
 

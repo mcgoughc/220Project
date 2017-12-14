@@ -68,6 +68,7 @@ public:
      * @return If the waitlist is empty or not
      */
     bool isWaitListEmpty();
+
     /**
      * @return haveValue
      */

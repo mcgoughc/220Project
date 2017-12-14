@@ -54,7 +54,7 @@ std::string BookStore::getWaitList(std::string title) {
 
 void BookStore::sell(std::string title) {
     if (booksInStore->itemCount() <= 0) {
-        throw std::out_of_range("No books left to sell");
+        throw std::out_of_range("Empty array");
     }
     booksInStore->sellItem(title);
 }
@@ -128,13 +128,10 @@ Book& BookStore::findBook(std::string titleToFind){
     return booksInStore->binGetItem(titleToFind);
 }
 
-Book& BookStore::findBookByIndex(int idx) { //todo pointer instead of reference?
-    try {
-        return booksInStore->getItemAt(idx);
-    }catch(std::out_of_range &e){
-        std::cout << "No book exists at: " << idx << std::endl;
-        Book newBook;
-        return newBook;
-    }
+Book& BookStore::findBookByIndex(int idx) {
+    return booksInStore->getItemAt(idx);
+}
 
+int BookStore::bookCount() {
+    return booksInStore->itemCount();
 }

@@ -32,6 +32,9 @@ void runTests(){
 
     BookStore b2 = BookStore();
     fileIOTests(b2);
+
+    fileWriteTest();
+
 }
 
 void runProgram(){
@@ -39,9 +42,7 @@ void runProgram(){
     bool run = true;
     while(run){
         std::cout << "Enter function letter key or 'h' for help: ";
-        std::string input;
-        std::getline(std::cin, input);
-
+        std::string input = getLineFromTerminal();
         if(input.length() != 1){
             std::cout << "Invalid input" << std::endl;
         }else if(input == "h"){
