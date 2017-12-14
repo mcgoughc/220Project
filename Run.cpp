@@ -38,7 +38,6 @@ void inquire(BookStore& bk1){
     }
     if (haveBook) {
         std::cout << "Book Title: " + b1.getTitle() << std::endl;
-        std::cout << "Book Author: " + b1.getAuthor() << std::endl;
         std::cout << "Book Wait list: " + b1.getWaitList() << std::endl;
     }
 }
@@ -50,7 +49,6 @@ void list(BookStore& bk1){
         for (int i = 0; i < bk1.bookCount(); ++i) {
             Book &temp = bk1.findBookByIndex(i);
             std::string output = temp.getTitle() +
-                                 "\nBy: " + temp.getAuthor() +
                                  "\nWant: " + std::to_string(temp.getWantValue()) +
                                  "\nHave: " + std::to_string(temp.getHaveValue()) +
                                  "\nWaitlist: " + temp.getWaitList() + "\n";
@@ -77,7 +75,7 @@ void add(BookStore& bk1){
         std::cout << "Enter have value: ";
         int have = stoi(getLineFromTerminal());
 
-        bk1.add(bookTitle, author, want, have);
+        bk1.add(bookTitle, want, have);
         std::cout << "Sucessfully added" << std::endl;
     }
 }
@@ -184,7 +182,6 @@ void quit(BookStore& bk1){
         for (int i = 0; i < bk1.bookCount(); ++i) {
             Book &temp = bk1.findBookByIndex(i);
             std::string output = temp.getTitle() + "," +
-                                 temp.getAuthor() + "," +
                                  std::to_string(temp.getWantValue()) + "," +
                                  std::to_string(temp.getHaveValue()) + "," +
                                  temp.getWaitList();

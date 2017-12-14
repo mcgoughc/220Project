@@ -116,8 +116,8 @@ void bookstoreAddSell(BookStore& bookstore){
     printf("bookstoreAddSell ----------\n");
     bool errors = false;
 
-    bookstore.add("Lincoln", "Abe Lincoln", 5, 5);
-    bookstore.add("Grant", "Bjarn strautsrup", 5, 1);
+    bookstore.add("Lincoln", 5, 5);
+    bookstore.add("Grant", 5, 1);
 
     //bookstore.list();
 
@@ -144,8 +144,8 @@ void bookstoreWantHave(BookStore& bookstore){
     printf("bookstoreWantHave ----------\n");
     bool errors = false;
 
-    bookstore.add("Lincoln", "Abe Lincoln", 5, 5);
-    bookstore.add("Grant", "Bjarn strautsrup", 5, 1);
+    bookstore.add("Lincoln", 5, 5);
+    bookstore.add("Grant", 5, 1);
 
     int testHave = bookstore.getHave("Lincoln");
     int testWant = bookstore.getWant("Lincoln");
@@ -185,8 +185,8 @@ void bookstoreFind(BookStore& bookstore){
     printf("bookstoreFind ----------\n");
     bool errors = false;
 
-    bookstore.add("Lincoln", "Abe Lincoln", 10, 5);
-    bookstore.add("Grant", "Bjarn strautsrup", 5, 1);
+    bookstore.add("Lincoln", 10, 5);
+    bookstore.add("Grant", 5, 1);
 
     Book& lin = bookstore.findBook("Lincoln");
     Book& gran = bookstore.findBook("Grant");
@@ -295,11 +295,11 @@ void linkQueueAssignOp(){
 
 void arrayInventoryAddItem(){
     printf("arrayInventoryAddItem ---------- \n");
-    Book b1 = Book("FA FA", "Jon", 5, 5);
-    Book b2 = Book("Ccc", "Jon", 5, 5);
-    Book b3 = Book("Aaa", "Mon", 5, 5);
-    Book b4 = Book("Aab", "Bon", 5, 5);
-    Book b5 = Book("Dad", "Ron", 5, 5);
+    Book b1 = Book("FA FA", 5, 5);
+    Book b2 = Book("Ccc", 5, 5);
+    Book b3 = Book("Aaa", 5, 5);
+    Book b4 = Book("Aab", 5, 5);
+    Book b5 = Book("Dad", 5, 5);
     ArrayInventory* myInv = new ArrayInventory();
 
     myInv->addItem(b1);
@@ -322,9 +322,9 @@ void arrayInventoryAddItem(){
 
 void fileIOTests(BookStore& bookstore){
     //Order test
-    bookstore.add("Red", "John Dodd", 10, 8);
-    bookstore.add("Blue", "Betty Sweaty", 9, 0);
-    bookstore.add("Orange", "Pope Francis", 3, 2);
+    bookstore.add("Red", 10, 8);
+    bookstore.add("Blue", 9, 0);
+    bookstore.add("Orange", 3, 2);
     Person p("Johnny", "Johnson", "555-5555", "John@ithaca.edu", Person::SEND_TEXT);
     bookstore.findBook("Red").addToWaitList(p);
     bookstore.order("order.txt");
