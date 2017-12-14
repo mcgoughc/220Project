@@ -118,7 +118,8 @@ void sell(BookStore& bk1){
                     std::cout << "Enter email: ";
                     std::string email = getLineFromTerminal();
                     std::cout << "Enter preferred communication: ";
-                    std::string pref = getLineFromTerminal();
+                    int pref;
+                    std::cin >> pref;
 
                     Person newP = Person(fName, lName, phNum, email, pref);
                     bk1.findBook(bookTitle).addToWaitList(newP);
