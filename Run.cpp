@@ -173,18 +173,25 @@ void returnBooks(BookStore& bk1){
     }
 }
 
-void quit(BookStore& bk1){ //FIXME Only prints second book
+void quit(BookStore& bk1){
     if(bk1.bookCount() <= 0) {
         std::cout << "Bookstore is empty" << std::endl;
     }else {
+        std::ofstream fout ("bookstore.txt");
+        std::stringstream ss;
+        std::string output;
         for (int i = 0; i < bk1.bookCount(); ++i) {
-            Book &temp = bk1.findBookByIndex(i);
-            std::string output = temp.getTitle() + "," +
-                                 std::to_string(temp.getWantValue()) + "," +
-                                 std::to_string(temp.getHaveValue()) + "," +
+            Book& temp = bk1.findBookByIndex(i);
+            output = temp.getTitle() + " " +
+                                 std::to_string(temp.getWantValue()) + " " +
+                                 std::to_string(temp.getHaveValue()) + " " +
                                  temp.getWaitList();
-
-            printToFile(output, ',', "bookstore.txt");
+            ss = std::stringstream(output);
+            while(!ss.eof()){
+                std::string dataPiece;
+                ss >> dataPiece;
+                fout << dataPiece;
+            }
         }
         std::cout << "Bookstore data saved to 'bookstore.txt'. Quitting Bookstore operation..." << std::endl;
     }
