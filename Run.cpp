@@ -104,7 +104,7 @@ void modify(BookStore& bk1){
     }
 }
 
-void sell(BookStore& bk1){//TODO negative sell???
+void sell(BookStore& bk1){
     if(bk1.bookCount() <= 0) {
         std::cout << "Bookstore is empty" << std::endl;
     }else {
