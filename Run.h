@@ -31,6 +31,8 @@ void returnBooks(BookStore& bk1);
 
 void quit(BookStore& bk1);
 
+//TODO Add load function
+
 std::string getLineFromTerminal();
 
 void printToFile(std::string line, char delimiter, std::string fileName);
