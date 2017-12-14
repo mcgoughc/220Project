@@ -3,7 +3,6 @@
 //
 
 #include "Run.h"
-#include "ArrayInventory.h"
 
 void help(){
     std::cout << "Help (h) - provides summary of all commands" << std::endl;
@@ -40,18 +39,32 @@ void inquire(BookStore& bk1){
 }
 
 void list(BookStore& bk1){
-    //TODO
+    if(bk1.bookCount() <= 0){
+        std::cout << "Bookstore is empty" << std::endl;
+    }else {
+        for (int i = 0; i < bk1.bookCount(); ++i) {
+            Book &temp = bk1.findBookByIndex(i);
+            std::string output = temp.getTitle() +
+                                 "\nBy: " + temp.getAuthor() +
+                                 "\nWant: " + std::to_string(temp.getWantValue()) +
+                                 "\nHave: " + std::to_string(temp.getHaveValue()) +
+                                 "\nWaitlist: " + temp.getWaitList() + "\n";
+
+            std::cout << output << std::endl;
+        }
+    }
 }
 
 void add(BookStore& bk1){
     std::cout << "Enter title of book to add: ";
     std::string bookTitle = getLineFromTerminal();
 
-    if(bk1.bookCheck(bookTitle)){
+    if (bk1.bookCheck(bookTitle)) {
         std::cout << "Book already exists" << std::endl;
-        std::cout << bookTitle << "\nWant: " << std::to_string(bk1.getWant(bookTitle)) << "\nHave: " << std::to_string(bk1.getHave(bookTitle)) << std::endl;
+        std::cout << bookTitle << "\nWant: " << std::to_string(bk1.getWant(bookTitle)) << "\nHave: "
+                  << std::to_string(bk1.getHave(bookTitle)) << std::endl;
 
-    }else{
+    } else {
         std::cout << "Enter author of book: ";
         std::string author = getLineFromTerminal();
         std::cout << "Enter want value: ";
@@ -65,91 +78,116 @@ void add(BookStore& bk1){
 }
 
 void modify(BookStore& bk1){
-    std::cout << "Enter name of book to modify: ";
-    std::string bookTitle = getLineFromTerminal();
+    if(bk1.bookCount() <= 0) {
+        std::cout << "Bookstore is empty" << std::endl;
+    }else {
+        std::cout << "Enter name of book to modify: ";
+        std::string bookTitle = getLineFromTerminal();
 
-    if(bk1.bookCheck(bookTitle)){
-        std::string wantHave = bookTitle + "\nWant: " + std::to_string(bk1.getWant(bookTitle)) + "\nHave: " + std::to_string(bk1.getHave(bookTitle));
-        std::cout << "Enter new want: ";
-        int newWant = stoi(getLineFromTerminal());
-        bk1.setWant(bookTitle, newWant);
+        if (bk1.bookCheck(bookTitle)) {
+            std::string wantHave = bookTitle + "\nWant: " + std::to_string(bk1.getWant(bookTitle)) + "\nHave: " +
+                                   std::to_string(bk1.getHave(bookTitle));
+            std::cout << "Enter new want: ";
+            int newWant = stoi(getLineFromTerminal());
+            bk1.setWant(bookTitle, newWant);
 
-    }else{
-        std::cout << "No book exists with that title" << std::endl;
+        } else {
+            std::cout << "No book exists with that title" << std::endl;
+        }
     }
 }
 
 void sell(BookStore& bk1){
-    std::cout << "Enter name of book to order: ";
-    std::string bookTitle = getLineFromTerminal();
+    if(bk1.bookCount() <= 0) {
+        std::cout << "Bookstore is empty" << std::endl;
+    }else {
+        std::cout << "Enter name of book to order: ";
+        std::string bookTitle = getLineFromTerminal();
 
-    if(bk1.bookCheck(bookTitle)){
-        if(bk1.getHave(bookTitle) <= 0){
-            std::cout << "No more copies of " << bookTitle << std::endl;
-            std::cout << "Would you like to join the waitlist? (y/n): ";
-            if(getLineFromTerminal() == "y"){
-                std::cout << "Enter first name: ";
-                std::string fName = getLineFromTerminal();
-                std::cout << "Enter last name: ";
-                std::string lName = getLineFromTerminal();
-                std::cout << "Enter phone number: ";
-                std::string phNum = getLineFromTerminal();
-                std::cout << "Enter email: ";
-                std::string email = getLineFromTerminal();
-                std::cout << "Enter preferred communication: ";
-                std::string pref = getLineFromTerminal();
+        if (bk1.bookCheck(bookTitle)) {
+            if (bk1.getHave(bookTitle) <= 0) {
+                std::cout << "No more copies of " << bookTitle << std::endl;
+                std::cout << "Would you like to join the waitlist? (y/n): ";
+                if (getLineFromTerminal() == "y") {
+                    std::cout << "Enter first name: ";
+                    std::string fName = getLineFromTerminal();
+                    std::cout << "Enter last name: ";
+                    std::string lName = getLineFromTerminal();
+                    std::cout << "Enter phone number: ";
+                    std::string phNum = getLineFromTerminal();
+                    std::cout << "Enter email: ";
+                    std::string email = getLineFromTerminal();
+                    std::cout << "Enter preferred communication: ";
+                    std::string pref = getLineFromTerminal();
 
-                Person newP = Person(fName, lName, phNum, email, pref);
-                bk1.findBook(bookTitle).addToWaitList(newP);
+                    Person newP = Person(fName, lName, phNum, email, pref);
+                    bk1.findBook(bookTitle).addToWaitList(newP);
 
-                std::cout << "Added to the waitlist" << std::endl;
+                    std::cout << "Added to the waitlist" << std::endl;
 
-            }else if(getLineFromTerminal() == "n"){
-                std::cout << std::endl;
+                } else if (getLineFromTerminal() == "n") {
+                    std::cout << std::endl;
 
-            }else{
-                std::cout << "Invalid input." << std::endl;
+                } else {
+                    std::cout << "Invalid input." << std::endl;
+                }
+
+            } else {
+                std::cout << "1 copy sold" << std::endl;
             }
 
-        }else{
-            std::cout << "1 copy sold" << std::endl;
+        } else {
+            std::cout << "No book exists with that title" << std::endl;
         }
-
-    }else{
-        std::cout << "No book exists with that title" << std::endl;
     }
 }
 
 void order(BookStore& bk1){
-    bk1.order("order.txt");
-    std::cout << "Book order file written to 'order.txt'." << std::endl;
+    if(bk1.bookCount() <= 0) {
+        std::cout << "Bookstore is empty" << std::endl;
+    }else {
+        bk1.order("order.txt");
+        std::cout << "Book order file written to 'order.txt'." << std::endl;
+    }
 }
 
 void delivery(BookStore& bk1){
-    std::cout << "Enter title of delivery file: ";
-    std::string fileName = getLineFromTerminal();
-    bk1.deliver(fileName);
-    std::cout << "Delivery added to Bookstore." << std::endl;
+    if(bk1.bookCount() <= 0) {
+        std::cout << "Bookstore is empty" << std::endl;
+    }else {
+        std::cout << "Enter title of delivery file: ";
+        std::string fileName = getLineFromTerminal();
+        bk1.deliver(fileName);
+        std::cout << "Delivery added to Bookstore." << std::endl;
+    }
 }
 
 void returnBooks(BookStore& bk1){
-    bk1.returnBooks("returns.txt");
-    std::cout << "Book return file written to 'returns.txt'." << std::endl;
+    if(bk1.bookCount() <= 0) {
+        std::cout << "Bookstore is empty" << std::endl;
+    }else {
+        bk1.returnBooks("returns.txt");
+        std::cout << "Book return file written to 'returns.txt'." << std::endl;
+    }
 }
 
 void quit(BookStore& bk1){
-    for (int i = 0; i < bk1.bookCount(); ++i) {
-        Book& temp = bk1.findBookByIndex(i);
-        std::string output = temp.getTitle() + "," +
-                             temp.getAuthor() + "," +
-                             std::to_string(temp.getWantValue()) + "," +
-                             std::to_string(temp.getHaveValue()) + "," +
-                             temp.getWaitList();
+    if(bk1.bookCount() <= 0) {
+        std::cout << "Bookstore is empty" << std::endl;
+    }else {
+        for (int i = 0; i < bk1.bookCount(); ++i) {
+            Book &temp = bk1.findBookByIndex(i);
+            std::string output = temp.getTitle() + "," +
+                                 temp.getAuthor() + "," +
+                                 std::to_string(temp.getWantValue()) + "," +
+                                 std::to_string(temp.getHaveValue()) + "," +
+                                 temp.getWaitList();
 
-        printToFile(output, ',', "bookstore.txt");
+            printToFile(output, ',', "bookstore.txt");
+        }
+        std::cout << "Bookstore data saved to 'bookstore.txt'. Quitting Bookstore operation..." << std::endl;
+        delete bk1;
     }
-    std::cout << "Bookstore data saved to 'bookstore.txt'. Quitting Bookstore operation..." << std::endl;
-    delete bk1;
 }
 
 std::string getLineFromTerminal(){
