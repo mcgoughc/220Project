@@ -70,7 +70,7 @@ void sell(BookStore& bk1){
     }catch(MissingBook &e){
         std::cout << "No book exists with that title" << std::endl;
         return;
-    }catch(BookHaveEmpty &e){
+    }catch(BookHaveEmpty &e) {
         std::cout << "No more copies of " << bookTitle << std::endl;
         std::cout << "Would you like to join the waitlist? (y/n): ";
         if(getLineFromTerminal() == "y"){
@@ -126,7 +126,6 @@ void quit(BookStore& bk1){
         printToFile(output, ',', "bookstore.txt");
     }
     std::cout << "Bookstore data saved to 'bookstore.txt'. Quitting Bookstore operation..." << std::endl;
-    delete bk1;
 }
 
 std::string getLineFromTerminal(){
