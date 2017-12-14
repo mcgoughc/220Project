@@ -100,24 +100,29 @@ void BookStore::deliver(std::string inputFile) {
                 return;
             }
 
-            Book& currentBook = findBook(titleInput);
+            Book currentBook;
+            if(booksInStore->itemExists(titleInput))
+                currentBook = findBook(titleInput);
+            else
+                currentBook = Book(titleInput, "", 0, 0);
             int newHaveValue = currentBook.getHaveValue() + numberOfBook;
             bool endOfWaitList = false;
             std::cout << "Deliver " + titleInput + " to the following customers on the wait list:" << std::endl;
-            while(!endOfWaitList){
+            while(!endOfWaitList && newHaveValue > 0){
                 try {
                     std::cout << currentBook.removeFromWaitList().toString() << std::endl;
+                    newHaveValue--;
                 }catch(std::out_of_range e){
                     endOfWaitList = true;
                 }
             }
+            currentBook.setHaveValue(newHaveValue);
         }
         fin.close();
     }
     else{
         std::cout << "Error in opening " + inputFile;
     }
-    //TODO finish up
 }
 
 void BookStore::returnBooks(std::string outputFile) {

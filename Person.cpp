@@ -54,6 +54,8 @@ std::string Person::getCommMethod() {
             return "Send Text";
         case SEND_EMAIL:
             return "Send Email";
+        default:
+            return "None";
     }
 }
 
