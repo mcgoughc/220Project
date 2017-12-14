@@ -29,6 +29,7 @@ void inquire(BookStore& bk1){
     }else {
         std::cout << "Please enter a book title: ";
         std::string bookTitle = getLineFromTerminal();
+        //std::cout << "/" + bookTitle + "/" << std::endl;
 
         if(bk1.bookCheck(bookTitle)){
             std::cout << "Title: " + bookTitle << std::endl;
