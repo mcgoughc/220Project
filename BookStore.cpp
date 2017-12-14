@@ -100,7 +100,11 @@ void BookStore::deliver(std::string inputFile) {
                 return;
             }
 
-            Book& currentBook = findBook(titleInput);
+            Book currentBook;
+            //if(booksInStore->itemExists(titleInput))
+            //    currentBook = findBook(titleInput);
+            //else
+            //    currentBook = Book(titleInput);
             int newHaveValue = currentBook.getHaveValue() + numberOfBook;
             bool endOfWaitList = false;
             std::cout << "Deliver " + titleInput + " to the following customers on the wait list:" << std::endl;
