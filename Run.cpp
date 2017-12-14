@@ -31,8 +31,8 @@ void inquire(BookStore& bk1){
 
         if(bk1.bookCheck(titleToFind)){
             std::cout << "Title: " + titleToFind << std::endl;
-            std::cout << "Have: " + bk1.getHave(titleToFind) << std::endl;
-            std::cout << "Want: " + bk1.getWant(titleToFind) << std::endl;
+            std::cout << "Have: " + std::to_string(bk1.getHave(titleToFind)) << std::endl;
+            std::cout << "Want: " + std::to_string(bk1.getWant(titleToFind)) << std::endl;
             std::cout << "Waitlist: " + bk1.getWaitList(titleToFind) << std::endl;
 
         }else{
