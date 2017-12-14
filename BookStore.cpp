@@ -23,9 +23,7 @@ BookStore::~BookStore() {
     delete booksInStore;
 }
 
-std::string BookStore::list() {
-    return booksInStore->listInventory();
-}
+
 
 void BookStore::add(std::string title, int want, int have) {
     Book bkToAdd = Book(title, want, have);

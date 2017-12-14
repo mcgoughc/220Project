@@ -4,9 +4,11 @@
 
 #include "Run.h"
 
+//TODO cannot find "V for Vendetta" but can fine "test title"
+
 void help(){
     std::cout << "To call any of these functions, please use the lower case key letter" << std::endl;
-    std::cout << " " << std::endl;
+    std::cout << std::endl;
     std::cout << "Help (h) - provides summary of all commands" << std::endl;
     std::cout << "Inquire (i) - display information about a book" << std::endl;
     std::cout << "List (l) - displays a list of our entire inventory of books in alphabetical order" << std::endl;
@@ -68,8 +70,19 @@ void add(BookStore& bk1){
     } else {
         std::cout << "Enter want value: ";
         int want = stoi(getLineFromTerminal());
+        while(want < 0){
+            std::cout << "Want value cannot be negative" << std::endl;
+            std::cout << "Enter want value: ";
+            want = stoi(getLineFromTerminal());
+        }
+
         std::cout << "Enter have value: ";
         int have = stoi(getLineFromTerminal());
+        while(have < 0){
+            std::cout << "Have value cannot be negative" << std::endl;
+            std::cout << "Enter have value: ";
+            have = stoi(getLineFromTerminal());
+        }
 
         bk1.add(bookTitle, want, have);
         std::cout << "Successfully added" << std::endl;
@@ -82,6 +95,7 @@ void modify(BookStore& bk1){
     }else {
         std::cout << "Enter name of book to modify: ";
         std::string bookTitle = getLineFromTerminal();
+        std::cout << bookTitle << std::endl;
 
         if (bk1.bookCheck(bookTitle)) {
             std::string wantHave = bookTitle + "\nWant: " + std::to_string(bk1.getWant(bookTitle)) +
@@ -89,6 +103,11 @@ void modify(BookStore& bk1){
 
             std::cout << "Enter new want: ";
             int newWant = stoi(getLineFromTerminal());
+            while(newWant < 0){
+                std::cout << "Want value cannot be negative" << std::endl;
+                std::cout << "Enter new want: ";
+                newWant = stoi(getLineFromTerminal());
+            }
             bk1.setWant(bookTitle, newWant);
 
         } else {
@@ -120,8 +139,13 @@ void sell(BookStore& bk1){
                     std::string phNum = getLineFromTerminal();
                     std::cout << "Enter email: ";
                     std::string email = getLineFromTerminal();
-                    std::cout << "Enter preferred communication: ";
+                    std::cout << "Enter number for preferred communication (0 = Phone call, 1 = Text, 2 = Email): ";
                     int pref = stoi(getLineFromTerminal());
+                    while(pref < 0 || pref > 2){
+                        std::cout << "Communication must be 0, 1, or 2" << std::endl;
+                        std::cout << "Enter number for preferred communication (0 = Phone call, 1 = Text, 2 = Email): ";
+                        pref = stoi(getLineFromTerminal());
+                    }
 
                     Person newP = Person(fName, lName, phNum, email, pref);
                     bk1.findBook(bookTitle).addToWaitList(newP);
@@ -147,12 +171,8 @@ void sell(BookStore& bk1){
 }
 
 void order(BookStore& bk1){
-    if(bk1.bookCount() <= 0) {
-        std::cout << "Bookstore is empty" << std::endl;
-    }else {
         bk1.order("order.txt");
         std::cout << "Book order file written to 'order.txt'." << std::endl;
-    }
 }
 
 void delivery(BookStore& bk1){
