@@ -17,24 +17,22 @@ void help(){
 }
 
 void inquire(BookStore& bk1){
-    std::cout << "Please enter a book title: " << std::endl;
-    std::string titleToFind;
-    std::cin >> titleToFind;
-    bool haveBook;
-    Book b1;
-    try {
-        b1 = bk1.findBook(titleToFind);
-        std::cout << "We have the book" << std::endl;
-        haveBook = true;
-    }
-    catch(std::out_of_range&e){
-        std::cout << "We do not have that book" << std::endl;
-        haveBook = false;
-    }
-    if (haveBook) {
-        std::cout << "Book Title: " + b1.getTitle() << std::endl;
-        std::cout << "Book Author: " + b1.getAuthor() << std::endl;
-        std::cout << "Book Wait list: " + b1.getWaitList() << std::endl;
+    if(bk1.bookCount() <= 0){
+        std::cout << "Bookstore is empty" << std::endl;
+    }else {
+        std::cout << "Please enter a book title: " << std::endl;
+        std::string titleToFind;
+        std::cin >> titleToFind;
+
+        if(bk1.bookCheck(titleToFind)){
+            std::cout << "Title: " + titleToFind << std::endl;
+            std::cout << "Have: " + bk1.getHave(titleToFind) << std::endl;
+            std::cout << "Want: " + bk1.getWant(titleToFind) << std::endl;
+            std::cout << "Waitlist: " + bk1.getWaitList(titleToFind) << std::endl;
+
+        }else{
+            std::cout << "Book does not exist" << std::endl;
+        }
     }
 }
 
