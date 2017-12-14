@@ -4,6 +4,7 @@
 
 
 #include "ArrayInventory.h"
+#include "BookStore.h"
 
 //Constructor
 ArrayInventory::ArrayInventory(int initialCapacity) {
@@ -115,7 +116,7 @@ void ArrayInventory::sellItem(std::string title){
     Book& item = binGetItem(title);
     int haveValue = item.getHaveValue();
     if(haveValue == 0)
-        throw std::out_of_range("Trying to sell too many inventory items.");
+        throw BookHaveEmpty();
     item.setHaveValue(haveValue - 1);
 }
 
@@ -205,7 +206,7 @@ Book& ArrayInventory::binGetItem(std::string title) {
     int idx = binFind(array, 0, currItemCount-1, title);
 
     if(idx == -1){
-        throw std::out_of_range("No such book exists");
+        throw MissingBook();
     }else{
         return array[idx];
     }

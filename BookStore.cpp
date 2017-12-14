@@ -4,7 +4,6 @@
 
 #include "BookStore.h"
 #include "ArrayInventory.h"
-#include <iostream>
 #include <fstream>
 #include <sstream>
 
@@ -55,7 +54,7 @@ std::string BookStore::getWaitList(std::string title) {
 
 void BookStore::sell(std::string title) {
     if (booksInStore->itemCount() <= 0) {
-        throw std::out_of_range("No books left to sell");
+        throw std::out_of_range("Empty array");
     }
     booksInStore->sellItem(title);
 }
@@ -67,12 +66,12 @@ void BookStore::order(std::string outputFile) {
         std::stringstream bookList(printData);
         while(bookList){
             std::string book;
-            try {
-                getline(bookList, book);
+            getline(bookList, book);
+            if(book != "") {
                 int orderNumber = getWant(book) - getHave(book);
-                book += " " + std::to_string(orderNumber);
+                book =  std::to_string(orderNumber) + " " + book;
                 fout << book << std::endl;
-            }catch(std::out_of_range e){break;}
+            }
         }
         fout.close();
     }
@@ -82,7 +81,14 @@ void BookStore::order(std::string outputFile) {
 }
 
 void BookStore::deliver(std::string inputFile) {
-    //TODO file IO
+    std::ifstream fin (inputFile);
+    if(fin){
+
+    }
+    else{
+        std::cout << "Error in opening " + inputFile;
+    }
+    //TODO finish up
 }
 
 void BookStore::returnBooks(std::string outputFile) {
@@ -93,13 +99,10 @@ Book& BookStore::findBook(std::string titleToFind){
     return booksInStore->binGetItem(titleToFind);
 }
 
-Book& BookStore::findBookByIndex(int idx) { //todo pointer instead of reference?
-    try {
-        return booksInStore->getItemAt(idx);
-    }catch(std::out_of_range &e){
-        std::cout << "No book exists at: " << idx << std::endl;
-        Book newBook;
-        return newBook;
-    }
+Book& BookStore::findBookByIndex(int idx) {
+    return booksInStore->getItemAt(idx);
+}
 
+int BookStore::bookCount() {
+    return booksInStore->itemCount();
 }

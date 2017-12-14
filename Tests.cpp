@@ -63,11 +63,6 @@ void bookWaitList(Book& book1, Person& person1, Person& person2){
     book1.addToWaitList(person2);
 }
 
-void bookAssignOpCopyConst(Book& book1) {
-    printf("bookAssignOpCopyConst ----------\n");
-
-}
-
 void personSetGet(Person& person1) {
     printf("personSetGet ----------\n");
     bool errors = false;
@@ -104,11 +99,6 @@ void personSetGet(Person& person1) {
     }else{
         printf("FAIL\n");
     }
-}
-
-void personAssignOpCopyConst(Person& person1) {
-    printf("personAssignOpCopyConst ----------\n");
-
 }
 
 void bookstoreAddSell(BookStore& bookstore){
@@ -208,10 +198,6 @@ void bookstoreFind(BookStore& bookstore){
     }else{
         printf("FAIL\n");
     }
-}
-
-void bookstoreAssignOpCopyConst(BookStore& bookstore){
-
 }
 
 void bookstoreWaitlist(BookStore &bookstore) {
@@ -324,4 +310,19 @@ void fileIOTests(BookStore& bookstore){
     bookstore.add("Orange", "Pope Francis", 3, 2);
     bookstore.order("order.txt");
 }
+
+void fileWriteTest(){
+    Book tempBook = Book("test Title", "test Author", 5, 5);
+    Person tempPerson = Person("fName", "lName", "phone#", "email", "email");
+    tempBook.addToWaitList(tempPerson);
+
+    std::string output = tempBook.getTitle() + "," +
+                         tempBook.getAuthor() + "," +
+                         std::to_string(tempBook.getWantValue()) + "," +
+                         std::to_string(tempBook.getHaveValue()) + "," +
+                         tempBook.getWaitList();
+
+    printToFile(output, ',', "bookstore.txt");
+}
+
 
