@@ -167,16 +167,13 @@ void order(BookStore& bk1){
 }
 
 void delivery(BookStore& bk1){
-    if(bk1.bookCount() <= 0) {
-        std::cout << "Bookstore is empty" << std::endl;
-    }else {
-        std::cout << "Enter title of delivery file: ";
-        std::string fileName;
-        std::cin >> fileName;
+    std::cout << "Enter title of delivery file: ";
+    std::string fileName;
+    std::cin >> fileName;
 
-        bk1.deliver(fileName);
-        std::cout << "Delivery added to Bookstore." << std::endl;
-    }
+    bk1.deliver(fileName);
+    std::cout << "Delivery added to Bookstore." << std::endl;
+
 }
 
 void returnBooks(BookStore& bk1){
