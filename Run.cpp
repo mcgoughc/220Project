@@ -5,6 +5,8 @@
 #include "Run.h"
 
 void help(){
+    std::cout << "To call any of these functions, please use the lower case key letter" << std::endl;
+    std::cout << " " << std::endl;
     std::cout << "Help (h) - provides summary of all commands" << std::endl;
     std::cout << "Inquire (i) - display information about a book" << std::endl;
     std::cout << "List (l) - displays a list of our entire inventory of books in alphabetical order" << std::endl;
@@ -14,6 +16,9 @@ void help(){
     "\nIf the title of the book does not exist it will be added to the inventory."
     "\nIf the title is sold out, we will ask for your buyer information and place you on that title's waitlist" << std::endl;
     std::cout << "Order (o) - creates a bulk purchase of additional books based on the have and want values." << std::endl;
+    std::cout << "Delivery(d) - reads in the delivery from the delivery.txt file." << std::endl;
+    std::cout << "Return(r) - writes a return invoice to a text file specifying all books that should be returned" << std::endl;
+    std::cout << "Quit(q) - saves the inventory and wait lists and then ends the program" << std::endl;
 }
 
 void inquire(BookStore& bk1){
