@@ -173,7 +173,7 @@ void returnBooks(BookStore& bk1){
     }
 }
 
-void quit(BookStore& bk1){
+void quit(BookStore& bk1){ //FIXME Only prints second book
     if(bk1.bookCount() <= 0) {
         std::cout << "Bookstore is empty" << std::endl;
     }else {
