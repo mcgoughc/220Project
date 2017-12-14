@@ -71,7 +71,7 @@ void BookStore::order(std::string outputFile) {
                     book = std::to_string(orderNumber) + " " + book;
                     fout << book << std::endl;
                 }
-                else{
+                else if(orderNumber < 0){
                     std::cout << "Note: " << book << "'s have value is greater than want. You should create a return invoice" << std::endl;
                 }
             }
@@ -147,7 +147,7 @@ void BookStore::returnBooks(std::string outputFile) {
                     book = std::to_string(returnNumber) + " " + book;
                     fout << book << std::endl;
                 }
-                else{
+                else if (returnNumber < 0){
                     std::cout << "Note: " << book << "'s want value is greater than have. You should create an order" << std::endl;
                 }
             }
