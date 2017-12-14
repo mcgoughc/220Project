@@ -27,7 +27,7 @@ void inquire(BookStore& bk1){
     }else {
         std::cout << "Please enter a book title: ";
         std::string bookTitle;
-        std::getline(std::cin, bookTitle);
+        getline(std::cin, bookTitle);
 
         if(bk1.bookCheck(bookTitle)){
             std::cout << "Title: " + bookTitle << std::endl;
@@ -59,8 +59,7 @@ void list(BookStore& bk1){
 
 void add(BookStore& bk1){
     std::cout << "Enter title of book to add: ";
-    std::string bookTitle;
-    std::getline(std::cin, bookTitle);
+    std::string bookTitle = getLineFromTerminal();
 
     if (bk1.bookCheck(bookTitle)) {
         std::cout << "Book already exists" << std::endl;
@@ -87,7 +86,7 @@ void modify(BookStore& bk1){
     }else {
         std::cout << "Enter name of book to modify: ";
         std::string bookTitle;
-        std::getline(std::cin, bookTitle);
+        getline(std::cin, bookTitle);
 
         if (bk1.bookCheck(bookTitle)) {
             std::string wantHave = bookTitle + "\nWant: " + std::to_string(bk1.getWant(bookTitle)) +
@@ -200,6 +199,12 @@ void quit(BookStore& bk1){
         }
         std::cout << "Bookstore data saved to 'bookstore.txt'. Quitting Bookstore operation..." << std::endl;
     }
+}
+
+std::string getLineFromTerminal(){
+    std::string line;
+    getline(std::cin, line);
+    return line;
 }
 
 void printToFile(std::string line, char delimiter, std::string fileName){
