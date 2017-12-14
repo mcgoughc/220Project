@@ -4,7 +4,6 @@
 
 #include "Run.h"
 
-//TODO cannot find "V for Vendetta" but can fine "test title"
 
 void help(){
     std::cout << "To call any of these functions, please use the lower case key letter" << std::endl;
@@ -29,7 +28,6 @@ void inquire(BookStore& bk1){
     }else {
         std::cout << "Please enter a book title: ";
         std::string bookTitle = getLineFromTerminal();
-        //std::cout << "/" + bookTitle + "/" << std::endl;
 
         if(bk1.bookCheck(bookTitle)){
             std::cout << "Title: " + bookTitle << std::endl;
