@@ -6,6 +6,7 @@
 #define INC_220PROJECT_RUN_H
 
 #include "BookStore.h"
+#include <string>
 #include <iostream>
 #include <fstream>
 #include <sstream>
