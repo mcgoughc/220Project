@@ -50,7 +50,7 @@ void list(BookStore& bk1){
             std::string output = temp.getTitle() +
                                  "\nWant: " + std::to_string(temp.getWantValue()) +
                                  "\nHave: " + std::to_string(temp.getHaveValue()) +
-                                 "\nWaitlist: " + temp.getWaitList();
+                                 "\nWaitlist: " + temp.getWaitList() + "\n";
 
             std::cout << output << std::endl;
         }
