@@ -11,14 +11,6 @@ BookStore::BookStore() {
     booksInStore = new ArrayInventory();
 }
 
-BookStore::BookStore(const BookStore &bookstoreToCopy) {
-    //TODO
-}
-
-BookStore& BookStore::operator=(const BookStore &bookstoreToCopy) {
-    return *this;
-}
-
 BookStore::~BookStore() {
     delete booksInStore;
 }
@@ -158,6 +150,16 @@ void BookStore::returnBooks(std::string outputFile) {
     }
     else {
         std::cout << "Error in opening " + outputFile;
+    }
+}
+
+void BookStore::load(std::string inputFile){
+    std::ifstream fin (inputFile);
+    if(fin){
+        std::string inputLine;
+        while(std::getline(fin, inputLine)){
+
+        }
     }
 }
 

@@ -29,7 +29,7 @@ void Person::setEmail(std::string email) {
 
 void Person::setCommMethod(int commMethod) {
     if (commMethod > 3 or commMethod < 1) {
-        throw std::out_of_range("Invalid Value, please re-enter");
+        throw std::out_of_range("Invalid Value for person's comm method");
     }
     this->commMethod = commMethod;
 }
@@ -60,9 +60,9 @@ std::string Person::getCommMethod() {
 }
 
 std::string Person::toString() {
-    std::string result = "Name: " + name +
-    "\nPhone Number: " + phoneNumber +
-    "\nEmail: " + email +
-    "\nCommunication Method: " + getCommMethod();
+    std::string result = name +
+    "\n" + phoneNumber +
+    "\n" + email +
+    "\n" + getCommMethod();
     return result;
 }

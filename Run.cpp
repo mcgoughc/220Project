@@ -178,21 +178,27 @@ void quit(BookStore& bk1){
         std::cout << "Bookstore is empty" << std::endl;
     }else {
         std::ofstream fout ("bookstore.txt");
-        std::stringstream ss;
-        std::string output;
+        std::stringstream waitStream;
+
         for (int i = 0; i < bk1.bookCount(); ++i) {
             Book& temp = bk1.findBookByIndex(i);
-            output = temp.getTitle() + " " +
-                                 std::to_string(temp.getWantValue()) + " " +
-                                 std::to_string(temp.getHaveValue()) + " " +
-                                 temp.getWaitList();
-            ss = std::stringstream(output);
-            while(!ss.eof()){
-                std::string dataPiece;
-                ss >> dataPiece;
+            std::string title = temp.getTitle();
+            std::string wantValue = std::to_string(temp.getWantValue());
+            std::string haveValue = std::to_string(temp.getHaveValue());
+            waitStream = std::stringstream(temp.getWaitList());
+            std::cout << temp.getWaitList();
+            fout << "***\n";
+            fout << title + " ";
+            fout << wantValue + " ";
+            fout << haveValue + "\n";
+            std::string dataPiece;
+            while(std::getline(waitStream, dataPiece)){ ;
+                dataPiece += "\n";
                 fout << dataPiece;
             }
+            fout << "\n";
         }
+        fout.close();
         std::cout << "Bookstore data saved to 'bookstore.txt'. Quitting Bookstore operation..." << std::endl;
     }
 }
