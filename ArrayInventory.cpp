@@ -148,14 +148,17 @@ std::string ArrayInventory::listInventory(){
 int binFind(Book* arrayPtr, int min, int max, std::string titleToFind){
     if(min <= max){
         int middle = (min + max)/2;
+        std::string midTitle = arrayPtr[middle].getTitle();
+        std::transform(midTitle.begin(), midTitle.end(), midTitle.begin(), ::tolower);
+        std::transform(titleToFind.begin(), titleToFind.end(), titleToFind.begin(), ::tolower);
 
-        if(arrayPtr[middle].getTitle() == titleToFind){
+        if(midTitle == titleToFind){
             return middle;
 
-        }else if(arrayPtr[middle].getTitle() > titleToFind){
+        }else if(midTitle > titleToFind){
             return binFind(arrayPtr, min, middle-1, titleToFind);
 
-        }else if(arrayPtr[middle].getTitle() < titleToFind){
+        }else if(midTitle < titleToFind){
             return binFind(arrayPtr, middle+1, max, titleToFind);
 
         }else{
