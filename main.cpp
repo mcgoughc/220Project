@@ -42,32 +42,35 @@ void runProgram(){
         std::string input;
         std::getline(std::cin, input);
         std::cout << std::endl;
-        if(input.length() > 1){
-            std::cout << "Invalid input" << std::endl;
-        }else if(input == "h"){
-            help();
-
-        }else if(input == "i"){
-            inquire(bkStore);
-        }else if(input == "l"){
-            list(bkStore);
-        }else if(input == "a"){
-            add(bkStore);
-        }else if(input == "m"){
-            modify(bkStore);
-        }else if(input == "s"){
-            sell(bkStore);
-        }else if(input == "o"){
-            order(bkStore);
-        }else if(input == "d"){
-            delivery(bkStore);
-        }else if(input == "r"){
-            returnBooks(bkStore);
-        }else if(input == "q"){
-            quit(bkStore);
-            run = false;
-        }else{
-            std::cout << "Invalid input" << std::endl;
+        try {
+            if (input.length() > 1) {
+                std::cout << "Invalid input" << std::endl;
+            } else if (input == "h") {
+                help();
+            } else if (input == "i") {
+                inquire(bkStore);
+            } else if (input == "l") {
+                list(bkStore);
+            } else if (input == "a") {
+                add(bkStore);
+            } else if (input == "m") {
+                modify(bkStore);
+            } else if (input == "s") {
+                sell(bkStore);
+            } else if (input == "o") {
+                order(bkStore);
+            } else if (input == "d") {
+                delivery(bkStore);
+            } else if (input == "r") {
+                returnBooks(bkStore);
+            } else if (input == "q") {
+                quit(bkStore);
+                run = false;
+            } else {
+                std::cout << "Invalid input" << std::endl;
+            }
+        }catch(std::invalid_argument ie){
+            std::cout << "Text input was received when numerical input was expected";
         }
     }
 }
