@@ -54,7 +54,7 @@ void list(BookStore& bk1){
             std::string output = temp.getTitle() +
                                  "\nWant: " + std::to_string(temp.getWantValue()) +
                                  "\nHave: " + std::to_string(temp.getHaveValue()) +
-                                 "\nWaitlist: " + temp.getWaitList() + "\n";
+                                 "\nWaitlist: \n" + temp.getWaitList();
 
             std::cout << output << std::endl;
         }
@@ -209,17 +209,16 @@ void quit(BookStore& bk1){
             std::string wantValue = std::to_string(temp.getWantValue());
             std::string haveValue = std::to_string(temp.getHaveValue());
             waitStream = std::stringstream(temp.getWaitList());
-            std::cout << temp.getWaitList();
-            fout << "***\n";
+            fout << "<b>\n";
             fout << title + " ";
             fout << wantValue + " ";
             fout << haveValue + "\n";
+            fout << "</b>\n";
             std::string dataPiece;
             while(std::getline(waitStream, dataPiece)){ ;
                 dataPiece += "\n";
                 fout << dataPiece;
             }
-            fout << "\n";
         }
         fout.close();
         std::cout << "Bookstore data saved to 'bookstore.txt'. Quitting Bookstore operation..." << std::endl;

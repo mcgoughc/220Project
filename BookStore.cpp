@@ -99,7 +99,6 @@ void BookStore::deliver(std::string inputFile) {
                 fin.close();
                 return;
             }
-
             if(booksInStore->itemExists(titleInput)) {
                 Book& currentBook = findBook(titleInput);
                 int newHaveValue = currentBook.getHaveValue() + numberOfBook;
@@ -160,9 +159,53 @@ void BookStore::load(std::string inputFile){
     std::ifstream fin (inputFile);
     if(fin){
         std::string inputLine;
-        while(std::getline(fin, inputLine)){
 
+        std::string title;
+        int want;
+        int have;
+        bool readingBook = false;
+
+        std::string first;
+        std::string last;
+        std::string phone;
+        std::string email;
+        std::string contactPreference;
+
+        while(std::getline(fin, inputLine)){
+            if(inputLine == "<b>") {
+                readingBook = true;
+            }
+            else if(inputLine == "</b>"){
+                add(title, want, have);
+                readingBook = false;
+            }
+            else if(readingBook){
+                std::stringstream bookLine(inputLine);
+                bookLine >> title;
+                bookLine >> want;
+                bookLine >> have;
+            }
+            else{
+                std::stringstream nameStream(inputLine);
+                nameStream >> first;
+                nameStream >> last;
+                std::getline(fin, phone);
+                std::getline(fin, email);
+                std::getline(fin, contactPreference);
+                int contactNumber = 0;
+                if(contactPreference == "Phone Call")
+                    contactNumber = 0;
+                else if(contactPreference == "Send Text")
+                    contactNumber = 1;
+                else if(contactPreference == "Send Email")
+                    contactNumber = 2;
+                Person newPerson(first, last, phone, email, contactNumber);
+                findBook(title).addToWaitList(newPerson);
+            }
         }
+    }
+    else{
+        std::cout << "Couldn't load from " << inputFile << ", you have a fresh bookstore" << std::endl;
     }
 }
 
