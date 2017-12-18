@@ -35,10 +35,12 @@ void runTests(){
 
 void runProgram(){
     BookStore bkStore;
+    load(bkStore);
     bool run = true;
+
     while(run){
         std::cout << "\nEnter function letter key or 'h' for help: ";
-        std::string input = getLineFromTerminal();
+        std::string input = getLineIn();
         std::cout << std::endl;
         if(input.length() > 1){
             std::cout << "Invalid input" << std::endl;

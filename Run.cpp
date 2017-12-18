@@ -226,6 +226,13 @@ void quit(BookStore& bk1){
     }
 }
 
+void load(BookStore& bk1){
+    std::ofstream fout ("bookstore.txt");
+    if(fout){
+        bk1.load("bookstore.txt");
+    }
+}
+
 std::string getLineIn(){
     std::string line;
     getline(std::cin, line);
