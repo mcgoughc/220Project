@@ -98,6 +98,7 @@ public:
      * @param inputFile the file to load from
      */
     void load(std::string inputFile);
+
     /**
      * Create list of books and amounts to return, write to external file, and remove those books
      * @param outputFile  Title of file to write

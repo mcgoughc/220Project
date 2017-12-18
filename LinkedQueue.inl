@@ -1,17 +1,19 @@
-//
-// Created by Toby Dragon on 10/24/17.
-//
+/*
+ * LinkedQueue.inl
+ * Comp 220 Bookstore Project
+ * Written by Joe Cleveland, Chase McGough, and Anthony Pizzo
+ * This file is the inline definition of the methods in LinkedQueue
+*/
 #include "LinkedQueue.h"
 
 
-//Creates an empty queue
+
 template <class T>
 LinkedQueue<T>::LinkedQueue(){
     front = nullptr;
     end = nullptr;
 }
 
-//Copy Constructor
 template <class T>
 LinkedQueue<T>::LinkedQueue(const LinkedQueue<T>* queueToCopy){
     if (queueToCopy->front == nullptr){
@@ -34,7 +36,6 @@ LinkedQueue<T>::LinkedQueue(const LinkedQueue<T>* queueToCopy){
     }
 }
 
-//Assignment Operator
 template <class T>
 LinkedQueue<T>& LinkedQueue<T>::operator=(const LinkedQueue<T>& queueToCopy) {
     if(this != &queueToCopy){
@@ -61,7 +62,6 @@ LinkedQueue<T>& LinkedQueue<T>::operator=(const LinkedQueue<T>& queueToCopy) {
     return *this;
 }
 
-//Destructor
 template <class T>
 LinkedQueue<T>::~LinkedQueue(){
     while (front != nullptr){
@@ -71,8 +71,6 @@ LinkedQueue<T>::~LinkedQueue(){
     }
 }
 
-
-//adds an item to the end of the queue
 template <class T>
 void LinkedQueue<T>::enqueue(T item){
     LinkedNode<T>* newNode = new LinkedNode<T>(item);
@@ -87,12 +85,10 @@ void LinkedQueue<T>::enqueue(T item){
     }
 }
 
-//takes an item off the front of the queue and returns it
-//throws out_of_range exception if the queue is empty
 template <class T>
 T LinkedQueue<T>::dequeue(){
     if (isEmpty()){
-        throw std::out_of_range("Can't dequeue from empty queue");
+        throw std::out_of_range("Queue is empty");
     }
     else {
         T item = front->getItem();
@@ -109,7 +105,6 @@ T LinkedQueue<T>::dequeue(){
     }
 }
 
-//returns true if the queue has no items, false otherwise
 template <class T>
 bool LinkedQueue<T>::isEmpty(){
     return front == nullptr;

@@ -2,7 +2,7 @@
  * Queue.h
  * Comp 220 Bookstore Project
  * Written by Joe Cleveland, Chase McGough, and Anthony Pizzo
- * This file is the temperated ADT definition for a Queue
+ * This file is the tempelated ADT definition for a Queue
 */
 
 #ifndef INC_220PROJECT_QUEUE_H

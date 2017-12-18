@@ -1,9 +1,9 @@
-//
-// Created by Chase McGough on 11/30/17.
-//
-
-
-//TODO Clean up + Add comments
+/*
+ * Inventory.h
+ * Comp 220 Bookstore Project
+ * Written by Joe Cleveland, Chase McGough, and Anthony Pizzo
+ * This file is the ADT definition for Inventory, a data type used to store books
+*/
 
 #ifndef TEMPLATELIST_LIST_H
 #define TEMPLATELIST_LIST_H
@@ -15,7 +15,9 @@
 
 class Inventory {
 public:
-    //Destructor
+    /**
+     * Destructor, call destructor of implementation
+     */
     virtual ~Inventory(){};
 
     /**
@@ -65,7 +67,7 @@ public:
     virtual std::string listInventory()=0;
 
     /**
-     *
+     * Checks if the item exists in the inventory
      * @param title
      * @return
      */
