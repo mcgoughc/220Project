@@ -1,7 +1,9 @@
-//
-// Created by Chase McGough on 11/30/17.
-//
-
+/*
+ * ArrayInventory.cpp
+ * Comp 220 Bookstore Project
+ * Written by Joe Cleveland, Chase McGough, and Anthony Pizzo
+ * This file is the method definitions for ArrayInventory
+*/
 
 #include "ArrayInventory.h"
 

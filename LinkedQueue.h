@@ -1,8 +1,9 @@
-//
-// Created by Toby Dragon on 10/22/17.
-//
-
-//TODO Clean up + Add comments/headers
+/*
+ * LinkedQueue.h
+ * Comp 220 Bookstore Project
+ * Written by Joe Cleveland, Chase McGough, and Anthony Pizzo
+ * This file is the definition of a LinkedQueue which is implemented by Queue
+*/
 
 #ifndef STACKSANDQUEUES_LINKED_QUEUE_H
 #define STACKSANDQUEUES_LINKED_QUEUE_H
@@ -13,10 +14,7 @@
 #include "Queue.h"
 
 
-/**
- * Represents a FIFO data structure (First In First Out). Picture a line
- * to wait for something (first person in is the first person out)
- */
+
 template <class T>
 class LinkedQueue : public Queue<T> {
 private:
@@ -25,29 +23,52 @@ private:
 
 public:
     
-    //Creates an empty queue
+    /**
+     * Constructor
+     * Creates a new empty queue
+     */
     LinkedQueue();
 
-    //Copy Constructor
+    /**
+     * Copy Constructor
+     * @param queueToCopy
+     */
     LinkedQueue(const LinkedQueue<T>* queueToCopy);
 
-    //Assignment Operator
+    /**
+     * Overloaded Assignment Operator
+     * @param queueToCopy
+     * @return Address of the overwritten queue
+     */
     LinkedQueue<T>& operator=(const LinkedQueue<T>& queueToCopy);
 
-    //Destructor
+    /**
+     * Destuctor
+     */
     ~LinkedQueue();
     
-    //adds an item to the end of the queue
+    /**
+     * Adds item to the end of the queue
+     * @param item
+     */
     void enqueue(T item);
 
-    //takes an item off the front of the queue and returns it
-    //throws out_of_range exception if the queue is empty
+    /**
+     * Returns the item at the front of the queue
+     * Throws out_of_range if queue is empty
+     * @return Item from queue
+     */
     T dequeue();
 
-    //returns true if the queue has no items, false otherwise
+    /**
+     * @return True if queue is empty
+     */
     bool isEmpty();
 
-    //Returns a string of names
+    /**
+     * Writes the items to a string
+     * @return String of items in the queue
+     */
     std::string toString();
 
 };

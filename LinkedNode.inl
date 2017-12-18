@@ -1,6 +1,10 @@
-//
-// Created by Toby Dragon on 10/17/17.
-//
+/*
+ * LinkedNode.inl
+ * Comp 220 Bookstore Project
+ * Written by Joe Cleveland, Chase McGough, and Anthony Pizzo
+ * This file is the inline definition for the methods in LinkedNode
+*/
+
 #include "LinkedNode.h"
 
 template <class T>
