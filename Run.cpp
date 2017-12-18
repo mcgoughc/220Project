@@ -210,9 +210,9 @@ void quit(BookStore& bk1){
             std::string haveValue = std::to_string(temp.getHaveValue());
             waitStream = std::stringstream(temp.getWaitList());
             fout << "<b>\n";
-            fout << title + " ";
             fout << wantValue + " ";
-            fout << haveValue + "\n";
+            fout << haveValue + " ";
+            fout << title + "\n";
             fout << "</b>\n";
             std::string dataPiece;
             while(std::getline(waitStream, dataPiece)){ ;

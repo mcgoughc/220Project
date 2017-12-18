@@ -181,9 +181,10 @@ void BookStore::load(std::string inputFile){
             }
             else if(readingBook){
                 std::stringstream bookLine(inputLine);
-                bookLine >> title;
                 bookLine >> want;
                 bookLine >> have;
+                std::getline(bookLine, title);
+                title.erase(0, 1);//Remove empty space from start
             }
             else{
                 std::stringstream nameStream(inputLine);
