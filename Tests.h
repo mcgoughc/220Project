@@ -1,8 +1,12 @@
-//
-// Created by Chase McGough on 11/30/17.
-//
+/*
+ * Tests.h
+ * Comp 220 Bookstore Project
+ * Written by Joe Cleveland, Chase McGough, and Anthony Pizzo
+ * This file is an interface for Test.cpp which contains testing functions for different parts of the bookstore
+*/
 
 #ifndef INC_220PROJECT_BOOKTESTS_H
+#define INC_220PROJECT_BOOKTESTS_H
 
 #include "Book.h"
 #include "BookStore.h"
@@ -11,6 +15,8 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+
+
 
 void bookHaveWant(Book& book1);
 
@@ -35,7 +41,5 @@ void arrayInventoryAddItem();
 void fileIOTests(BookStore& bookstore);
 
 void fileWriteTest();
-
-#define INC_220PROJECT_BOOKTESTS_H
 
 #endif //INC_220PROJECT_BOOKTESTS_H

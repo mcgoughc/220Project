@@ -1,9 +1,14 @@
-//
-// Created by Chase McGough on 11/30/17.
-//
+/*
+ * ArrayInventory.h
+ * Comp 220 Bookstore Project
+ * Written by Joe Cleveland, Chase McGough, and Anthony Pizzo
+ * This file is the definition for an Array Inventory, which is implemented by Inventory
+*/
 
-#ifndef TEMPLATELIST_ARRAYLIST_H
-#define TEMPLATELIST_ARRAYLIST_H
+//TODO Finish adding headers to method decelerations
+
+#ifndef INC_220PROJECT_ARRAYINVENTORY_H
+#define INC_220PROJECT_ARRAYINVENTORY_H
 
 #include "Inventory.h"
 
@@ -35,6 +40,12 @@ private:
      */
     void insertAt(Book itemToAdd, int index);
 
+    /**
+     *
+     * @param arrayToCopy
+     * @param size
+     * @return
+     */
     Book* copyArray(const Book* arrayToCopy, int size);
 
 public:
@@ -45,13 +56,22 @@ public:
      */
     ArrayInventory(int initialCapacity=5);
 
-    //Copy Constructor
+    /**
+     *
+     * @param inventoryToCopy
+     */
     ArrayInventory(const ArrayInventory& inventoryToCopy);
 
-    //Overloaded Assignment Operator
+    /**
+     *
+     * @param inventoryToCopy
+     * @return
+     */
     ArrayInventory& operator=(const ArrayInventory& inventoryToCopy);
 
-    //Destructor
+    /**
+     *
+     */
     ~ArrayInventory();
 
 
@@ -115,4 +135,4 @@ public:
 
 };
 
-#endif //TEMPLATELIST_ARRAYLIST_H
+#endif //INC_220PROJECT_ARRAYINVENTORY_H

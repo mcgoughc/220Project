@@ -1,22 +1,22 @@
-//
-// Created by Chase McGough on 11/28/17.
-//
+/*
+ * Person.cpp
+ * Comp 220 Bookstore Project
+ * Written by Joe Cleveland, Chase McGough, and Anthony Pizzo
+ * This file is the method definitions of the Person class
+*/
 
 #include "Person.h"
 
 
 Person::Person(std::string first, std::string last, std::string phoneNumberIn, std::string emailIn, int commMethodIN) {
-    this->first = first;
-    this->last = last;
+    name = first + " " + last;
     phoneNumber = phoneNumberIn;
     email = emailIn;
     commMethod = commMethodIN;
-    name = first + " " + last;
 }
 
 void Person::setName(std::string first, std::string last) {
-    this->first = first;
-    this->last = last;
+    name = first + " " + last;
 }
 
 void Person::setPhoneNumber(std::string number) {

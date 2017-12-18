@@ -1,6 +1,9 @@
-//
-// Created by Chase McGough on 12/9/17.
-//
+/*
+ * Run.h
+ * Comp 220 Bookstore Project
+ * Written by Joe Cleveland, Chase McGough, and Anthony Pizzo
+ * This file is an interface for Run.cpp which contains run functions for user interaction with a bookstore.
+*/
 
 #ifndef INC_220PROJECT_RUN_H
 #define INC_220PROJECT_RUN_H
@@ -10,6 +13,8 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+
+
 
 void help();
 
@@ -31,9 +36,9 @@ void returnBooks(BookStore& bk1);
 
 void quit(BookStore& bk1);
 
-//TODO Add load function
+void load(BookStore& bk1);
 
-std::string getLineFromTerminal();
+std::string getLineIn();
 
 void printToFile(std::string line, char delimiter, std::string fileName);
 

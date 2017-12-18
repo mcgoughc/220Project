@@ -1,6 +1,9 @@
-//
-// Created by Chase McGough on 11/28/17.
-//
+/*
+ * Book.h
+ * Comp 220 Bookstore Project
+ * Written by Joe Cleveland, Chase McGough, and Anthony Pizzo
+ * This file is the class definition of Book
+*/
 
 #ifndef INC_220PROJECT_BOOK_H
 #define INC_220PROJECT_BOOK_H
@@ -8,6 +11,8 @@
 #include <string>
 #include "Person.h"
 #include "LinkedQueue.h"
+
+
 
 class Book {
 private:
@@ -32,7 +37,7 @@ public:
     Book(std::string title, int want, int have);
 
     /**
-     * copy constructor
+     * Copy Constructor
      * @param booktoCopy
      */
     Book(const Book& booktoCopy);
@@ -44,7 +49,7 @@ public:
     Book& operator=(const Book& booktoCopy);
 
     /**
-     * Book Destructor
+     * Destructor
      */
     ~Book();
 
@@ -53,18 +58,22 @@ public:
      * @param p Person to add.
      */
     void addToWaitList(Person& p);
+
     /**
-     * Removes person on the front of the wait list.
+     * Removes person on the front of the waitlist.
+     * Throws out_of_range if the waitlist is empty
      * @return The person removed
      */
     Person removeFromWaitList();
+
     /**
-     * @return The wait list as an array of strings
+     * @return The wait list as a string of names,
+     *         or a blank string if the waitlist is empty
      */
     std::string getWaitList();
 
     /**
-     * @return If the waitlist is empty or not
+     * @return True if the waitlist is empty, false otherwise
      */
     bool isWaitListEmpty();
 
@@ -91,8 +100,7 @@ public:
     void setWantValue(int newValue);
 
     /**
-     *
-     * @return title
+     * @return Title of the book
      */
     std::string getTitle();
 };

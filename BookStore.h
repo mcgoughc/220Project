@@ -1,6 +1,9 @@
-//
-// Created by Joseph Cleveland on 11/14/17.
-//
+/*
+ * BookStore.h
+ * Comp 220 Bookstore Project
+ * Written by Joe Cleveland, Chase McGough, and Anthony Pizzo
+ * This file is the class definition of BookStore
+*/
 
 #ifndef INC_220PROJECT_BOOKSTORE_H
 #define INC_220PROJECT_BOOKSTORE_H
@@ -9,6 +12,7 @@
 #include <iostream>
 #include "Book.h"
 #include "Inventory.h"
+
 
 
 class BookStore{

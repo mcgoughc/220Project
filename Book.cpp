@@ -1,8 +1,13 @@
-//
-// Created by Chase McGough on 11/28/17.
-//
+/*
+ * Book.cpp
+ * Comp 220 Bookstore Project
+ * Written by Joe Cleveland, Chase McGough, and Anthony Pizzo
+ * This file is the method definitions of Book
+*/
 
 #include "Book.h"
+
+
 
 Book::Book() {
     title = "NONE";
@@ -11,7 +16,7 @@ Book::Book() {
     waitListLength = 0;
     waitList = new LinkedQueue<Person>();
 }
-//Copy Constructor
+
 Book::Book(const Book& booktoCopy) {
     title = booktoCopy.title;
     haveValue = booktoCopy.haveValue;
@@ -20,7 +25,6 @@ Book::Book(const Book& booktoCopy) {
     waitList = new LinkedQueue<Person>(booktoCopy.waitList);
 }
 
-//Assignment Operator
 Book& Book::operator=(const Book& booktoCopy) {
     if (this != &booktoCopy) {
         delete waitList;
@@ -46,7 +50,6 @@ Book::Book(std::string title, int want, int have) {
     waitList = new LinkedQueue<Person>();
 }
 
-
 void Book::addToWaitList(Person &p) {
     waitList->enqueue(p);
     waitListLength++;
@@ -64,7 +67,7 @@ Person Book::removeFromWaitList() {
 std::string Book::getWaitList() {
     std::string output;
     if(waitList->isEmpty()){
-        output = ""; //I set this to empty string because it is easier to handle in bookstore
+        output = "";
     }else{
         output = waitList->toString();
     }

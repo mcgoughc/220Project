@@ -1,11 +1,16 @@
-//
-// Created by Joseph Cleveland on 11/14/17.
-//
+/*
+ * BookStore.cpp
+ * Comp 220 Bookstore Project
+ * Written by Joe Cleveland, Chase McGough, and Anthony Pizzo
+ * This file is the method definitions for the BookStore class and handles the Inventory of books
+*/
 
 #include "BookStore.h"
 #include "ArrayInventory.h"
 #include <fstream>
 #include <sstream>
+
+
 
 BookStore::BookStore() {
     booksInStore = new ArrayInventory();

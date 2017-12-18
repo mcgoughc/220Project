@@ -1,8 +1,12 @@
-//
-// Created by Chase McGough on 12/9/17.
-//
+/*
+ * Run.cpp
+ * Comp 220 Bookstore Project
+ * Written by Joe Cleveland, Chase McGough, and Anthony Pizzo
+ * This file contains run functions for user interaction with a bookstore.
+*/
 
 #include "Run.h"
+
 
 
 void help(){
@@ -17,9 +21,9 @@ void help(){
     "\nIf the title of the book does not exist it will be added to the inventory."
     "\nIf the title is sold out, we will ask for your buyer information and place you on that title's waitlist" << std::endl;
     std::cout << "Order (o) - creates a bulk purchase of additional books based on the have and want values." << std::endl;
-    std::cout << "Delivery(d) - reads in the delivery from the delivery.txt file." << std::endl;
-    std::cout << "Return(r) - writes a return invoice to a text file specifying all books that should be returned" << std::endl;
-    std::cout << "Quit(q) - saves the inventory and wait lists and then ends the program" << std::endl;
+    std::cout << "Delivery (d) - reads in the delivery from the delivery.txt file." << std::endl;
+    std::cout << "Return (r) - writes a return invoice to a text file specifying all books that should be returned" << std::endl;
+    std::cout << "Quit (q) - saves the inventory and wait lists and then ends the program" << std::endl;
 }
 
 void inquire(BookStore& bk1){
@@ -27,7 +31,7 @@ void inquire(BookStore& bk1){
         std::cout << "Bookstore is empty" << std::endl;
     }else {
         std::cout << "Please enter a book title: ";
-        std::string bookTitle = getLineFromTerminal();
+        std::string bookTitle = getLineIn();
 
         if(bk1.bookCheck(bookTitle)){
             std::cout << "Title: " + bookTitle << std::endl;
@@ -59,7 +63,7 @@ void list(BookStore& bk1){
 
 void add(BookStore& bk1){
     std::cout << "Enter title of book to add: ";
-    std::string bookTitle = getLineFromTerminal();
+    std::string bookTitle = getLineIn();
 
     if (bk1.bookCheck(bookTitle)) {
         std::cout << "Book already exists" << std::endl;
@@ -68,19 +72,19 @@ void add(BookStore& bk1){
 
     } else {
         std::cout << "Enter want value: ";
-        int want = stoi(getLineFromTerminal());
+        int want = stoi(getLineIn());
         while(want < 0){
             std::cout << "Want value cannot be negative" << std::endl;
             std::cout << "Enter want value: ";
-            want = stoi(getLineFromTerminal());
+            want = stoi(getLineIn());
         }
 
         std::cout << "Enter have value: ";
-        int have = stoi(getLineFromTerminal());
+        int have = stoi(getLineIn());
         while(have < 0){
             std::cout << "Have value cannot be negative" << std::endl;
             std::cout << "Enter have value: ";
-            have = stoi(getLineFromTerminal());
+            have = stoi(getLineIn());
         }
 
         bk1.add(bookTitle, want, have);
@@ -93,7 +97,7 @@ void modify(BookStore& bk1){
         std::cout << "Bookstore is empty" << std::endl;
     }else {
         std::cout << "Enter name of book to modify: ";
-        std::string bookTitle = getLineFromTerminal();
+        std::string bookTitle = getLineIn();
         std::cout << bookTitle << std::endl;
 
         if (bk1.bookCheck(bookTitle)) {
@@ -101,11 +105,11 @@ void modify(BookStore& bk1){
                                    "\nHave: " + std::to_string(bk1.getHave(bookTitle));
 
             std::cout << "Enter new want: ";
-            int newWant = stoi(getLineFromTerminal());
+            int newWant = stoi(getLineIn());
             while(newWant < 0){
                 std::cout << "Want value cannot be negative" << std::endl;
                 std::cout << "Enter new want: ";
-                newWant = stoi(getLineFromTerminal());
+                newWant = stoi(getLineIn());
             }
             bk1.setWant(bookTitle, newWant);
 
@@ -120,30 +124,30 @@ void sell(BookStore& bk1){
         std::cout << "Bookstore is empty" << std::endl;
     }else {
         std::cout << "Enter name of book to order: ";
-        std::string bookTitle = getLineFromTerminal();
+        std::string bookTitle = getLineIn();
 
         if (bk1.bookCheck(bookTitle)) {
             if (bk1.getHave(bookTitle) <= 0) {
 
                 std::cout << "No more copies of " << bookTitle << std::endl;
                 std::cout << "Would you like to join the waitlist? (y/n): ";
-                std::string yesNo = getLineFromTerminal();
+                std::string yesNo = getLineIn();
 
                 if (yesNo == "y") {
                     std::cout << "Enter first name: ";
-                    std::string fName = getLineFromTerminal();
+                    std::string fName = getLineIn();
                     std::cout << "Enter last name: ";
-                    std::string lName = getLineFromTerminal();
+                    std::string lName = getLineIn();
                     std::cout << "Enter phone number: ";
-                    std::string phNum = getLineFromTerminal();
+                    std::string phNum = getLineIn();
                     std::cout << "Enter email: ";
-                    std::string email = getLineFromTerminal();
+                    std::string email = getLineIn();
                     std::cout << "Enter number for preferred communication (0 = Phone call, 1 = Text, 2 = Email): ";
-                    int pref = stoi(getLineFromTerminal());
+                    int pref = stoi(getLineIn());
                     while(pref < 0 || pref > 2){
                         std::cout << "Communication must be 0, 1, or 2" << std::endl;
                         std::cout << "Enter number for preferred communication (0 = Phone call, 1 = Text, 2 = Email): ";
-                        pref = stoi(getLineFromTerminal());
+                        pref = stoi(getLineIn());
                     }
 
                     Person newP = Person(fName, lName, phNum, email, pref);
@@ -176,7 +180,7 @@ void order(BookStore& bk1){
 
 void delivery(BookStore& bk1){
     std::cout << "Enter title of delivery file: ";
-    std::string fileName = getLineFromTerminal();
+    std::string fileName = getLineIn();
 
     bk1.deliver(fileName);
     std::cout << "Delivery added to Bookstore." << std::endl;
@@ -222,7 +226,7 @@ void quit(BookStore& bk1){
     }
 }
 
-std::string getLineFromTerminal(){
+std::string getLineIn(){
     std::string line;
     getline(std::cin, line);
     return line;

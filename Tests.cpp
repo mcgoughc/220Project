@@ -1,8 +1,12 @@
-//
-// Created by Chase McGough on 11/30/17.
-//
+/*
+ * Tests.cpp
+ * Comp 220 Bookstore Project
+ * Written by Joe Cleveland, Chase McGough, and Anthony Pizzo
+ * This file contains testing functions for different parts of the bookstore
+*/
 
 #include "Tests.h"
+
 
 
 void bookHaveWant(Book& book1){

@@ -1,38 +1,50 @@
-//
-// Created by Toby Dragon on 10/22/17.
-//
+/*
+ * Queue.h
+ * Comp 220 Bookstore Project
+ * Written by Joe Cleveland, Chase McGough, and Anthony Pizzo
+ * This file is the temperated ADT definition for a Queue
+*/
 
-#ifndef STACKSANDQUEUES_QUEUE_H
-#define STACKSANDQUEUES_QUEUE_H
+#ifndef INC_220PROJECT_QUEUE_H
+#define INC_220PROJECT_QUEUE_H
 
 #include <string>
 #include <stdexcept>
 
-//TODO Clean up + Add comments/headers
-
-/**
- * Represents a FIFO data structure (First In First Out). Picture a line
- * to wait for something (first person in is the first person out)
- */
 template <class T>
 class Queue {
 public:
 
-    //default destructor, declared virtual to ensure that child destructors are called
+    /**
+     * Destructor
+     * Calls child destructors
+     */
     virtual ~Queue(){};
     
-    //adds an item to the end of the queue
+    /**
+     * Adds an item to the end of the queue
+     * @param item Item to add
+     */
     virtual void enqueue(T item)=0;
 
-    //takes an item off the front of the queue and returns it
-    //throws out_of_range exception if the queue is empty
+    /**
+     * Removes an item from the front of the queue
+     * Throws out_of_range if the queue is empty
+     * @return Item at the front of the queue
+     */
     virtual T dequeue()=0;
 
-    //returns true if the queue has no items, false otherwise
+    /**
+     * @return True if the queue is empty, else false
+     */
     virtual bool isEmpty()=0;
 
+    /**
+     * Prints the queue
+     * @return A string of items in the queue
+     */
     virtual std::string toString()=0;
 
 };
 
-#endif //STACKSANDQUEUES_QUEUE_H
+#endif //INC_220PROJECT_QUEUE_H
