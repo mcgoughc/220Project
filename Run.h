@@ -36,8 +36,6 @@ void returnBooks(BookStore& bk1);
 
 void quit(BookStore& bk1);
 
-void load(BookStore& bk1);
-
 std::string getLineIn();
 
 void printToFile(std::string line, char delimiter, std::string fileName);
